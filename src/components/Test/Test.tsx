@@ -1,22 +1,22 @@
-import { useState } from "react";
-import { react } from "../../assets";
-import viteLogo from "/vite.svg";
-import styles from "../../styles/test.module.scss";
+import { useState } from 'react';
+import { react } from '../../assets';
+import viteLogo from '/vite.svg';
+import styles from '../../styles/test.module.scss';
 
-function Test() {
+const Test = () => {
   const [count, setCount] = useState(0);
 
   return (
     <div id={styles.debug}>
       <div className={styles.contents}>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className={styles.logo} alt="Vite logo" />
+        <a href='https://vite.dev' target='_blank'>
+          <img src={viteLogo} className={styles.logo} alt='Vite logo' />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href='https://react.dev' target='_blank'>
           <img
             src={react}
             className={`${styles.logo} ${styles.react}`}
-            alt="React logo"
+            alt='React logo'
           />
         </a>
       </div>
@@ -36,6 +36,6 @@ function Test() {
       </p>
     </div>
   );
-}
+};
 
 export default Test;
