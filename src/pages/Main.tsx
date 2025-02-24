@@ -1,4 +1,4 @@
-import styles from '../styles/main.module.scss';
+import { main as styles } from '@styles';
 const Main = () => {
   return (
     <div id={styles.debug}>

@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Test } from './components';
+import { Test } from '@components';
 import { Main as Home } from './pages';
 
 const App = () => {
