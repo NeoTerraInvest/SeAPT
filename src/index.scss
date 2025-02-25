@@ -1,72 +1,153 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --standard-font-size : 16px;
+  // color
+  // --primary-color: #97EB0D;
+  // --black-color : #1B1B1B;
+  // --black-shadow1-color : #00000033;
+  // --black-shadow2-color : #00000024;
+  // --gray5-color : #3D3D3D;
+  // --gray4-color : #636363;
+  // --gray3-color : #A1A1A1;
+  // --gray2-color : #D6D6D6;
+  // --gray1-color : #F1F1F1;
+  // --white-color : #FFFFFF;
+  // --negative-error-cancel : #FC5959;
+  // --positive-success : #61C987;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  // font-styles
+  --font-style: 'Pretendard', sans-serif;
+  --letter-spacing: 0em; /* letter-spacing */
+  
+  // line-hight
+  --line-hight-125: 125; 
+  --line-hight-150: 150; 
+  --line-hight-100: 100; 
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  // font-weight
+  --font-weight-bold: 700; /* Bold */
+  --font-weight-medium: 500; /* Medium */
+
+  // font-size
+
+  /** 480px*/
+  --heading1-480-26: 26px;
+  --heading2-480-14: 14px;
+  --heading-sub-480-12: 12px;
+  --body-lg-480-20: 20px;
+  --body-md-480-14: 14px;
+  --body-sm-480-12: 12px;
+  --btn-text-480-14: 14px;
+  --btn-link-480-12: 12px;
+  
+  /** 767px*/
+  --heading1-767-28: 28px;
+  --heading2-767-16: 16px;
+  --heading-sub-767-14: 14px;
+  --body-lg-767-22: 22px;
+  --body-md-767-16: 16px;
+  --body-sm-767-14: 14px;
+  --btn-text-767-16: 16px;
+  --btn-link-767-14: 14px;
+
+  /** 1024px*/
+  --heading1-1024-36: 36px;
+  --heading2-1024-20: 20px;
+  --heading-sub-1024-16: 16px;
+  --body-lg-1024-32: 32px;
+  --body-md-1024-18: 18px;
+  --body-sm-1024-16: 16px;
+  --btn-text-1024-16: 16px;
+  --btn-link-1024-18: 18px;
+
+  /** 1439px*/
+  --heading1-1439-44: 44px;
+  --heading2-1439-20: 20px;
+  --heading-sub-1439-16: 16px;
+  --body-lg-1439-36: 36px;
+  --body-md-1439-18: 18px;
+  --body-sm-1439-16: 16px;
+  --btn-text-1439-18: 18px;
+  --btn-link-1439-18: 18px;
+
+  /** 1919px*/
+  --heading1-1919-52: 52px;
+  --heading2-1919-20: 20px;
+  --heading-sub-1919-16: 16px;
+  --body-lg-1919-36: 36px;
+  --body-md-1919-18: 18px;
+  --body-sm-1919-16: 16px;
+  --btn-text-1919-18: 18px;
+  --btn-link-1919-18: 18px;
+
+  /** max*/
+  --heading1-max-52: 52px;
+  --heading2-max-20: 20px;
+  --heading-sub-max-16: 16px;
+  --body-lg-max-36: 36px;
+  --body-md-max-18: 18px;
+  --body-sm-max-16: 16px;
+  --btn-text-max-18: 18px;
+  --btn-link-max-18: 18px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  // background-color: gray;
-  width: 100%;
-  margin: 0 auto;
-  min-width: 320px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+input {
+  outline: none;
+  border: none;
+  background: none;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  outline: none;
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+textarea {
+  resize: none;
+  outline: none;
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+body {
+  font-family: var(--font-style);
+  line-height: 125;
+  letter-spacing: var(--letter-spacing);
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 1440px;
+  min-width: 480px;
+  margin: 0 auto;
+  // padding: 0 40px;
 }

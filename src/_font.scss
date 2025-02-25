@@ -1,0 +1,100 @@
+// declare global class
+/** ---------------------------------------------------- 480px*/
+.heading1-480{
+    font-size: var(--heading1-480-26);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+.heading2-480{
+    font-size: var(--heading2-480-14);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+ 
+.heading-sub-480{
+    font-size: var(--heading-sub-480-12);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+.body-lg-480{
+    font-size: var(--body-lg-480-20);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+.body-md-480{
+    font-size: var(--body-md-480-14);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+.body-sm-480{
+    font-size: var(--body-sm-480-12);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+.btn-txt-480{
+    font-size: var(--btn-txt-480-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-100);
+}
+
+.btn-link-480{
+    font-size: var(--btn-link-480-14);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+/** --------------------------------------------------- 767px*/
+.heading1-767{
+    font-size: var(--heading1-767-28);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+.heading2-767{
+    font-size: var(--heading2-767-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+.heading-sub-767{
+    font-size: var(--heading-sub-767-14);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+.body-lg-767{
+    font-size: var(--body-lg-767-22);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+.body-md-767{
+    font-size: var(--body-md-767-16);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+.body-sm-767{
+    font-size: var(--body-sm-767-14);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+.btn-txt-767{
+    font-size: var(--btn-txt-767-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-100);
+}
+
+.btn-link-767{
+    font-size: var(--btn-link-767-14);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+/** --------------------------------------------------- 1024px*/
