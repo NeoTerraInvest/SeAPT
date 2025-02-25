@@ -19,9 +19,9 @@
   --letter-spacing: 0em; /* letter-spacing */
   
   // line-hight
-  --line-hight-125: 125; 
-  --line-hight-150: 150; 
-  --line-hight-100: 100; 
+  --line-hight-125: 125%; 
+  --line-hight-150: 150%; 
+  --line-hight-100: 100%; 
 
   // font-weight
   --font-weight-bold: 700; /* Bold */
@@ -142,12 +142,12 @@ a {
 
 body {
   font-family: var(--font-style);
-  line-height: 125;
+  line-height: 125%;
   letter-spacing: var(--letter-spacing);
   background-color: #f9f9f9;
   width: 100%;
   max-width: 1440px;
-  min-width: 480px;
+  min-width: 360px;
   margin: 0 auto;
   // padding: 0 40px;
 }

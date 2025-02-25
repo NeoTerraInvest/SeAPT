@@ -3,7 +3,7 @@ const Main = () => {
   return (
     <div id={styles.debug}>
       Home
-      <span>Ready for Launch🚀</span>
+      <span id={styles.comment}>Ready for Launch🚀</span>
     </div>
   );
 };
