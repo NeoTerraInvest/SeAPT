@@ -18,7 +18,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@thirdweb-dev/react": "^4.9.4",
+    "@thirdweb-dev/sdk": "^4.0.99",
     "@types/react-router-dom": "^5.3.3",
+    "ethers": "5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0",
