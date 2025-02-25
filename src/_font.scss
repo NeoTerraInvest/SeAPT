@@ -1,0 +1,294 @@
+// declare global mixin
+/** ----------------------------------------------------<0> 480px*/
+@mixin heading1-480{
+    font-size: var(--heading1-480-26);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading2-480{
+    font-size: var(--heading2-480-14);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+ 
+@mixin heading-sub-480{
+    font-size: var(--heading-sub-480-12);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-lg-480{
+    font-size: var(--body-lg-480-20);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-md-480{
+    font-size: var(--body-md-480-14);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin body-sm-480{
+    font-size: var(--body-sm-480-12);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin btn-txt-480{
+    font-size: var(--btn-txt-480-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-100);
+}
+
+@mixin btn-link-480{
+    font-size: var(--btn-link-480-14);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+/** ---------------------------------------------------<481> 767px*/
+@mixin heading1-767{
+    font-size: var(--heading1-767-28);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading2-767{
+    font-size: var(--heading2-767-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading-sub-767{
+    font-size: var(--heading-sub-767-14);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-lg-767{
+    font-size: var(--body-lg-767-22);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-md-767{
+    font-size: var(--body-md-767-16);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin body-sm-767{
+    font-size: var(--body-sm-767-14);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin btn-txt-767{
+    font-size: var(--btn-txt-767-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-100);
+}
+
+@mixin btn-link-767{
+    font-size: var(--btn-link-767-14);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+/** ---------------------------------------------------<768> 1024px*/
+@mixin heading1-1024{
+    font-size: var(--heading1-1024-36);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading2-1024{
+    font-size: var(--heading2-1024-20);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading-sub-1024{
+    font-size: var(--heading-sub-1024-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-lg-1024{
+    font-size: var(--body-lg-1024-32);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-md-1024{
+    font-size: var(--body-md-1024-18);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin body-sm-1024{
+    font-size: var(--body-sm-1024-16);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin btn-txt-1024{
+    font-size: var(--btn-txt-1024-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-100);
+}
+
+@mixin btn-link-1024{
+    font-size: var(--btn-link-1024-18);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+/** ---------------------------------------------------<1025> 1439px*/
+@mixin heading1-1439{
+    font-size: var(--heading1-1439-44);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading2-1439{
+    font-size: var(--heading2-1439-20);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading-sub-1439{
+    font-size: var(--heading-sub-1439-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-lg-1439{
+    font-size: var(--body-lg-1439-36);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-md-1439{
+    font-size: var(--body-md-1439-18);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin body-sm-1439{
+    font-size: var(--body-sm-1439-16);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin btn-txt-1439{
+    font-size: var(--btn-txt-1439-18);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-100);
+}
+
+@mixin btn-link-1439{
+    font-size: var(--btn-link-1439-18);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+/** ---------------------------------------------------<1440> 1919px*/
+@mixin heading1-1919{
+    font-size: var(--heading1-1919-52);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading2-1919{
+    font-size: var(--heading2-1919-20);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading-sub-1919{
+    font-size: var(--heading-sub-1919-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-lg-1919{
+    font-size: var(--body-lg-1919-36);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-md-1919{
+    font-size: var(--body-md-1919-18);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin body-sm-1919{
+    font-size: var(--body-sm-1919-16);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin btn-txt-1919{
+    font-size: var(--btn-txt-1919-18);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-100);
+}
+
+@mixin btn-link-1919{
+    font-size: var(--btn-link-1919-18);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+/** ---------------------------------------------------<1920> max*/
+@mixin heading1-max{
+    font-size: var(--heading1-max-52);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading2-max{
+    font-size: var(--heading2-max-22);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin heading-sub-max{
+    font-size: var(--heading-sub-max-18);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-lg-max{
+    font-size: var(--body-lg-max-38);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}
+
+@mixin body-md-max{
+    font-size: var(--body-md-max-20);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin body-sm-max{
+    font-size: var(--body-sm-max-18);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-hight-150);
+}
+
+@mixin btn-txt-max{
+    font-size: var(--btn-txt-max-20);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-100);
+}
+
+@mixin btn-link-max{
+    font-size: var(--btn-link-max-20);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}

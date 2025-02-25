@@ -1,5 +1,14 @@
+@import '../font';
+
 #debug{
+    height: 100dvh;
     background-color: tomato;
+    color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    #comment{
+        @include heading1-1919
+    }
 }
