@@ -151,3 +151,9 @@ body {
   margin: 0 auto;
   // padding: 0 40px;
 }
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+  body {
+    max-width: 1025px;
+  }
+}
