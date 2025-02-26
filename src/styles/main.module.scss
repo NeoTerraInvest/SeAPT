@@ -1,10 +1,13 @@
-@use '../font' as *;
+@use './font' as *;
 
 #debug{
+    box-sizing: border-box;
     height: 100dvh;
+    // margin: 0px 19px 0px 19px;
     background-color: tomato;
     color: white;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;

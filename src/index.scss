@@ -1,3 +1,5 @@
+@use './styles/mediaQuery' as *;
+
 :root {
   --standard-font-size : 16px;
   // color
@@ -13,6 +15,9 @@
   // --white-color : #FFFFFF;
   // --negative-error-cancel : #FC5959;
   // --positive-success : #61C987;
+
+  // radius
+  --radius-size: 24px;
 
   // font-styles
   --font-style: 'Pretendard', sans-serif;
@@ -93,7 +98,9 @@
 * {
   margin: 0;
   padding: 0;
+  // for padding styles. if wanna margin should change `border-box`
   box-sizing: border-box;
+  color: #FFF;
 }
 
 body,
@@ -141,6 +148,7 @@ a {
 
 
 body {
+  // box-sizing: content-box;
   font-family: var(--font-style);
   line-height: 125%;
   letter-spacing: var(--letter-spacing);
@@ -148,12 +156,34 @@ body {
   width: 100%;
   max-width: 1440px;
   min-width: 360px;
+  // margin: 0px 19px;
   margin: 0 auto;
-  // padding: 0 40px;
-}
+  padding: 0 80px;
 
-@media (min-width: 1025px) and (max-width: 1439px) {
-  body {
-    max-width: 1025px;
+  @include dynamic_display(1025px, 1439px){
+    background-color: #588C5E;
+    min-width: 1025px;
+    max-width: 1439px;
+  }
+
+  @include dynamic_display(768px, 1024px){
+    background-color: #694A8A;
+    min-width: 768px;
+    max-width: 1024px;
+    padding: 0 32px;
+  }
+
+  @include dynamic_display(481px, 767px){
+    background-color: #D2BE4B;
+    min-width: 481px;
+    max-width: 767px;
+    padding: 0 24px;
+  }
+
+  @include dynamic_display(360px, 480px){
+    background-color: #FF0099;
+    min-width: 360px;
+    max-width: 480px;
+    padding: 0 16px;
   }
 }
