@@ -160,6 +160,12 @@ body {
   margin: 0 auto;
   padding: 0 80px;
 
+  @include dynamic_display(1440px, 1919px){
+    background-color: #5F4AFF;
+    min-width: 1440px;
+    max-width: 1919px;
+  }
+
   @include dynamic_display(1025px, 1439px){
     background-color: #588C5E;
     min-width: 1025px;

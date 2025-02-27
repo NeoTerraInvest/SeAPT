@@ -1,16 +1,18 @@
 @use '../../font' as *;
 @use '../../mediaQuery' as *;
 
+#debug, #container, #layout, #show, #outer, #outerimage{
+    display: flex;
+}
+
 #debug{
     background-color: #3C3C3C;
     width: 100%;
     min-height: 664px;
-    display: flex;
     flex-direction: column;    
     border-radius: var(--radius-size);
     
     #container{
-        display: flex;
         width: 100%;
         // justify-content: space-between;
         // 481px ~ 767px degree
@@ -23,11 +25,9 @@
             max-height: 664px;
         }
         #layout{
-            display: flex;
             width: 100%;
             align-items: center;
             #show{
-                display: flex;
                 width: 100%;
                 flex-direction: column;
                 justify-content: space-between;
@@ -79,7 +79,6 @@
                     }
 
                     #inner{
-                        display: flex;
                     }
                     @include dynamic_display(1440px, 1919px){
                         #title{@include heading1-1919 }
@@ -142,10 +141,8 @@
                     }
 
                 }
-
                 button{
                     @include btn-txt-max;
-                    display: flex;
                     align-items: center;
                     justify-content: center;
                     width: 320px;
@@ -182,7 +179,6 @@
             background-color: #D9D9D9;
             opacity: 50%;
             min-height: 664px;
-            display: flex;
             width: 100%;
             justify-content: center;
             align-items: flex-end;
@@ -198,7 +194,6 @@
 
             #outerimage{
                 box-sizing: border-box;
-                display: flex;
                 background-color: #C52E2E;
                 width: 360px;
                 height: 519px;

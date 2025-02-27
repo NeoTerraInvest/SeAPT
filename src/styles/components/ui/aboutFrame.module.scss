@@ -58,6 +58,9 @@
             #title{
                 @include body-lg-max;
                 margin-top: 20px;
+                @include dynamic_display(1449px, 1919px){
+                    @include body-lg-1919;
+                }
                 @include dynamic_display(1025px, 1439px){
                     @include body-lg-1439;
                 }
@@ -74,6 +77,9 @@
             #description{
                 @include body-sm-max;
                 margin-top: 16px;
+                @include dynamic_display(1449px, 1919px){
+                    @include body-sm-1919;
+                }
                 @include dynamic_display(1025px, 1439px){
                     @include body-sm-1439;
                 }
@@ -95,6 +101,21 @@
                 @include btn-txt-max;
                 width: 100%;
                 padding: 16px 0;
+                @include dynamic_display(1449px, 1919px){
+                    @include btn-txt-1919;
+                }
+                @include dynamic_display(1025px, 1439px){
+                    @include btn-txt-1439;
+                }
+                @include dynamic_display(768px, 1024px){
+                    @include btn-txt-1024;
+                }
+                @include dynamic_display(481px, 767px){
+                    @include btn-txt-767;
+                }
+                @include dynamic_display(340px, 480px){
+                    @include btn-txt-480;
+                }
             }
         }
     }
