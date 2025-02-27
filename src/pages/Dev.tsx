@@ -1,10 +1,13 @@
-const Main = () => {
+import { AboutFrame } from '@/components';
+
+const Dev = () => {
   return (
     <div>
       Dev
       <span>UI Desing System</span>
+      <AboutFrame />
     </div>
   );
 };
 
-export default Main;
+export default Dev;
