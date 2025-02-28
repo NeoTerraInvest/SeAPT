@@ -1,0 +1,50 @@
+@use '../../mediaQuery' as *;
+
+#debug, .container, #token{
+    display: flex;
+    width: 100%;
+}
+
+#debug{
+    flex-direction: column;
+}
+
+.container{
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    @include dynamic_display(481px, 767px){
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    @include dynamic_display(340px, 480px){
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    #token{
+        // width: 39.25rem;
+        @include dynamic_display(481px, 767px){
+            // justify-content: center;
+            width: 21.5rem;
+            height: 373px;
+        }
+        @include dynamic_display(340px, 480px){
+            width: 21.5rem;
+            height: 356px;
+        }
+    }
+    #token:first-child{
+        margin-right: 24px;
+        @include dynamic_display(481px, 767px){
+            margin-right:0;
+            margin-bottom: 20px;
+            // all: unset;
+        }
+        @include dynamic_display(340px, 480px){
+            margin-right:0;
+            margin-bottom: 10px;
+            // all: unset;
+        }
+    }
+}

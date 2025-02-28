@@ -1,0 +1,44 @@
+@use '../../mediaQuery' as *;
+
+#debug, #container{
+    display: flex;
+    align-items: center;
+}
+
+#debug{
+    // width: 31.94rem;
+    //always, debug should have a width of 100%
+    width: 100%;
+    justify-content: center;
+    margin: 32px 0 40px 0;
+    #container{
+        background-color: #101010;
+        width: 51.94rem;
+        justify-content: space-between;
+        border-radius: var(--radius-size-middle);
+        font-weight: var(--font-weight-semibold);
+        padding: 8px 24px 8px 8px;
+        @include dynamic_display(340px, 480px) {
+            width: 8.625rem;
+            padding: 0 0 0 8px;
+        }
+        .content {
+            font-size: var(--standard-font-size);
+            cursor: pointer;
+            @include dynamic_display(768px, 1024px){
+                font-size: var(--small-font-size);
+            }
+            @include dynamic_display(481px, 767px){
+                font-size: var(--small-font-size);
+            }
+            @include dynamic_display(340px, 480px) {
+                display: none;
+            }
+        }
+        .content:hover {
+            color: #F5A910;
+            cursor: pointer;
+        }
+        
+    }
+}
