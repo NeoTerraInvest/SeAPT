@@ -162,9 +162,8 @@ body {
   max-width: 1440px;
   min-width: 340px;
   // margin: 0px 19px;
-  //Edited
   margin: 0 auto;
-  padding: 0 80px;
+  // padding: 0 80px;
 
   @include dynamic_display(1440px, 1919px){
     background-color: #5F4AFF;
