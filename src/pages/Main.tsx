@@ -1,21 +1,24 @@
-import { main as styles } from '@styles';
-import { Show, Tokenomics, Header, Footer } from '@components';
+import {
+  Show,
+  Tokenomics,
+  MarginLayout,
+  BaseLayout,
+  TokenFrameTest,
+} from '@components';
 
 const Main = () => {
   return (
-    <div id={styles.debug}>
-      <Header />
-      <div className={styles.margin}>
+    <BaseLayout>
+      <MarginLayout>
         <Show />
-      </div>
+      </MarginLayout>
 
-      <span id={styles.comment}>Ready for Launch🚀</span>
-      <div className={styles.margin}>
+      <span>Ready for Launch🚀</span>
+      <MarginLayout>
         <Tokenomics num={4} />
-      </div>
-
-      <Footer />
-    </div>
+      </MarginLayout>
+      <TokenFrameTest />
+    </BaseLayout>
   );
 };
 
