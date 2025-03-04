@@ -1,0 +1,20 @@
+@use '../../font' as *;
+@use '../../mediaQuery' as *;
+
+#layout{
+    color: tomato;
+    width: 100%;
+    padding: 0 80px;
+
+    @include dynamic_display(768px, 1024px){
+        padding: 0 32px;
+    }
+
+    @include dynamic_display(481px, 767px){
+        padding: 0 24px;
+    }
+    
+    @include dynamic_display(340px, 480px){
+        padding: 0 16px;
+    }
+}
