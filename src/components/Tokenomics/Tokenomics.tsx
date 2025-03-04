@@ -1,21 +1,15 @@
 import { TokenFrame } from '@components';
-import { tokenomics as styles } from '@/styles';
-const Tokenomics = ({ num }: { num: number }) => {
+import { tokenomics as rawStyles } from '@/styles';
+import { SliderFlex } from '@model';
+import { DefaultStyled } from '@/types';
+
+const styles = rawStyles as unknown as DefaultStyled;
+
+const Tokenomics = () => {
   return (
-    <section id={styles.debug}>
-      {new Array(num).fill(null).map((_, i) =>
-        i % 2 === 0 ? (
-          <div key={i} className={styles.container}>
-            <div id={styles.token}>
-              <TokenFrame />
-            </div>
-            <div id={styles.token}>
-              <TokenFrame />
-            </div>
-          </div>
-        ) : null,
-      )}
-    </section>
+    <SliderFlex num={4} styles={styles} type={false}>
+      <TokenFrame />
+    </SliderFlex>
   );
 };
 

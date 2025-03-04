@@ -1,10 +1,4 @@
-import {
-  Show,
-  Tokenomics,
-  MarginLayout,
-  BaseLayout,
-  TokenFrameTest,
-} from '@components';
+import { Show, Tokenomics, MarginLayout, BaseLayout, About } from '@components';
 
 const Main = () => {
   return (
@@ -15,9 +9,11 @@ const Main = () => {
 
       <span>Ready for Launch🚀</span>
       <MarginLayout>
-        <Tokenomics num={4} />
+        <Tokenomics />
       </MarginLayout>
-      <TokenFrameTest />
+      <MarginLayout>
+        <About />
+      </MarginLayout>
     </BaseLayout>
   );
 };
