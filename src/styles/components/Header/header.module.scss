@@ -12,7 +12,7 @@
     justify-content: center;
     margin: 32px 0 40px 0;
     #container{
-        background-color: #101010;
+        background-color: var(--dark-background);
         width: 51.94rem;
         justify-content: space-between;
         border-radius: var(--radius-size-middle);
@@ -36,7 +36,7 @@
             }
         }
         .content:hover {
-            color: #F5A910;
+            color: var(--dark-text-primary);
             cursor: pointer;
         }
         
