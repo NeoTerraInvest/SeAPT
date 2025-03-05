@@ -13,6 +13,8 @@ const debugStyled: DefaultStyled = {
 
 /**
  * ---
+ * `SliderFlex` is can control the creation of either a single line or a double line.
+ * ⚠️ the object's flex controller should be handled within the object's CSS.
  * CSS types for the **styles** props should use the **className**
  * @param {object} props
  * @param {ReactNode} props.childern - *necessary
@@ -43,7 +45,7 @@ const SliderFlex = ({
   return (
     <section className={styles.debug}>
       {type
-        ? //sigle
+        ? //single
           new Array(num).fill(null).map((_, i) =>
             i !== null ? (
               <div key={i} className={styles.container}>
@@ -53,7 +55,7 @@ const SliderFlex = ({
               <span className={styles.debug}>something is wrong</span>
             ),
           )
-        : //dobule
+        : //double
           new Array(num).fill(null).map((_, i) =>
             i !== null ? (
               i % 2 === 0 ? (
