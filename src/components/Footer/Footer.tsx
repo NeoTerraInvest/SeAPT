@@ -3,10 +3,10 @@ import { footer as styles } from '@styles';
 import { footerLogo } from '@/assets';
 
 const Footer = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
+  const [isMobile, setMobile] = useState<boolean>(window.innerWidth <= 768);
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setMobile(window.innerWidth <= 768);
     };
 
     window.addEventListener('resize', handleResize);

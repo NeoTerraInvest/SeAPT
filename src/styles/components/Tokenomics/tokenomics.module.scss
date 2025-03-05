@@ -7,6 +7,12 @@
 
 .debug{
     flex-direction: column;
+    @include dynamic_display(481px, 767px){
+        flex-direction: row;
+    }
+    @include dynamic_display(340px, 480px){
+        flex-direction: row;
+    }
 }
 
 .container{
@@ -16,11 +22,13 @@
     @include dynamic_display(481px, 767px){
         flex-direction: column;
         margin-bottom: 20px;
+        margin-right: 24px;
     }
 
     @include dynamic_display(340px, 480px){
         flex-direction: column;
         margin-bottom: 10px;
+        margin-right: 24px;
     }
 
     .element{
