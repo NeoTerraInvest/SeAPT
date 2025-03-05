@@ -7,9 +7,10 @@
 }
 
 #debug{
-    background-color: #1F1F1F;
+    background-color: var(--dark-object-grey-1);
     border-radius: var(--radius-size);
     width: 100%;
+    height: 100%;
     max-width: 628px;
     height: 608px;
     max-height: 608px;
@@ -94,7 +95,7 @@
         }
         #property{
             @include body-lg-max;
-            color: #F5A910;
+            color: var(--dark-text-primary);
             padding: 4px 0 20px 0;
 
             @include dynamic_display(1440px, 1919px){

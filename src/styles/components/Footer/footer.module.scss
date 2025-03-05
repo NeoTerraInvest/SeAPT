@@ -24,12 +24,12 @@
     flex-direction: column;
 }
 .title{
-    color: #FFFFFF;
+    color: var(--dark-text-default);
     font-weight: var(--font-weight-bold);
 }
 
 #debug{
-    background-color: #101010;
+    background-color: var(--dark-background);
     justify-content: space-between;
     // gap: 155px;
     font: var(--standard-font-size);
@@ -58,7 +58,7 @@
                 margin-top: 56px;
             }
             #info{
-                color: #6D6D6D;
+                color: var(--dark-text-sub);
                 font: var(--small-font-size);
                 font-weight: var(--font-weight-regular);
             }
@@ -77,10 +77,10 @@
             }
             .group{
                 gap: 24px;
-                div{color: #C7C7C7;}
+                div{color: var(--dark-text-sub);}
             }
             .title{
-                color: #FFFFFF;
+                color: var(--dark-text-default);
                 font-weight: var(--font-weight-bold);
             }
         }

@@ -5,6 +5,37 @@
   --middle-font-size : 14px;
   --small-font-size : 12px;
   // color
+  //dark
+  --dark-background : #101010;
+  --dark-text-default : #F8F8F5;
+  --dark-text-sub : #7D7D7D;
+  --dark-text-primary : #F5A910;
+  --dark-btn-default: #CC6F1F;
+  --dark-btn-hover: #FF983F;
+  //light
+  --light-background: #F8F8F5;
+  --light-text-default: #222222;
+  --light-text-sub: #666666;
+  --light-btn-default: #CC6F1F;
+  --light-btn-hover: #914A10;
+  //object
+  --object-grey-1: #F7F7F7;
+  --object-grey-2: #AFAFAF;
+  --object-grey-3: #515151;
+
+  //object-dark
+  --dark-object-grey-1: #1F1F1F;
+  --dark-object-grey-2: #515151;
+  --dark-object-grey-3: #AFAFAF;
+  --dark-object-grey-4: #F0F0F0;
+  --dark-object-grey-5: #6D6D6D;
+
+  //object-light
+  --light-object-grey-1: #FFFFFF;
+  --light-object-grey-2: #EDEDED;
+  --light-object-grey-3: #AFAFAF;
+  --light-object-grey-4: #494949;
+
   // --primary-color: #97EB0D;
   // --black-color : #1B1B1B;
   // --black-shadow1-color : #00000033;
@@ -105,7 +136,7 @@
   padding: 0;
   // for padding styles. if wanna margin should change `border-box`
   box-sizing: border-box;
-  color: #FFF;
+  color: var(--dark-text-default);
 }
 
 body,

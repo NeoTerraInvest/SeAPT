@@ -8,6 +8,8 @@
       "@__pages/*": ["styles/*"],
       "@__components/*": ["components/*"],
       "@styles": ["styles/index.ts"],
+      "@types": ["types/index.ts"],
+      "@model": ["components/Model/index.ts"],
       "@components": ["components/index.ts"]
     },
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",

@@ -1,12 +1,18 @@
 @use '../../mediaQuery' as *;
 
-#debug, .container, #token{
+.debug, .container, .element{
     display: flex;
     width: 100%;
 }
 
-#debug{
+.debug{
     flex-direction: column;
+    @include dynamic_display(481px, 767px){
+        flex-direction: row;
+    }
+    @include dynamic_display(340px, 480px){
+        flex-direction: row;
+    }
 }
 
 .container{
@@ -16,13 +22,16 @@
     @include dynamic_display(481px, 767px){
         flex-direction: column;
         margin-bottom: 20px;
+        margin-right: 24px;
     }
+
     @include dynamic_display(340px, 480px){
         flex-direction: column;
         margin-bottom: 10px;
+        margin-right: 24px;
     }
 
-    #token{
+    .element{
         // width: 39.25rem;
         @include dynamic_display(481px, 767px){
             // justify-content: center;
@@ -34,7 +43,7 @@
             height: 356px;
         }
     }
-    #token:first-child{
+    .element:first-child{
         margin-right: 24px;
         @include dynamic_display(481px, 767px){
             margin-right:0;

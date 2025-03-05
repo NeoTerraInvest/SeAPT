@@ -1,0 +1,11 @@
+.debug{
+    display: flex;
+}
+
+.debug{
+    .container{
+        .element{
+            margin-right: 24px;
+        }
+    }
+}
