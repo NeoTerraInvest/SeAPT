@@ -28,10 +28,13 @@
     @include dynamic_display(481px, 767px){
         // width: 344px;
         height: 373px;
+        max-width: 344px;
     }
     @include dynamic_display(340px, 480px){
         // width: 344px;
         height: 356px;
+        max-width: 344px;
+        // min-width: 344px;
     }
 
     #image{

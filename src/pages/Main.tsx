@@ -1,4 +1,4 @@
-import { Show, Tokenomics, MarginLayout, BaseLayout, About } from '@components';
+import { Show, Tokenomics, MarginLayout, BaseLayout } from '@components';
 
 const Main = () => {
   return (
@@ -11,9 +11,9 @@ const Main = () => {
       <MarginLayout>
         <Tokenomics />
       </MarginLayout>
-      <MarginLayout>
+      {/* <MarginLayout>
         <About />
-      </MarginLayout>
+      </MarginLayout> */}
     </BaseLayout>
   );
 };

@@ -14,13 +14,13 @@ const debugStyled: DefaultStyled = {
 
 /**
  * ---
- * `SliderFlex` is can control the creation of either a single line or a double line.
+ * `SliderFlex` is can control the creation of either a single line or a double line or slider type.
  * ⚠️ the object's flex controller should be handled within the object's CSS.
  * CSS types for the **styles** props should use the **className**
  * @param {object} props
  * @param {ReactNode} props.childern - *necessary
  * @param {number} props.num - *necessary
- * @param {boolean} props.type - optional / default: true
+ * @param {string} props.type - optional / default: 'single' / case: 'single' | 'dobule' | 'singleSlider'
  * @param {DefaultStyled} [props.styles=debugStyled] - debugStyled / DefaultStyled from **global.d.ts**
  * @example
  * ```

@@ -13,16 +13,16 @@ const SliderTest = ({ children }: { children: ReactNode }) => {
     infinite: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
         },
       },
       {
-        breakpoint: 375,
+        breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.1,
           slidesToScroll: 1,
         },
       },
@@ -30,7 +30,12 @@ const SliderTest = ({ children }: { children: ReactNode }) => {
   };
   return (
     <div
-      style={{ backgroundColor: 'black', maxWidth: '1440px', margin: '0 auto' }}
+      style={{
+        backgroundColor: 'black',
+        width: '100%',
+        maxWidth: '767px',
+        // margin: '0 auto',
+      }}
     >
       <Slider {...settings}>
         {[...new Array(9)].map((_, i) => (
