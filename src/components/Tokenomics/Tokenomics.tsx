@@ -1,8 +1,8 @@
 import { TokenFrame } from '@components';
-import { tokenomics as rawStyles } from '@/styles';
+import { tokenomics as rawStyles } from '@styles';
 import { SliderFlex } from '@model';
-import { DefaultStyled } from '@/types';
-import useTrackingView from '../Model/useTrackingView';
+import { DefaultStyled } from '@types';
+import { useTrackingView } from '@model';
 
 const styles = rawStyles as unknown as DefaultStyled;
 

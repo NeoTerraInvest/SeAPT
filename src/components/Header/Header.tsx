@@ -1,17 +1,9 @@
-import { useEffect, useState } from 'react';
-import { header as styles } from '@/styles';
-import { headerLogoWeb, headerLogoMobile, hambuger } from '@/assets';
-const Header = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 480);
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 480);
-    };
+import { header as styles } from '@styles';
+import { headerLogoWeb, headerLogoMobile, hambuger } from '@assets';
+import { useTrackingView } from '@model';
 
-    window.addEventListener('resize', handleResize);
-    console.log(isMobile);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isMobile]);
+const Header = () => {
+  const isMobile = useTrackingView({ size: 480 });
 
   return (
     <div id={styles.debug}>
