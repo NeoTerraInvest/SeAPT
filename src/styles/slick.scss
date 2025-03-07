@@ -14,8 +14,6 @@
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
-    // custom
-    // width: 100%;
 }
 .slick-list {
     position: relative;
@@ -105,4 +103,13 @@
 }
 .slick-arrow.slick-hidden {
     display: none;
+}
+
+#slick-customization{
+    background-color: black;
+    width: 100%;
+    max-width: 1440px;
+    @include dynamic_display(340px, 767px){
+        max-width: 767px;
+    }
 }

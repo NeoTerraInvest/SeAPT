@@ -17,27 +17,27 @@
 
 #debug{
     background-color: tomato;
+    width: 100%;
+    height: 570px;
     max-width: 456px;
     max-height: 570px;
     min-width: 256px;
-    min-height: 320px;
-    width: 456px;
-    height: 570px;
+    // min-height: 320px;
 
     @include dynamic_display(1025px, 1439px){
-        width: 400px;
+        // width: 400px;
         height: 500px;
     }
     @include dynamic_display(768px, 1024px){
-        width: 328px;
+        // width: 328px;
         height: 410px;
     }
     @include dynamic_display(481px, 767px){
-        width: 288px;
+        // width: 288px;
         height: 360px;
     }
     @include dynamic_display(340px, 480px){
-        width: 256px;
+        // width: 256px;
         height: 320px;
     }
 

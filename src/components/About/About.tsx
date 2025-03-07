@@ -7,7 +7,7 @@ const styles = rawStyles as unknown as DefaultStyled;
 
 const About = () => {
   return (
-    <SliderFlex num={4} styles={styles}>
+    <SliderFlex num={4} styles={styles} type='singleSlider'>
       <AboutFrame />
     </SliderFlex>
   );
