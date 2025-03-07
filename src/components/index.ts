@@ -1,4 +1,6 @@
+//Test
 export { default as Test } from './Test/Test';
+// components
 export { default as Header } from './Header/Header';
 export { default as Footer } from './Footer/Footer';
 export { default as BaseLayout } from './BaseLayout/BaseLayout';

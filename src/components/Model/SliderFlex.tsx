@@ -1,6 +1,7 @@
 import { Error } from '@styles';
 import { ReactNode } from 'react';
 import { DefaultStyled } from '@types';
+import { Slider } from '@model';
 
 /**
  * default Styled props
@@ -33,43 +34,56 @@ const debugStyled: DefaultStyled = {
  */
 const SliderFlex = ({
   children,
-  type = true,
+  type = 'single',
   num,
   styles = debugStyled,
 }: {
   children: ReactNode;
-  type?: boolean;
+  type?: 'single' | 'dobule' | 'singleSlider';
   num: number;
   styles?: DefaultStyled;
 }) => {
-  return (
-    <section className={styles.debug}>
-      {type
-        ? //single
-          new Array(num).fill(null).map((_, i) =>
-            i !== null ? (
-              <div key={i} className={styles.container}>
-                <div className={styles.element}>{children}</div>
-              </div>
-            ) : (
-              <span className={styles.debug}>something is wrong</span>
-            ),
-          )
-        : //double
-          new Array(num).fill(null).map((_, i) =>
-            i !== null ? (
-              i % 2 === 0 ? (
-                <div key={i} className={styles.container}>
-                  <div className={styles.element}>{children}</div>
-                  <div className={styles.element}>{children}</div>
-                </div>
-              ) : null
-            ) : (
-              <span className={styles.debug}>something is wrong</span>
-            ),
-          )}
-    </section>
-  );
+  let flex;
+  switch (type) {
+    case 'single':
+      flex = new Array(num).fill(null).map((_, i) =>
+        i !== null ? (
+          <div key={i} className={styles.container}>
+            <div className={styles.element}>{children}</div>
+          </div>
+        ) : (
+          <span className={styles.debug}>something is wrong</span>
+        ),
+      );
+      break;
+
+    case 'dobule':
+      flex = new Array(num).fill(null).map((_, i) =>
+        i !== null ? (
+          i % 2 === 0 ? (
+            <div key={i} className={styles.container}>
+              <div className={styles.element}>{children}</div>
+              <div className={styles.element}>{children}</div>
+            </div>
+          ) : null
+        ) : (
+          <span className={styles.debug}>something is wrong</span>
+        ),
+      );
+      break;
+
+    case 'singleSlider':
+      flex = <Slider>{children}</Slider>;
+      break;
+
+    default:
+      flex = (
+        <span className={styles.debug}>
+          ⚠️ Unsupported type: <strong>{type}</strong>
+        </span>
+      );
+  }
+  return <section className={styles.debug}>{flex}</section>;
 };
 
 export default SliderFlex;
