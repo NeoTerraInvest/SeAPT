@@ -1,28 +1,20 @@
-import { useEffect, useState } from 'react';
 import { TokenFrame } from '@components';
-import { tokenomics as rawStyles } from '@/styles';
+import { tokenomics as rawStyles } from '@styles';
 import { SliderFlex } from '@model';
-import { DefaultStyled } from '@/types';
+import { DefaultStyled } from '@types';
+import { useTrackingView } from '@model';
 
 const styles = rawStyles as unknown as DefaultStyled;
 
 const Tokenomics = () => {
-  const [isMobile, setMobile] = useState<boolean>(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const mobileState = window.innerWidth <= 768;
-      setMobile(mobileState);
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const isMobile = useTrackingView();
 
   return (
-    <SliderFlex num={4} styles={styles} type={isMobile}>
+    <SliderFlex
+      num={4}
+      styles={styles}
+      type={isMobile ? 'singleSlider' : 'dobule'}
+    >
       <TokenFrame />
     </SliderFlex>
   );

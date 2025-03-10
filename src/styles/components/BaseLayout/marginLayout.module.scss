@@ -2,7 +2,7 @@
 @use '../../mediaQuery' as *;
 
 #layout{
-    color: tomato;
+    // background-color: #64b932;
     width: 100%;
     padding: 0 80px;
 
@@ -20,19 +20,19 @@
 }
 
 #singleLeft{
-    color:cornflowerblue;
+    // background-color:cornflowerblue;
     width: 100%;
-    padding: 0 80px;
+    padding-left:80px;
 
     @include dynamic_display(768px, 1024px){
-        padding: 0 32px;
+        padding-left:32px;
     }
 
     @include dynamic_display(481px, 767px){
-        padding: 0 24px;
+        padding-left:24px;
     }
     
     @include dynamic_display(340px, 480px){
-        padding: 0 16px;
+        padding-left:16px;
     }
 }

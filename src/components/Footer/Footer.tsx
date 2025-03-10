@@ -1,18 +1,9 @@
-import { useEffect, useState } from 'react';
 import { footer as styles } from '@styles';
-import { footerLogo } from '@/assets';
+import { footerLogo } from '@assets';
+import { useTrackingView } from '@model';
 
 const Footer = () => {
-  const [isMobile, setMobile] = useState<boolean>(window.innerWidth <= 768);
-  useEffect(() => {
-    const handleResize = () => {
-      setMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    console.log(isMobile);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isMobile]);
+  const isMobile = useTrackingView();
 
   return (
     <div id={styles.debug}>

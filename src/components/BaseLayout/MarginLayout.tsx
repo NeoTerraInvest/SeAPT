@@ -12,12 +12,12 @@ import { marginLayout as styles } from '@/styles';
  */
 const MarginLayout = ({
   children,
-  single = false,
+  auto = true,
 }: {
   children: ReactNode;
-  single?: boolean;
+  auto?: boolean;
 }) => {
-  return single ? (
+  return auto ? (
     <div id={styles.layout}> {children}</div>
   ) : (
     <div id={styles.singleLeft}> {children}</div>
