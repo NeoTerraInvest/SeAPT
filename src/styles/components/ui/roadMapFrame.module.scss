@@ -23,7 +23,9 @@
     width: 100%;
     height: 100%;
 }
-
+#imgCol, #imgRow{
+    border-radius: var(--radius-size);
+}
 #debug{
     gap: 33px;
     background-color: var(--dark-background);

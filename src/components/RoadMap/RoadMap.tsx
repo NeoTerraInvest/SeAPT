@@ -25,17 +25,19 @@ const RoadMap = ({ children, num }: { children: ReactNode; num: number }) => {
       // onMouseEnter={handleInMouse}
       // onMouseLeave={hanldeOutMouse}
     >
-      <div className={styles.effect} />
-      <div className={styles.container}>
-        {new Array(num).fill(null).map((_, i) => {
-          return (
-            <div key={i} id={styles.contents}>
-              {children}
-            </div>
-          );
-        })}
+      <div className={styles.effectLayout}>
+        <div id={styles.effectTop} />
+        <div className={styles.container}>
+          {new Array(num).fill(null).map((_, i) => {
+            return (
+              <div key={i} id={styles.contents}>
+                {children}
+              </div>
+            );
+          })}
+        </div>
+        <div id={styles.effectBottom} />
       </div>
-      <div className={styles.effect} />
     </div>
   );
 };
