@@ -5,6 +5,8 @@ import {
   About,
   RoadMapFrame,
   RoadMap,
+  TrainFrame,
+  Train,
 } from '@components';
 import styles from '@__styles/main.module.scss';
 // import { Slider } from '@Model';
@@ -32,6 +34,10 @@ const Dev = () => {
       <div style={{ padding: '30px' }}></div>
       <About />
       {/* <RoadMapFrame /> */}
+      <div style={{ padding: '30px' }}></div>
+      <TrainFrame />
+      <div style={{ padding: '30px' }}></div>
+      <Train />
       <footer style={{ padding: '30px' }}></footer>
     </div>
   );
