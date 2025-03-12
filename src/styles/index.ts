@@ -8,6 +8,7 @@ export { default as footer } from './components/Footer/footer.module.scss';
 export { default as show } from './components/Show/show.module.scss';
 export { default as tokenomics } from './components/Tokenomics/tokenomics.module.scss';
 export { default as about } from './components/About/about.module.scss';
+export { default as roadMap } from './components/RoadMap/roadMap.module.scss';
 //ui
 export { default as aboutFrame } from './components/ui/aboutFrame.module.scss';
 export { default as tokenFrame } from './components/ui/tokenFrame.module.scss';

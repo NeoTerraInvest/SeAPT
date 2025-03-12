@@ -4,6 +4,7 @@ import {
   Tokenomics,
   About,
   RoadMapFrame,
+  RoadMap,
 } from '@components';
 import styles from '@__styles/main.module.scss';
 // import { Slider } from '@Model';
@@ -14,7 +15,12 @@ const Dev = () => {
     <div id={styles.debug} style={{ backgroundColor: 'gray' }}>
       Dev
       <span>UI Desing System</span>
+      <div style={{ padding: '30px' }}></div>
       <AboutFrame />
+      <div style={{ padding: '30px' }}></div>
+      <RoadMap num={4}>
+        <RoadMapFrame />
+      </RoadMap>
       <div style={{ padding: '30px' }}></div>
       <TokenFrame />
       <div style={{ padding: '30px' }}></div>
@@ -25,8 +31,7 @@ const Dev = () => {
       <Tokenomics />
       <div style={{ padding: '30px' }}></div>
       <About />
-      <div style={{ padding: '30px' }}></div>
-      <RoadMapFrame />
+      {/* <RoadMapFrame /> */}
       <footer style={{ padding: '30px' }}></footer>
     </div>
   );

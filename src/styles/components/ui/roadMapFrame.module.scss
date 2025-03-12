@@ -23,9 +23,11 @@
     width: 100%;
     height: 100%;
 }
-
+#imgCol, #imgRow{
+    border-radius: var(--radius-size);
+}
 #debug{
-    gap: 34px;
+    gap: 33px;
     background-color: var(--dark-background);
     @include dynamic_display(340px, 767px){
         gap: 0;
@@ -48,24 +50,72 @@
             justify-content: flex-start;
             max-height: 219px;
         }
+        @include dynamic_display(1025px, 1439px){
+            @include body-sm-1439;
+        }
+        @include dynamic_display(768px, 1024px){
+            @include body-sm-1024;
+        }
+        @include dynamic_display(481px, 767px){
+            @include body-sm-767;
+        }
+        @include dynamic_display(340px, 480px){
+            @include body-sm-480;
+        }
         #date{
             width: 130px;
             @include body-sm-1919;
             margin-bottom: 8px;
+            @include dynamic_display(1025px, 1439px){
+                @include body-sm-1439;
+            }
+            @include dynamic_display(768px, 1024px){
+                @include body-sm-1024;
+            }
+            @include dynamic_display(481px, 767px){
+                @include body-sm-767;
+            }
+            @include dynamic_display(340px, 480px){
+                @include body-sm-480;
+            }
             #phase{
                 @include heading-sub-1439;
                 color: var(--light-text-sub-title);
                 margin-right: 8px;
+                @include dynamic_display(1025px, 1439px){
+                    @include heading-sub-1439;
+                }
+                @include dynamic_display(768px, 1024px){
+                    @include heading-sub-1024;
+                }
+                @include dynamic_display(481px, 767px){
+                    @include heading-sub-767;
+                }
+                @include dynamic_display(340px, 480px){
+                    @include heading-sub-480;
+                }
             }
         }
         #title{
             @include body-lg-1919;
             margin-bottom: 8px;
             color: var(--dark-text-primary);
+            @include dynamic_display(1025px, 1439px){
+                @include body-lg-1439;
+            }
+            @include dynamic_display(768px, 1024px){
+                @include body-lg-1024;
+            }
+            @include dynamic_display(481px, 767px){
+                @include body-lg-767;
+            }
+            @include dynamic_display(340px, 480px){
+                @include body-lg-480;
+            }
         }
-        #content{
-            @include body-sm-1919
-        }
+        // #content{
+        //     @include body-sm-1919
+        // }
     }
     #imgRow{
         background-color: goldenrod;
