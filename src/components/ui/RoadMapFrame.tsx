@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 const RoadMapFrame = () => {
   const isMobile = useTrackingView();
   useEffect(() => {
-    console.log(isMobile);
+    // console.log(isMobile);
   }, [isMobile]);
   return (
     <div id={styles.debug}>

@@ -1,0 +1,38 @@
+.debug{
+    background-color: aqua;
+    // padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .container{
+        position: relative;
+        max-height: 768px;
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        &::-webkit-scrollbar {
+            width: 1px; /* scrollbar width */
+        }
+
+        &::-webkit-scrollbar-track {
+            // background: #f1f1f1;
+            border-radius: 1px;
+        }
+
+        /* scroll handle */
+        &::-webkit-scrollbar-thumb {
+            background: rgb(136, 136, 136, 0.1); /* 기본 색상 */
+            border-radius: 10px;
+        }
+
+        // hover:effect
+        // &::-webkit-scrollbar-thumb:hover {
+        //     background: #555;
+        // }
+        #contents{
+            margin-bottom: 80px;
+        }
+    }
+}

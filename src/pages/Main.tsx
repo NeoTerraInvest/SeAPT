@@ -1,4 +1,12 @@
-import { Show, Tokenomics, MarginLayout, BaseLayout, About } from '@components';
+import {
+  Show,
+  Tokenomics,
+  MarginLayout,
+  BaseLayout,
+  About,
+  RoadMap,
+  RoadMapFrame,
+} from '@components';
 import { useTrackingView } from '@model';
 
 const Main = () => {
@@ -9,6 +17,11 @@ const Main = () => {
     <BaseLayout>
       <MarginLayout>
         <Show />
+      </MarginLayout>
+      <MarginLayout>
+        <RoadMap num={9}>
+          <RoadMapFrame />
+        </RoadMap>
       </MarginLayout>
       <span>Ready for Launch🚀</span>
       <MarginLayout auto={!isToken}>
