@@ -1,11 +1,17 @@
-import { AboutFrame, TokenFrame, Tokenomics, About } from '@components';
+import {
+  AboutFrame,
+  TokenFrame,
+  Tokenomics,
+  About,
+  RoadMapFrame,
+} from '@components';
 import styles from '@__styles/main.module.scss';
 // import { Slider } from '@Model';
 import { SliderFlex } from '@model';
 
 const Dev = () => {
   return (
-    <div id={styles.debug}>
+    <div id={styles.debug} style={{ backgroundColor: 'gray' }}>
       Dev
       <span>UI Desing System</span>
       <AboutFrame />
@@ -19,6 +25,8 @@ const Dev = () => {
       <Tokenomics />
       <div style={{ padding: '30px' }}></div>
       <About />
+      <div style={{ padding: '30px' }}></div>
+      <RoadMapFrame />
       <footer style={{ padding: '30px' }}></footer>
     </div>
   );
