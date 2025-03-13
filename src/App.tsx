@@ -1,14 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
 import { Test } from '@components';
 import { Main as Home, Dev as Ui } from './pages';
+import { useEnvModeState } from '@model';
 
 const App = () => {
+  const isState = useEnvModeState();
+  console.log(
+    `Called App: ${isState ? 'production-' : 'development-'}${isState}`,
+  );
+
   return (
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/Ui' element={<Ui />} />
-      <Route path='/Trade' element={<Test />} />
-      <Route path='/Swap' element={<Test />} />
+      {isState ? '' : <Route path='/Ui' element={<Ui />} />}
+      {isState ? '' : <Route path='/Trade' element={<Test />} />}
+      {isState ? '' : <Route path='/Swap' element={<Test />} />}
     </Routes>
   );
 };

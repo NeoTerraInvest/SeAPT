@@ -1,0 +1,26 @@
+
+@use './styles/mediaQuery' as *;
+
+body {
+    // background-color: #f9f9f9;
+    background-color: #101010;
+    @include dynamic_display(1440px, 1919px){
+      background-color: #5F4AFF;
+    }
+  
+    @include dynamic_display(1025px, 1439px){
+      background-color: #588C5E;
+    }
+  
+    @include dynamic_display(768px, 1024px){
+      background-color: #694A8A;
+    }
+  
+    @include dynamic_display(481px, 767px){
+      background-color: #D2BE4B;
+    }
+  
+    @include dynamic_display(340px, 480px){
+      background-color: #FF0099;
+    }
+  }
