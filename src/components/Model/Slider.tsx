@@ -2,10 +2,10 @@ import Slider from 'react-slick';
 import '@__styles/slick.scss';
 import '@__styles/slick-theme.scss';
 import { ReactNode } from 'react';
-const SliderTest = ({ children }: { children: ReactNode }) => {
+const initSlider = ({ children }: { children: ReactNode }) => {
   //config slick
   const settings = {
-    dots: true,
+    dots: false,
     arrows: false,
     speed: 500,
     slidesToShow: 2.8,
@@ -89,4 +89,4 @@ const SliderTest = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default SliderTest;
+export default initSlider;

@@ -3,3 +3,9 @@
         @content;
     }
 }
+
+@mixin dynamic_single_display($max) {
+    @media (max-width: $max) {
+        @content;
+    }
+}

@@ -1,0 +1,58 @@
+@use './mediaQuery' as *;
+
+.debug{
+    overflow: hidden;
+    padding: 60px 0;
+    background-color: var(--dark-contents);
+    @include dynamic_single_display(767px){
+        padding: 28px 0;
+    }
+    .slider{
+        width: 200%;
+        display: flex;
+        .container{
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            .sliderAnim, .sliderAnim_clone{
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                #children{
+                    width: 100%;
+                }
+            }
+            .sliderAnim{
+                animation: infinityAnimation_a 50s linear infinite;
+            }
+            .sliderAnim_clone{
+                animation: infinityAnimation_b 50s linear infinite;
+            }
+        }
+    }
+}
+
+@keyframes infinityAnimation_a {
+    0% {
+      transform: translateX(0%);
+    }
+    50% {
+      transform: translateX(-100%);
+    }
+    50.1% {
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+
+@keyframes infinityAnimation_b {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+}

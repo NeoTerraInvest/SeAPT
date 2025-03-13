@@ -6,6 +6,7 @@ import {
   About,
   RoadMap,
   RoadMapFrame,
+  Train,
 } from '@components';
 import { useTrackingView } from '@model';
 
@@ -30,6 +31,9 @@ const Main = () => {
       <span>Ready for Launch🚀</span>
       <MarginLayout auto={!isAbout}>
         <About />
+      </MarginLayout>
+      <MarginLayout>
+        <Train />
       </MarginLayout>
     </BaseLayout>
   );

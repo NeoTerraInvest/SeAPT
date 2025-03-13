@@ -1,9 +1,7 @@
-// import { MarginLayout } from '@components';
 import { tokenFrame as styles } from '@/styles';
 
 const TokenFrame = () => {
   return (
-    // <MarginLayout>
     <div id={styles.debug}>
       <div id={styles.image}>{/* <img src='' alt='TokenFrame' /> */}</div>
       <div id={styles.container}>
@@ -16,7 +14,6 @@ const TokenFrame = () => {
         </div>
       </div>
     </div>
-    // {/* </MarginLayout> */}
   );
 };
 
