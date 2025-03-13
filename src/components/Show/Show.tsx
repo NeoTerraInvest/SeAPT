@@ -1,8 +1,12 @@
 import { show as styles } from '@styles';
+import { mainBackground, mainCharcter1919 } from '@/assets';
 
 const Show = () => {
   return (
     <div id={styles.debug}>
+      <div id={styles.background}>
+        <img src={mainBackground} alt='' />
+      </div>
       <div id={styles.container}>
         <div id={styles.layout}>
           <div id={styles.show}>
@@ -22,12 +26,12 @@ const Show = () => {
                 <div id={styles.innerimage} />
               </div> */}
             </div>
-            <button>Btn_Text</button>
+            <button>Explore</button>
           </div>
         </div>
-        <div id={styles.outer}>
-          <div id={styles.outerimage} />
-        </div>
+        <img id={styles.outer} src={mainCharcter1919} width={468} height={664}>
+          {/* <div id={styles.outerimage} /> */}
+        </img>
       </div>
     </div>
   );
