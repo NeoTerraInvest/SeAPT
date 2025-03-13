@@ -1,5 +1,6 @@
 import { ReactNode, useRef } from 'react';
 import { roadMap as styles } from '@styles';
+import { useTrackingView } from '@model';
 
 const RoadMap = ({ children, num }: { children: ReactNode; num: number }) => {
   const effectRef = useRef<HTMLDivElement>(null);
@@ -17,7 +18,7 @@ const RoadMap = ({ children, num }: { children: ReactNode; num: number }) => {
       effectRef.current.click();
     }
   };
-
+  const isMobile = useTrackingView({ size: 767 });
   return (
     <div ref={effectRef} className={styles.debug}>
       <div
@@ -26,7 +27,16 @@ const RoadMap = ({ children, num }: { children: ReactNode; num: number }) => {
         onMouseLeave={hanldeOutMouse}
         className={styles.effectLayout}
       >
-        <div ref={effectRef} id={styles.effectTop} />
+        {isMobile ? (
+          <div />
+        ) : (
+          <div
+            ref={effectRef}
+            id={styles.effectTop}
+            onMouseEnter={handleInMouse}
+            onMouseLeave={hanldeOutMouse}
+          />
+        )}
         <div className={styles.container}>
           {new Array(num).fill(null).map((_, i) => {
             return (
@@ -36,12 +46,16 @@ const RoadMap = ({ children, num }: { children: ReactNode; num: number }) => {
             );
           })}
         </div>
-        <div
-          ref={effectRef}
-          onMouseEnter={handleInMouse}
-          onMouseLeave={hanldeOutMouse}
-          id={styles.effectBottom}
-        />
+        {isMobile ? (
+          <div />
+        ) : (
+          <div
+            ref={effectRef}
+            onMouseEnter={handleInMouse}
+            onMouseLeave={hanldeOutMouse}
+            id={styles.effectBottom}
+          />
+        )}
       </div>
     </div>
   );
