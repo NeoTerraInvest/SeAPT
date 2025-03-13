@@ -1,23 +1,36 @@
-import { ReactNode } from 'react';
-import Slider from 'react-slick';
+import { ReactNode, useState } from 'react';
+import styles from '@__styles/infinitySlider.module.scss';
 const InfinitySlider = ({ children }: { children: ReactNode }) => {
-  const settings = {
-    dots: false,
-    arrows: false,
-    speed: 8000,
-    slidesToShow: 4.3,
-    slidesToScroll: 1,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 0,
-    cssEase: 'linear',
-  };
+  const [isAnimate] = useState(true);
 
-  const TrainChildren = [...Array(2)].flatMap(() => children);
+  // useEffect(() => {
+  //   setAnimate(true);
+  // }, [isAnimate]);
 
   return (
-    <div>
-      <Slider {...settings}>{TrainChildren}</Slider>
+    <div className={styles.debug}>
+      <div className={styles.slider}>
+        <div className={styles.container}>
+          <div className={`${isAnimate ? styles.sliderAnim : ''}`}>
+            {new Array(2).fill(null).map((_, i) => {
+              return (
+                <div id={styles.children} key={i}>
+                  {children}
+                </div>
+              );
+            })}
+          </div>
+          <div className={`${isAnimate ? styles.sliderAnim_clone : ''}`}>
+            {new Array(2).fill(null).map((_, i) => {
+              return (
+                <div id={styles.children} key={i}>
+                  {children}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

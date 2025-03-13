@@ -1,15 +1,6 @@
-@use '../../mediaQuery' as *;
-
 #debug{
-    background-color: tomato;
     display: flex;
     width: 100%;
-    max-height: 240px;
-    height: 100%;
-    #container{
-        display: flex;
-        img{
-            display: flex;
-        }
-    }
+    gap: 120px;
+    margin-right: 120px;
 }
