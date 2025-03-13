@@ -2,8 +2,7 @@
 @use './styles/mediaQuery' as *;
 
 body {
-    // background-color: #f9f9f9;
-    background-color: #101010;
+    background-color: #f9f9f9;
     @include dynamic_display(1440px, 1919px){
       background-color: #5F4AFF;
     }

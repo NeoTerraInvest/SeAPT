@@ -4,7 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.scss';
 import App from './App.tsx';
 import { ThirdwebProvider, ChainId } from '@thirdweb-dev/react';
+
 const envModeState = import.meta.env.MODE;
+
 {
   if (envModeState === 'development') {
     console.log('🔧Running development mode.');

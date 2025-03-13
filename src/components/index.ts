@@ -10,6 +10,7 @@ export { default as Tokenomics } from './Tokenomics/Tokenomics';
 export { default as About } from './About/About';
 export { default as RoadMap } from './RoadMap/RoadMap';
 export { default as Train } from './Train/Train';
+export { default as Error } from './BaseLayout/Error';
 //ui
 export { default as AboutFrame } from './ui/AboutFrame';
 export { default as TokenFrame } from './ui/TokenFrame';

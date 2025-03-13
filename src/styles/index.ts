@@ -10,6 +10,7 @@ export { default as tokenomics } from './components/Tokenomics/tokenomics.module
 export { default as about } from './components/About/about.module.scss';
 export { default as roadMap } from './components/RoadMap/roadMap.module.scss';
 export { default as train } from './components/Train/train.module.scss';
+export { default as error } from './components/BaseLayout/error.module.scss';
 //ui
 export { default as aboutFrame } from './components/ui/aboutFrame.module.scss';
 export { default as tokenFrame } from './components/ui/tokenFrame.module.scss';
