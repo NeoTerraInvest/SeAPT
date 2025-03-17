@@ -1,5 +1,7 @@
+@use '../../mediaQuery' as *;
+
 .debug{
-    background-color: aqua;
+    background-color: salmon;
     // padding: 10px;
     display: flex;
     flex-direction: column;
@@ -51,9 +53,15 @@
             }
             #contents:first-child{
                 margin-top: 141px;
+                @include dynamic_single_display(767px){
+                    margin-top: 0;
+                }
             }
             #contents:last-child{
                 margin-bottom: 141px;
+                @include dynamic_single_display(767px){
+                    margin-top: 0;
+                }
             }
         }
         #effectBottom{

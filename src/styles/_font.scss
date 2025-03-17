@@ -292,3 +292,10 @@
     font-weight: var(--font-weight-bold);
     line-height: var(--line-hight-125);
 }
+
+// Error
+@mixin heading0-max{
+    font-size: 70px;
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-hight-125);
+}

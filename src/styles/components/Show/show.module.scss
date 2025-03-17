@@ -6,13 +6,19 @@
 }
 
 #debug{
-    background-color: #3C3C3C;
+    // background-color: #3C3C3C;
     width: 100%;
     min-height: 664px;
     flex-direction: column;    
     border-radius: var(--radius-size);
-    
+    #background{
+        position: absolute;
+        z-index: 0;
+        left: 50%; 
+        transform: translate(-50%);
+    }
     #container{
+        position: relative;
         width: 100%;
         // justify-content: space-between;
         // 481px ~ 767px degree
@@ -179,8 +185,8 @@
         }
         
         #outer{
-            background-color: #D9D9D9;
-            opacity: 50%;
+            // background-color: #D9D9D9;
+            // opacity: 50%;
             min-height: 664px;
             width: 100%;
             justify-content: center;

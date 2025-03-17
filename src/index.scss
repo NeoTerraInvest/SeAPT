@@ -41,6 +41,7 @@
   // radius
   --radius-size: 24px;
   --radius-size-middle: 32px;
+  --radius-size-small: 10px;
 
   // font-styles
   --font-style: 'Pretendard', sans-serif;
@@ -177,7 +178,7 @@ body {
   font-family: var(--font-style);
   line-height: 125%;
   letter-spacing: var(--letter-spacing);
-  background-color: #f9f9f9;
+  background-color: var(--dark-background);
   width: 100%;
   max-width: 1440px;
   min-width: 340px;
@@ -186,26 +187,22 @@ body {
   // padding: 0 80px;
 
   @include dynamic_display(1440px, 1919px){
-    background-color: #5F4AFF;
     min-width: 1440px;
     // max-width: 1919px;
   }
 
   @include dynamic_display(1025px, 1439px){
-    background-color: #588C5E;
     min-width: 1025px;
     max-width: 1439px;
   }
 
   @include dynamic_display(768px, 1024px){
-    background-color: #694A8A;
     min-width: 768px;
     max-width: 1024px;
     padding: 0;
   }
 
   @include dynamic_display(481px, 767px){
-    background-color: #D2BE4B;
     min-width: 481px;
     max-width: 767px;
     padding: 0;
@@ -213,7 +210,6 @@ body {
   }
 
   @include dynamic_display(340px, 480px){
-    background-color: #FF0099;
     min-width: 340px;
     max-width: 480px;
     // padding: 0 16px;
