@@ -42,3 +42,32 @@ export { default as youtube768 } from './sns/youtube-768.svg';
 export { default as youtube1025 } from './sns/youtube-1025.svg';
 
 //about
+//Charity
+export { default as aboutCharity340 } from './about/img_about_charity_340.svg';
+export { default as aboutCharity481 } from './about/img_about_charity_481.svg';
+export { default as aboutCharity768 } from './about/img_about_charity_768.svg';
+export { default as aboutCharity1025 } from './about/img_about_charity_1025.svg';
+export { default as aboutCharity1440 } from './about/img_about_charity_1440.svg';
+//CryptoCard
+export { default as aboutCryptoCard340 } from './about/img_about_cryptoCard_340.svg';
+export { default as aboutCryptoCard481 } from './about/img_about_cryptoCard_481.svg';
+export { default as aboutCryptoCard768 } from './about/img_about_cryptoCard_768.svg';
+export { default as aboutCryptoCard1025 } from './about/img_about_cryptoCard_1025.svg';
+export { default as aboutCryptoCard1440 } from './about/img_about_cryptoCard_1440.svg';
+//invest
+export { default as aboutInvest340 } from './about/img_about_invest_340.svg';
+export { default as aboutInvest481 } from './about/img_about_invest_481.svg';
+export { default as aboutInvest768 } from './about/img_about_invest_768.svg';
+export { default as aboutInvest1025 } from './about/img_about_invest_1025.svg';
+export { default as aboutInvest1440 } from './about/img_about_invest_1440.svg';
+//market
+export { default as aboutMarket340 } from './about/img_about_market_340.svg';
+export { default as aboutMarket481 } from './about/img_about_market_481.svg';
+export { default as aboutMarket768 } from './about/img_about_market_768.svg';
+export { default as aboutMarket1025 } from './about/img_about_market_1025.svg';
+export { default as aboutMarket1440 } from './about/img_about_market_1440.svg';
+//NFT
+
+//SWAP
+
+//TapToEarn
