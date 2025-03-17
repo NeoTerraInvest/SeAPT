@@ -24,14 +24,14 @@ const Main = () => {
           <RoadMapFrame />
         </RoadMap>
       </MarginLayout>
+      <MarginLayout auto={!isAbout}>
+        <About />
+      </MarginLayout>
       <span>Ready for Launch🚀</span>
       <MarginLayout auto={!isToken}>
         <Tokenomics />
       </MarginLayout>
       <span>Ready for Launch🚀</span>
-      <MarginLayout auto={!isAbout}>
-        <About />
-      </MarginLayout>
       <MarginLayout>
         <Train />
       </MarginLayout>

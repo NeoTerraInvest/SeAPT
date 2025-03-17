@@ -1,0 +1,11 @@
+@use '../../mediaQuery' as *;
+
+.debug{
+    min-width: 448px;
+    width: 100%;
+    display: flex;
+    gap: 24px;
+    @include dynamic_single_display(767px){
+        gap: 16px;
+    }
+}

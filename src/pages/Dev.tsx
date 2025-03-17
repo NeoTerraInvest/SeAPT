@@ -7,6 +7,8 @@ import {
   RoadMap,
   TrainFrame,
   Train,
+  SnsFrame,
+  SNS,
 } from '@components';
 import styles from '@__styles/main.module.scss';
 // import { Slider } from '@Model';
@@ -38,6 +40,10 @@ const Dev = () => {
       <TrainFrame />
       <div style={{ padding: '30px' }}></div>
       <Train />
+      <div style={{ padding: '30px' }}></div>
+      <SnsFrame />
+      <div style={{ padding: '30px' }}></div>
+      <SNS />
       <footer style={{ padding: '30px' }}></footer>
     </div>
   );

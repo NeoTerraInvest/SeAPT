@@ -11,8 +11,10 @@ export { default as About } from './About/About';
 export { default as RoadMap } from './RoadMap/RoadMap';
 export { default as Train } from './Train/Train';
 export { default as Error } from './BaseLayout/Error';
+export { default as SNS } from './SNS/Sns';
 //ui
 export { default as AboutFrame } from './ui/AboutFrame';
 export { default as TokenFrame } from './ui/TokenFrame';
 export { default as RoadMapFrame } from './ui/RoadMapFrame';
 export { default as TrainFrame } from './ui/TrainFrame';
+export { default as SnsFrame } from './ui/SnsFrame';

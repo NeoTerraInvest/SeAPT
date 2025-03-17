@@ -11,8 +11,10 @@ export { default as about } from './components/About/about.module.scss';
 export { default as roadMap } from './components/RoadMap/roadMap.module.scss';
 export { default as train } from './components/Train/train.module.scss';
 export { default as error } from './components/BaseLayout/error.module.scss';
+export { default as sns } from './components/SNS/sns.module.scss';
 //ui
 export { default as aboutFrame } from './components/ui/aboutFrame.module.scss';
 export { default as tokenFrame } from './components/ui/tokenFrame.module.scss';
 export { default as roadMapFrame } from './components/ui/roadMapFrame.module.scss';
 export { default as TrainFrame } from './components/ui/trainFrame.module.scss';
+export { default as snsFrame } from './components/ui/snsFrame.module.scss';
