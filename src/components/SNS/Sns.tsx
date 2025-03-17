@@ -35,7 +35,7 @@ const Sns = () => {
   );
 
   useEffect(() => {
-    const sizeMap: Record<number, string[]> = {
+    const sizeMap: Record<string, string[]> = {
       1025: [x1025, telegram1025, youtube1025],
       768: [x768, telegram768, youtube768],
       481: [x481, telegram481, youtube481],
