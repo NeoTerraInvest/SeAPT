@@ -63,6 +63,7 @@
             }
         }
         #description{ 
+            text-align: center;
             height: 48px; 
             @include body-sm-1439;
             @include dynamic_display(768px, 1024px){

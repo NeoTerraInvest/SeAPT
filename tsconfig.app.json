@@ -7,11 +7,13 @@
       "@__styles/*": ["styles/*"],
       "@__pages/*": ["styles/*"],
       "@__components/*": ["components/*"],
+      "@__data/*": ["data/*"],
       "@assets": ["assets/index.ts"],
       "@styles": ["styles/index.ts"],
       "@types": ["types/index.ts"],
       "@model": ["components/Model/index.ts"],
-      "@components": ["components/index.ts"]
+      "@components": ["components/index.ts"],
+      "@data": ["data/index.ts"]
     },
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
