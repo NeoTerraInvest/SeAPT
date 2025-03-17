@@ -6,7 +6,7 @@ const SnsFrame = ({
   description,
   state,
 }: {
-  image: string;
+  image: { small: string; smallMedium: string; medium: string; large: string };
   title: string;
   description: string;
   state: boolean;
@@ -19,7 +19,13 @@ const SnsFrame = ({
         </div>
         <div className={styles.contents}>
           <div id={styles.img}>
-            <img src={image} alt='' />
+            <picture>
+              <source srcSet={image.small} media='(max-width: 480px)' />
+              <source srcSet={image.smallMedium} media='(max-width: 768px)' />
+              <source srcSet={image.medium} media='(max-width: 1025px)' />
+              <source srcSet={image.large} media='(max-width: 1439px)' />
+              <img src={image.large} alt={title} />
+            </picture>
           </div>
           <div id={styles.title}>{title}</div>
           {state ? null : <div id={styles.description}>{description}</div>}
