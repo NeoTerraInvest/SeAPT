@@ -26,17 +26,19 @@ export { default as lbankMobile } from './train/lbank-mobile.svg';
 
 //sns
 // telegram
-export { default as telegram340 } from './sns/telegram-48-340.svg';
-export { default as telegram481 } from './sns/telegram-56-481.svg';
-export { default as telegram768 } from './sns/telegram-80-768.svg';
-export { default as telegram1025 } from './sns/telegram-96-1025.svg';
+export { default as telegram340 } from './sns/telegram-340.svg';
+export { default as telegram481 } from './sns/telegram-481.svg';
+export { default as telegram768 } from './sns/telegram-768.svg';
+export { default as telegram1025 } from './sns/telegram-1025.svg';
 // x
-export { default as x340 } from './sns/x-48-340.svg';
-export { default as x481 } from './sns/x-56-481.svg';
-export { default as x768 } from './sns/x-80-768.svg';
-export { default as x1025 } from './sns/x-96-1025.svg';
+export { default as x340 } from './sns/x-340.svg';
+export { default as x481 } from './sns/x-481.svg';
+export { default as x768 } from './sns/x-768.svg';
+export { default as x1025 } from './sns/x-1025.svg';
 // youtube
-export { default as youtube340 } from './sns/youtube-48-340.svg';
-export { default as youtube481 } from './sns/youtube-56-481.svg';
-export { default as youtube768 } from './sns/youtube-80-768.svg';
-export { default as youtube1025 } from './sns/youtube-96-1025.svg';
+export { default as youtube340 } from './sns/youtube-340.svg';
+export { default as youtube481 } from './sns/youtube-481.svg';
+export { default as youtube768 } from './sns/youtube-768.svg';
+export { default as youtube1025 } from './sns/youtube-1025.svg';
+
+//about
