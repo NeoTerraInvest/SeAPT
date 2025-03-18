@@ -21,10 +21,10 @@ const SnsFrame = ({
           <div id={styles.img}>
             <picture>
               <source srcSet={image.small} media='(max-width: 480px)' />
-              <source srcSet={image.smallMedium} media='(max-width: 768px)' />
-              <source srcSet={image.medium} media='(max-width: 1025px)' />
-              <source srcSet={image.large} media='(max-width: 1439px)' />
-              <img src={image.large} alt={title} />
+              <source srcSet={image.smallMedium} media='(max-width: 767px)' />
+              <source srcSet={image.medium} media='(max-width: 1024px)' />
+              {/* <source srcSet={image.large} media='(max-width: 1439px)' /> */}
+              <img src={image.large} alt={title} loading='lazy' />
             </picture>
           </div>
           <div id={styles.title}>{title}</div>

@@ -7,6 +7,7 @@ import {
   RoadMap,
   RoadMapFrame,
   Train,
+  SNS,
 } from '@components';
 import { useTrackingView } from '@model';
 
@@ -31,10 +32,15 @@ const Main = () => {
       <MarginLayout auto={!isToken}>
         <Tokenomics />
       </MarginLayout>
-      <span>Ready for Launch🚀</span>
+      <div style={{ padding: '30px' }} />
+      <MarginLayout>
+        <SNS />
+      </MarginLayout>
+      <div style={{ padding: '30px' }} />
       <MarginLayout>
         <Train />
       </MarginLayout>
+      <div style={{ padding: '30px' }} />
     </BaseLayout>
   );
 };
