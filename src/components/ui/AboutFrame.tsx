@@ -13,7 +13,7 @@ const AboutFrame = ({
         <source srcSet={image.small} media='(max-width: 480px)' />
         <source srcSet={image.smallMedium} media='(max-width: 767px)' />
         <source srcSet={image.medium} media='(max-width: 1024px)' />
-        <img id={styles.image} src={image.large} alt={title} />
+        <img id={styles.image} src={image.large} alt={title} loading='lazy' />
       </picture>
       <div id={styles.aboutFrame}>
         <div id={styles.group}>

@@ -24,6 +24,7 @@ const TrainFrame = () => {
           alt=''
           width={isMobile ? 95 : 178}
           height={isMobile ? 64 : 120}
+          loading='lazy'
         />
       </div>
       <div>
@@ -32,6 +33,7 @@ const TrainFrame = () => {
           alt=''
           width={isMobile ? 95 : 178}
           height={isMobile ? 64 : 120}
+          loading='lazy'
         />
       </div>
       <div>
@@ -40,6 +42,7 @@ const TrainFrame = () => {
           alt=''
           width={isMobile ? 95 : 178}
           height={isMobile ? 64 : 120}
+          loading='lazy'
         />
       </div>
       <div>
@@ -48,6 +51,7 @@ const TrainFrame = () => {
           alt=''
           width={isMobile ? 95 : 178}
           height={isMobile ? 64 : 120}
+          loading='lazy'
         />
       </div>
       <div>
@@ -56,6 +60,7 @@ const TrainFrame = () => {
           alt=''
           width={isMobile ? 95 : 178}
           height={isMobile ? 64 : 120}
+          loading='lazy'
         />
       </div>
       <div>
@@ -64,6 +69,7 @@ const TrainFrame = () => {
           alt=''
           width={isMobile ? 95 : 178}
           height={isMobile ? 64 : 120}
+          loading='lazy'
         />
       </div>
     </div>

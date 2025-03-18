@@ -96,3 +96,35 @@ export { default as aboutWhitePaper767 } from './about/img_about_whitePaper_767.
 export { default as aboutWhitePaper1024 } from './about/img_about_whitePaper_1024.svg';
 export { default as aboutWhitePaper1439 } from './about/img_about_whitePaper_1439.svg';
 export { default as aboutWhitePaperMax } from './about/img_about_whitePaper_max.svg';
+
+//tokenomics
+//SpaceAPT
+export { default as tokenmicsSpaceAPT767 } from './tokenomics/img_tokenomics_spaceAPT_767.svg';
+export { default as tokenmicsSpaceAPT1024 } from './tokenomics/img_tokenomics_spaceAPT_1024.svg';
+export { default as tokenmicsSpaceAPT1439 } from './tokenomics/img_tokenomics_spaceAPT_1439.svg';
+export { default as tokenmicsSpaceAPTMax } from './tokenomics/img_tokenomics_spaceAPT_Max.svg';
+//Supply
+export { default as tokenmicsTotalSupply767 } from './tokenomics/img_tokenomics_total_supply_767.svg';
+export { default as tokenmicsTotalSupply1024 } from './tokenomics/img_tokenomics_total_supply_1024.svg';
+export { default as tokenmicsTotalSupply1439 } from './tokenomics/img_tokenomics_total_supply_1439.svg';
+export { default as tokenmicsTotalSupplyMax } from './tokenomics/img_tokenomics_total_supply_Max.svg';
+//LP
+export { default as tokenmicsLP767 } from './tokenomics/img_tokenomics_lp_767.svg';
+export { default as tokenmicsLP1024 } from './tokenomics/img_tokenomics_lp_1024.svg';
+export { default as tokenmicsLP1439 } from './tokenomics/img_tokenomics_lp_1439.svg';
+export { default as tokenmicsLPMax } from './tokenomics/img_tokenomics_lp_Max.svg';
+//Burn
+export { default as tokenmicsBurn767 } from './tokenomics/img_tokenomics_burn_767.svg';
+export { default as tokenmicsBurn1024 } from './tokenomics/img_tokenomics_burn_1024.svg';
+export { default as tokenmicsBurn1439 } from './tokenomics/img_tokenomics_burn_1439.svg';
+export { default as tokenmicsBurnMax } from './tokenomics/img_tokenomics_burn_Max.svg';
+//Charity
+export { default as tokenmicsCharity767 } from './tokenomics/img_tokenomics_charity_767.svg';
+export { default as tokenmicsCharity1024 } from './tokenomics/img_tokenomics_charity_1024.svg';
+export { default as tokenmicsCharity1439 } from './tokenomics/img_tokenomics_charity_1439.svg';
+export { default as tokenmicsCharityMax } from './tokenomics/img_tokenomics_charity_Max.svg';
+//Marketing
+export { default as tokenmicsMarketing767 } from './tokenomics/img_tokenomics_marketing_767.svg';
+export { default as tokenmicsMarketing1024 } from './tokenomics/img_tokenomics_marketing_1024.svg';
+export { default as tokenmicsMarketing1439 } from './tokenomics/img_tokenomics_marketing_1439.svg';
+export { default as tokenmicsMarketingMax } from './tokenomics/img_tokenomics_marketing_Max.svg';

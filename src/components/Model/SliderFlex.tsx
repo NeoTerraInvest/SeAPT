@@ -38,7 +38,7 @@ const SliderFlex = ({
   num,
   styles = debugStyled,
 }: {
-  children: ReactNode;
+  children: ReactNode[];
   type?: 'single' | 'dobule' | 'singleSlider';
   num: number;
   styles?: DefaultStyled;
@@ -58,18 +58,19 @@ const SliderFlex = ({
       break;
 
     case 'dobule':
-      flex = new Array(num).fill(null).map((_, i) =>
-        i !== null ? (
-          i % 2 === 0 ? (
+      flex = children.reduce<ReactNode[]>((acc, child, i) => {
+        if (i % 2 === 0) {
+          acc.push(
             <div key={i} className={styles.container}>
-              <div className={styles.element}>{children}</div>
-              <div className={styles.element}>{children}</div>
-            </div>
-          ) : null
-        ) : (
-          <span className={styles.debug}>something is wrong</span>
-        ),
-      );
+              <div className={styles.element}>{child}</div>
+              {children[i + 1] && (
+                <div className={styles.element}>{children[i + 1]}</div>
+              )}
+            </div>,
+          );
+        }
+        return acc;
+      }, []);
       break;
 
     case 'singleSlider':
