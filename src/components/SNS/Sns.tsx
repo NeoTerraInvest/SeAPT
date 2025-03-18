@@ -37,19 +37,19 @@ const Sns = () => {
     string,
     { small: string; smallMedium: string; medium: string; large: string }
   > = {
-    x: {
+    0: {
       small: x480,
       smallMedium: x767,
       medium: x1024,
       large: x1439,
     },
-    telegram: {
+    1: {
       small: telegram480,
       smallMedium: telegram767,
       medium: telegram1024,
       large: telegram1439,
     },
-    youtube: {
+    2: {
       small: youtube480,
       smallMedium: youtube767,
       medium: youtube1024,
@@ -60,12 +60,10 @@ const Sns = () => {
   return (
     <div className={styles.debug}>
       {sns.data.map((el, index) => {
-        const lowerCaseTitle = el.title.toLowerCase();
-        console.log(lowerCaseTitle);
         return (
           <SnsFrame
             key={index}
-            image={imageMap[`${el.title.toLowerCase()}`]}
+            image={imageMap[`${el.id}`]}
             title={el.title}
             description={el.description}
             state={isDescription}

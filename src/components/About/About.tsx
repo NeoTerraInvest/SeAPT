@@ -58,73 +58,67 @@ const About = () => {
     string,
     { small: string; smallMedium: string; medium: string; large: string }
   > = {
-    taptoearn: {
+    0: {
       small: aboutTapToEarn480,
       smallMedium: aboutTapToEarn767,
       medium: aboutTapToEarn1024,
       large: aboutTapToEarn1439,
     },
-    swap: {
+    1: {
       small: aboutSWAP480,
       smallMedium: aboutSWAP767,
       medium: aboutSWAP1024,
       large: aboutSWAP1439,
     },
-    cryptocard: {
+    2: {
       small: aboutCryptoCard480,
       smallMedium: aboutCryptoCard767,
       medium: aboutCryptoCard1024,
       large: aboutCryptoCard1439,
     },
-    nft: {
+    3: {
       small: aboutNFT480,
       smallMedium: aboutNFT767,
       medium: aboutNFT1024,
       large: aboutNFT1439,
     },
-    whitepaper: {
+    4: {
       small: aboutWhitePaper480,
       smallMedium: aboutWhitePaper767,
       medium: aboutWhitePaper1024,
       large: aboutWhitePaper1439,
     },
-    luckytoearn: {
+    5: {
       small: aboutLuckyToEarn480,
       smallMedium: aboutLuckyToEarn767,
       medium: aboutLuckyToEarn1024,
       large: aboutLuckyToEarn1439,
     },
-    market: {
+    6: {
       small: aboutMarket480,
       smallMedium: aboutMarket767,
       medium: aboutMarket1024,
       large: aboutMarket1439,
     },
-    invest: {
+    7: {
       small: aboutInvest480,
       smallMedium: aboutInvest767,
       medium: aboutInvest1024,
       large: aboutInvest1439,
     },
-    charity: {
+    8: {
       small: aboutCharity480,
       smallMedium: aboutCharity767,
       medium: aboutCharity1024,
       large: aboutCharity1439,
     },
   };
-  const formatTitle = (title: string) =>
-    title.toLowerCase().replace(/\s+/g, '');
+
   return (
     <SliderFlex num={about.data.length} styles={styles} type='singleSlider'>
       {about.data.map((el, index) => {
-        const dynamicSrc = formatTitle(el.title);
         return (
-          <AboutFrame
-            key={index}
-            image={contentMap[dynamicSrc]}
-            title={el.title}
-          />
+          <AboutFrame key={index} image={contentMap[el.id]} title={el.title} />
         );
       })}
     </SliderFlex>
