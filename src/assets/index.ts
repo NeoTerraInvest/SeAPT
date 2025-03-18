@@ -67,7 +67,32 @@ export { default as aboutMarket1024 } from './about/img_about_market_1024.svg';
 export { default as aboutMarket1439 } from './about/img_about_market_1439.svg';
 export { default as aboutMarketMax } from './about/img_about_market_max.svg';
 //NFT
-
+export { default as aboutNFT480 } from './about/img_about_NFT_480.svg';
+export { default as aboutNFT767 } from './about/img_about_NFT_767.svg';
+export { default as aboutNFT1024 } from './about/img_about_NFT_1024.svg';
+export { default as aboutNFT1439 } from './about/img_about_NFT_1439.svg';
+export { default as aboutNFTMax } from './about/img_about_NFT_max.svg';
 //SWAP
-
+export { default as aboutSWAP480 } from './about/img_about_SWAP_480.svg';
+export { default as aboutSWAP767 } from './about/img_about_SWAP_767.svg';
+export { default as aboutSWAP1024 } from './about/img_about_SWAP_1024.svg';
+export { default as aboutSWAP1439 } from './about/img_about_SWAP_1439.svg';
+export { default as aboutSWAPMax } from './about/img_about_SWAP_max.svg';
 //TapToEarn
+export { default as aboutTapToEarn480 } from './about/img_about_tapToEarn_480.svg';
+export { default as aboutTapToEarn767 } from './about/img_about_tapToEarn_767.svg';
+export { default as aboutTapToEarn1024 } from './about/img_about_tapToEarn_1024.svg';
+export { default as aboutTapToEarn1439 } from './about/img_about_tapToEarn_1439.svg';
+export { default as aboutTapToEarnMax } from './about/img_about_tapToEarn_max.svg';
+//TapToEarn
+export { default as aboutLuckyToEarn480 } from './about/img_about_luckyToEarn_480.svg';
+export { default as aboutLuckyToEarn767 } from './about/img_about_luckyToEarn_767.svg';
+export { default as aboutLuckyToEarn1024 } from './about/img_about_luckyToEarn_1024.svg';
+export { default as aboutLuckyToEarn1439 } from './about/img_about_luckyToEarn_1439.svg';
+export { default as aboutLuckyToEarnMax } from './about/img_about_luckyToEarn_max.svg';
+//White Paper
+export { default as aboutWhitePaper480 } from './about/img_about_whitePaper_480.svg';
+export { default as aboutWhitePaper767 } from './about/img_about_whitePaper_767.svg';
+export { default as aboutWhitePaper1024 } from './about/img_about_whitePaper_1024.svg';
+export { default as aboutWhitePaper1439 } from './about/img_about_whitePaper_1439.svg';
+export { default as aboutWhitePaperMax } from './about/img_about_whitePaper_max.svg';
