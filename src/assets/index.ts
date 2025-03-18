@@ -5,6 +5,7 @@ export { default as headerLogoMobile } from './header-logo-86-48.svg';
 export { default as hambuger } from './hambuger.svg';
 
 //global
+// replace
 export { default as mainCharcter1919 } from './global/1919/img_main_charcter.svg';
 export { default as mainBackground } from './global/img_main_background.svg';
 

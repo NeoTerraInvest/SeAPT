@@ -1,11 +1,14 @@
 import { show as styles } from '@styles';
 import { mainBackground, mainCharcter1919 } from '@/assets';
+import { useTrackingView } from '../Model';
 
 const Show = () => {
+  const isMobile = useTrackingView({ size: 767 });
   return (
     <div id={styles.debug}>
       <div id={styles.background}>
         <img src={mainBackground} alt='' />
+        <img src='' alt='' />
       </div>
       <div id={styles.container}>
         <div id={styles.layout}>
@@ -29,9 +32,16 @@ const Show = () => {
             <button>Explore</button>
           </div>
         </div>
-        <img id={styles.outer} src={mainCharcter1919} width={468} height={664}>
-          {/* <div id={styles.outerimage} /> */}
-        </img>
+        {!isMobile ? (
+          <img
+            id={styles.outer}
+            src={mainCharcter1919}
+            width={468}
+            height={664}
+            loading='lazy'
+          />
+        ) : null}
+        {/* <div id={styles.outerimage} /> */}
       </div>
     </div>
   );
