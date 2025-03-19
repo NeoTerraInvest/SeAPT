@@ -3,7 +3,6 @@
 .debug, .container, .element{
     display: flex;
     width: 100%;
-    // max-width: 767px;
 }
 
 .debug{
@@ -33,9 +32,7 @@
     }
 
     .element{
-        // width: 39.25rem;
         @include dynamic_display(481px, 767px){
-            // justify-content: center;
             width: 21.5rem;
             height: 373px;
         }
@@ -49,12 +46,10 @@
         @include dynamic_display(481px, 767px){
             margin-right:0;
             margin-bottom: 20px;
-            // all: unset;
         }
         @include dynamic_display(340px, 480px){
             margin-right:0;
             margin-bottom: 10px;
-            // all: unset;
         }
     }
 }

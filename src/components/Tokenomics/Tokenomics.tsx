@@ -78,7 +78,7 @@ const Tokenomics = () => {
   };
 
   return (
-    <div style={{ display: 'flex', backgroundColor: 'tomato' }}>
+    <div>
       <SliderFlex
         num={tokenomics.data.length}
         styles={styles}
