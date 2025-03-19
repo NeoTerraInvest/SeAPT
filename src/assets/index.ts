@@ -8,6 +8,9 @@ export { default as hambuger } from './hambuger.svg';
 // replace
 export { default as mainCharcter1919 } from './global/1919/img_main_charcter.svg';
 export { default as mainBackground } from './global/img_main_background.svg';
+export { default as mainCharcter767 } from './global/img_main_charcter_767.svg';
+export { default as mainCharcter1024 } from './global/img_main_charcter_1024.svg';
+export { default as mainCharcter1439 } from './global/img_main_charcter_1439.svg';
 
 //train
 export { default as binance } from './train/binance.svg';
