@@ -37,9 +37,9 @@ const Main = () => {
         <SNS />
       </MarginLayout>
       <div style={{ padding: '30px' }} />
-      <MarginLayout>
-        <Train />
-      </MarginLayout>
+      {/* <MarginLayout> */}
+      <Train />
+      {/* </MarginLayout> */}
       <div style={{ padding: '30px' }} />
     </BaseLayout>
   );

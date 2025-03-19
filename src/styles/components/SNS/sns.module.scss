@@ -4,8 +4,12 @@
     min-width: 360px;
     width: 100%;
     display: flex;
+    justify-content: center;
     gap: 24px;
     @include dynamic_single_display(767px){
         gap: 16px;
     }
+    // @include dynamic_single_display(480px){
+    //     gap: 8px;
+    // }
 }

@@ -78,24 +78,26 @@ const Tokenomics = () => {
   };
 
   return (
-    <SliderFlex
-      num={tokenomics.data.length}
-      styles={styles}
-      type={isMobile ? 'singleSlider' : 'dobule'}
-    >
-      {tokenomics.data.map((el, index) => {
-        return (
-          <TokenFrame
-            key={index}
-            title={el.title}
-            image={contentMap[el.id]}
-            price={el.price}
-            description={el.description.eng}
-          />
-        );
-      })}
-      {/* <TokenFrame /> */}
-    </SliderFlex>
+    <div style={{ display: 'flex', backgroundColor: 'tomato' }}>
+      <SliderFlex
+        num={tokenomics.data.length}
+        styles={styles}
+        type={isMobile ? 'singleSlider' : 'dobule'}
+      >
+        {tokenomics.data.map((el, index) => {
+          return (
+            <TokenFrame
+              key={index}
+              title={el.title}
+              image={contentMap[el.id]}
+              price={el.price}
+              description={el.description.eng}
+            />
+          );
+        })}
+        {/* <TokenFrame /> */}
+      </SliderFlex>
+    </div>
   );
 };
 

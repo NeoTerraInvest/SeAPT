@@ -18,7 +18,7 @@ const TokenFrame = ({
           <source srcSet={image.small} media='(max-width: 767px)' />
           <source srcSet={image.smallMedium} media='(max-width: 1024px)' />
           <source srcSet={image.medium} media='(max-width: 1439px)' />
-          <img src={image.large} alt='TokenFrame' loading='lazy' />
+          <img src={image.medium} alt='TokenFrame' loading='lazy' />
         </picture>
       </div>
       <div id={styles.container}>
