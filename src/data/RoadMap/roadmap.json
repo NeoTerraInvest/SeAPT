@@ -1,0 +1,40 @@
+{
+    "data":[
+        {
+            "id":"0",
+            "phase":"Phase 1",
+            "date": "2025. 01",
+            "title":"Tap to Earn",
+            "description":{
+                "eng":"Phase 1, introduces a Tap to Earn system, where users can earn rewards through simple tapping actions. This encourages user engagement and helps them familiarize themselves with the platform. The focus of this phase is on attracting users and building an initial community."
+            }
+        },
+        {
+            "id":"1",
+            "phase":"Phase 2",
+            "date": "2025. 06",
+            "title":"Listing on a Top Exchange",
+            "description":{
+                "eng":"In Phase 2, the project aims to list on a top exchange to enhance credibility and value. This listing will provide liquidity and attract more investors and traders. Getting listed on a well-known exchange is a crucial step in the project's growth and expansion."
+            }
+        },
+        {
+            "id":"2",
+            "phase":"Phase 3",
+            "date": "2025. 12",
+            "title":"Achievement of 100,000 Users",
+            "description":{
+                "eng":"Phase 3, focuses on reaching 100,000 users through strategic marketing, partnerships, and community building. The project will also strive to list on one of the top 5 global exchanges to increase accessibility and enhance token credibility."
+            }
+        },
+        {
+            "id":"3",
+            "phase":"Phase 4",
+            "date": "2026",
+            "title":"Listed on Binance",
+            "description":{
+                "eng":"The final goal is getting listed on Binance, one of the largest exchanges in the world. A Binance listing will significantly boost the project's credibility and value. This milestone will expand the global user base and mark a crucial turning point for long-term success."
+            }
+        }
+    ]
+}

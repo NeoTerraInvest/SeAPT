@@ -2,7 +2,13 @@ import Slider from 'react-slick';
 import '@__styles/slick.scss';
 import '@__styles/slick-theme.scss';
 import { ReactNode } from 'react';
-const initSlider = ({ children }: { children: ReactNode }) => {
+const initSlider = ({
+  children,
+  // num,
+}: {
+  children: ReactNode;
+  // num: number;
+}) => {
   //config slick
   const settings = {
     dots: false,
@@ -71,20 +77,8 @@ const initSlider = ({ children }: { children: ReactNode }) => {
     ],
   };
   return (
-    <div
-      id='slick-customization'
-      // style={{
-      //   backgroundColor: 'black',
-      //   width: '100%',
-      //   maxWidth: '767px',
-      //   // margin: '0 auto',
-      // }}
-    >
-      <Slider {...settings}>
-        {[...new Array(9)].map((_, i) => (
-          <div key={i}>{children}</div>
-        ))}
-      </Slider>
+    <div id='slick-customization'>
+      <Slider {...settings}>{children}</Slider>
     </div>
   );
 };

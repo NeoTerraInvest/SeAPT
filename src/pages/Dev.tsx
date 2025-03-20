@@ -7,7 +7,7 @@ import {
   RoadMap,
   TrainFrame,
   Train,
-  SnsFrame,
+  // SnsFrame,
   SNS,
 } from '@components';
 import styles from '@__styles/main.module.scss';
@@ -41,7 +41,7 @@ const Dev = () => {
       <div style={{ padding: '30px' }}></div>
       <Train />
       <div style={{ padding: '30px' }}></div>
-      <SnsFrame />
+      {/* <SnsFrame /> */}
       <div style={{ padding: '30px' }}></div>
       <SNS />
       <footer style={{ padding: '30px' }}></footer>

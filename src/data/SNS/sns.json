@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+            "id":"0",
+            "title": "X",
+            "description": "You can get the latest news on X"
+        },
+        {
+            "id":"1",
+            "title": "Telegram",
+            "description": "Join Telegram for updates"
+        },
+        {
+            "id":"2",
+            "title": "YouTube",
+            "description": "Our entertaining videos are here"
+        }
+    ]
+}

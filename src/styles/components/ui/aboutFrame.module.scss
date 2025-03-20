@@ -16,13 +16,17 @@
 }
 
 #debug{
-    background-color: tomato;
+    position: relative;
+    // background-color: tomato;
     width: 100%;
     height: 570px;
     max-width: 456px;
     max-height: 570px;
     min-width: 256px;
     // min-height: 320px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     @include dynamic_display(1025px, 1439px){
         // width: 400px;
@@ -39,6 +43,23 @@
     @include dynamic_display(340px, 480px){
         // width: 256px;
         height: 320px;
+    }
+    .picture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     #aboutFrame{

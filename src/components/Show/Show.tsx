@@ -1,13 +1,33 @@
 import { show as styles } from '@styles';
-import { mainBackground, mainCharcter1919 } from '@/assets';
+import {
+  // mainCharcter1439,
+  mainCharcter1919,
+  // mainCharcter1024,
+  mainCharcter767,
+} from '@assets';
+import { useTrackingView } from '@model';
 
 const Show = () => {
+  const isMobile767 = useTrackingView({ size: 900 });
+  const isMobile880 = useTrackingView({ size: 880 });
+  const isMobile340 = useTrackingView({ size: 340 });
   return (
     <div id={styles.debug}>
-      <div id={styles.background}>
-        <img src={mainBackground} alt='' />
-      </div>
+      {/* <div id={styles.background}>
+        {isMobile767 || isMobile340 ? (
+          <div id={styles.charcter}>
+            <img src={mainCharcter767} alt='' loading='lazy' />
+          </div>
+        ) : null}
+      </div> */}
       <div id={styles.container}>
+        <div id={styles.background}>
+          {isMobile767 || isMobile340 ? (
+            <div id={styles.charcter}>
+              <img src={mainCharcter767} alt='' loading='lazy' />
+            </div>
+          ) : null}
+        </div>
         <div id={styles.layout}>
           <div id={styles.show}>
             <div id={styles.group}>
@@ -22,16 +42,19 @@ const Show = () => {
                 countless treasures (coins). Those treasures (coins) will turn
                 me into a billionaire!
               </div>
-              {/* <div id={styles.inner}>
-                <div id={styles.innerimage} />
-              </div> */}
             </div>
             <button>Explore</button>
           </div>
         </div>
-        <img id={styles.outer} src={mainCharcter1919} width={468} height={664}>
-          {/* <div id={styles.outerimage} /> */}
-        </img>
+        <div className={styles.image}>
+          {!isMobile767 ? (
+            <img
+              id={styles.outer}
+              src={!isMobile880 ? mainCharcter1919 : mainCharcter767}
+              loading='lazy'
+            />
+          ) : null}
+        </div>
       </div>
     </div>
   );
