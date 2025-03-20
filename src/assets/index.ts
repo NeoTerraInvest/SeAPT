@@ -132,3 +132,17 @@ export { default as tokenmicsMarketing767 } from './tokenomics/img_tokenomics_ma
 export { default as tokenmicsMarketing1024 } from './tokenomics/img_tokenomics_marketing_1024.svg';
 export { default as tokenmicsMarketing1439 } from './tokenomics/img_tokenomics_marketing_1439.svg';
 export { default as tokenmicsMarketingMax } from './tokenomics/img_tokenomics_marketing_Max.svg';
+
+//roadmap
+//achivement
+export { default as roadMapAchivementLg } from './roadmap/img_Roadmap_achivement_lg.svg';
+export { default as roadMapAchivementSm } from './roadmap/img_Roadmap_achivement_sm.svg';
+//binace
+export { default as roadMapBinanceLg } from './roadmap/img_Roadmap_binance_lg.svg';
+export { default as roadMapBinanceSm } from './roadmap/img_Roadmap_binance_sm.svg';
+//listing
+export { default as roadMapListingLg } from './roadmap/img_Roadmap_listing_on_lg.svg';
+export { default as roadMapListingSm } from './roadmap/img_Roadmap_listing_on_sm.svg';
+//taptoearn
+export { default as roadMapTapToEarnLg } from './roadmap/img_Roadmap_taptoearn_lg.svg';
+export { default as roadMapTapToEarnSm } from './roadmap/img_Roadmap_taptoearn_sm.svg';

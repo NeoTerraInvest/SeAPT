@@ -7,14 +7,19 @@
     width: 100%;
     height: 100vh;
     max-height: 400px;
-    background-color: var(--dark-background);
+    // background-color: var(--dark-background);
+
     @include dynamic_display(481px, 767px){
+        border-top-left-radius: var(--radius-size);
+        border-top-right-radius: var(--radius-size);
         flex-direction: column;
-        max-height: 555px;
+        max-height: 550px;
     }
     @include dynamic_display(340px, 480px){
+        border-top-left-radius: var(--radius-size);
+        border-top-right-radius: var(--radius-size);
         flex-direction: column;
-        max-height: 510px;
+        max-height: 450px;
     }
 }
 
@@ -24,16 +29,36 @@
     height: 100%;
 }
 #imgCol, #imgRow{
-    border-radius: var(--radius-size);
+    // border-radius: var(--radius-size);
+    width: 100%;
+    max-width: 100%;
+    picture{
+        display: flex;
+        width: 100%;
+        height: auto;
+        img {
+            width: 100%; 
+            height: auto;
+            object-fit: cover;
+            border-radius: var(--radius-size);
+            @include dynamic_display(340px, 767px){
+                border-top-left-radius: var(--radius-size);
+                border-top-right-radius: var(--radius-size);
+            }
+        }
+    }
 }
 #debug{
+    // max-height: 400px;
+    width: 100%;
+    // height: auto;
     gap: 33px;
     background-color: var(--dark-background);
     @include dynamic_display(340px, 767px){
         gap: 0;
     }
     #imgCol{
-        background-color: aqua;
+        // background-color: aqua;
         @include dynamic_display(340px, 767px){
             max-height: 320px;
         }
@@ -44,11 +69,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        // height: 1500px;
+        // align-items: stretch;
+        padding: 17px 8px 0px 8px;
         @include body-sm-1919;
         // max-width: ;
         @include dynamic_display(340px, 767px){
             justify-content: flex-start;
-            max-height: 219px;
+            // max-height: 219px;
         }
         @include dynamic_display(1025px, 1439px){
             @include body-sm-1439;
@@ -58,9 +86,11 @@
         }
         @include dynamic_display(481px, 767px){
             @include body-sm-767;
+            // padding: 17px 8px 0px 8px;
         }
         @include dynamic_display(340px, 480px){
             @include body-sm-480;
+            // padding: 17px 8px 0px 8px;
         }
         #date{
             width: 130px;
@@ -113,12 +143,21 @@
                 @include body-lg-480;
             }
         }
-        // #content{
-        //     @include body-sm-1919
-        // }
+        #content{
+            @include dynamic_display(1025px, 1439px){
+            }
+            @include dynamic_display(768px, 1024px){
+            }
+            @include dynamic_display(481px, 767px){
+                height: 115px;
+            }
+            @include dynamic_display(340px, 480px){
+                // height: 115px;
+            }
+        }
     }
     #imgRow{
-        background-color: goldenrod;
+        // background-color: goldenrod;
         @include dynamic_display(340px, 767px){
             max-height: 320px;
         }

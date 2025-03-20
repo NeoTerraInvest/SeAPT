@@ -5,7 +5,6 @@ import {
   BaseLayout,
   About,
   RoadMap,
-  RoadMapFrame,
   Train,
   SNS,
 } from '@components';
@@ -21,9 +20,7 @@ const Main = () => {
         <Show />
       </MarginLayout>
       <MarginLayout>
-        <RoadMap num={9}>
-          <RoadMapFrame />
-        </RoadMap>
+        <RoadMap />
       </MarginLayout>
       <MarginLayout auto={!isAbout}>
         <About />

@@ -1,8 +1,20 @@
-import { ReactNode, useRef } from 'react';
+import { useRef } from 'react';
 import { roadMap as styles } from '@styles';
 import { useTrackingView } from '@model';
+import { roadmap } from '@/data';
+import { RoadMapFrame } from '@components';
+import {
+  roadMapAchivementLg,
+  roadMapBinanceLg,
+  roadMapListingLg,
+  roadMapTapToEarnLg,
+  roadMapAchivementSm,
+  roadMapBinanceSm,
+  roadMapListingSm,
+  roadMapTapToEarnSm,
+} from '@assets';
 
-const RoadMap = ({ children, num }: { children: ReactNode; num: number }) => {
+const RoadMap = () => {
   const effectRef = useRef<HTMLDivElement>(null);
 
   const handleInMouse = () => {
@@ -19,6 +31,26 @@ const RoadMap = ({ children, num }: { children: ReactNode; num: number }) => {
     }
   };
   const isMobile = useTrackingView({ size: 767 });
+
+  const contentMap: Record<string, { smallMedium: string; large: string }> = {
+    0: {
+      smallMedium: roadMapTapToEarnSm,
+      large: roadMapTapToEarnLg,
+    },
+    1: {
+      smallMedium: roadMapListingSm,
+      large: roadMapListingLg,
+    },
+    2: {
+      smallMedium: roadMapAchivementSm,
+      large: roadMapAchivementLg,
+    },
+    3: {
+      smallMedium: roadMapBinanceSm,
+      large: roadMapBinanceLg,
+    },
+  };
+
   return (
     <div ref={effectRef} className={styles.debug}>
       <div
@@ -38,10 +70,16 @@ const RoadMap = ({ children, num }: { children: ReactNode; num: number }) => {
           />
         )}
         <div className={styles.container}>
-          {new Array(num).fill(null).map((_, i) => {
+          {roadmap.data.map((el, index) => {
             return (
-              <div key={i} id={styles.contents}>
-                {children}
+              <div key={index} id={styles.contents}>
+                <RoadMapFrame
+                  phase={el.phase}
+                  date={el.date}
+                  title={el.title}
+                  description={el.description.eng}
+                  image={contentMap[el.id]}
+                />
               </div>
             );
           })}
