@@ -30,7 +30,7 @@
     // height: auto;
     border-radius: var(--radius-size);
     @include dynamic_display(340px, 480px){
-        max-width: 100px;
+        max-width: 110px;
         min-width: 30px;
         // width: 100%;
     }
