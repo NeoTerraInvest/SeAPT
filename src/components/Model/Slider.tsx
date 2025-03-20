@@ -57,14 +57,14 @@ const initSlider = ({
         breakpoint: 680,
         settings: {
           slidesToShow: 1.7,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1.4,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         },
       },
       {

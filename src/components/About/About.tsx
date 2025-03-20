@@ -118,7 +118,13 @@ const About = () => {
     <SliderFlex num={about.data.length} styles={styles} type='singleSlider'>
       {about.data.map((el, index) => {
         return (
-          <AboutFrame key={index} image={contentMap[el.id]} title={el.title} />
+          <AboutFrame
+            key={index}
+            id={el.id}
+            image={contentMap[el.id]}
+            title={el.title}
+            description={el.description}
+          />
         );
       })}
     </SliderFlex>
