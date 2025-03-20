@@ -9,7 +9,9 @@
     @include dynamic_single_display(767px){
         gap: 16px;
     }
-    // @include dynamic_single_display(480px){
-    //     gap: 8px;
-    // }
+    @include dynamic_display(340px, 480px){
+        min-width: 300px;
+        justify-content: space-between;
+        gap: 0px;
+    }
 }
