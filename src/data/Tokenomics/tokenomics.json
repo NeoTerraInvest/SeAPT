@@ -2,10 +2,10 @@
     "data":[
         {
             "id":"0",
-            "title":"Space APT",
-            "price":"SeAPT",
+            "title":"Token : Space APT",
+            "price":"Symbol : SeAPT",
             "description":{
-                "eng":"Standard: BEP20\nBlockchain: BSC"
+                "eng":"Standard: BEP20\nBlockchain: BSC\nDecimals: 18 Total"
             }
         },
         {
