@@ -150,3 +150,7 @@ export { default as roadMapTapToEarnSm } from './roadmap/img_Roadmap_taptoearn_s
 //whitepaper
 export { default as whitepaperLg } from './whitepaper/img_whitepaper_lg.svg';
 export { default as whitepaperSm } from './whitepaper/img_whitepaper_sm.svg';
+
+//univers
+export { default as universLg } from './univers/img_univers_lg.svg';
+export { default as universSm } from './univers/img_univers_sm.svg';

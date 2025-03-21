@@ -13,6 +13,7 @@ export { default as train } from './components/Train/train.module.scss';
 export { default as error } from './components/BaseLayout/error.module.scss';
 export { default as sns } from './components/SNS/sns.module.scss';
 export { default as whitepaper } from './components/WhitePaper/whitepaper.module.scss';
+export { default as univers } from './components/Univers/univers.module.scss';
 //ui
 export { default as aboutFrame } from './components/ui/aboutFrame.module.scss';
 export { default as tokenFrame } from './components/ui/tokenFrame.module.scss';

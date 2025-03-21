@@ -1,5 +1,6 @@
-import { whitepaperLg, whitepaperSm } from '@/assets';
+import { whitepaperLg, whitepaperSm } from '@assets';
 import { whitepaper as styles } from '@styles';
+
 const WhitePaper = () => {
   return (
     <div className={styles.debug}>
