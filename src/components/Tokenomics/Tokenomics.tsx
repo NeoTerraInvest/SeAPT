@@ -91,7 +91,12 @@ const Tokenomics = () => {
               title={el.title}
               image={contentMap[el.id]}
               price={el.price}
-              description={el.description.eng}
+              description={el.description.eng.split('\n').map((line, idx) => (
+                <span key={idx}>
+                  {line}
+                  <br />
+                </span>
+              ))}
             />
           );
         })}

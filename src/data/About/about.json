@@ -3,22 +3,22 @@
         {
             "id":"0",
             "title":"Tap to Earn",
-            "description":""
+            "description":"Tap to Earn lets users earn rewards by completing tasks on digital platforms, offering seamless experiences and transforming digital revenue generation."
         },
         {
             "id":"1",
             "title":"Swap",
-            "description":""
+            "description":"Swap is a concept in the digital economy that enables asset exchanges. Through this, users can trade specific assets on platforms, creating tangible value. This swap model leverages the integration of digital economy and blockchain technology, revolutionizing asset trading methods."
         },
         {
             "id":"2",
             "title":"Crypto Card",
-            "description":""
+            "description":"Crypto Card connects digital assets to the physical economy, enabling cryptocurrency-to-fiat conversions for everyday purchases. It offers convenience and expands cryptocurrency use cases."
         },
         {
             "id":"3",
             "title":"NFT",
-            "description":""
+            "description":"We offer Crypto Property NFTs that. guarantee ownership of unique digital assets, combining real-world value with digital innovation. these NFis provide an unprecedented opportunity. to bridge tangible value and cutting-edge technology, redefining the concept of ownership in the digital age."
         },
         {
             "id":"4",
@@ -28,22 +28,22 @@
         {
             "id":"5",
             "title":"Lucky to Earn",
-            "description":""
+            "description":"Lucky to Earn is a model designed to reward users for their participation in digital platforms. Users can earn rewards by performing specific tasks  or by engaging in events with an element of luck. This model not only offers an enjoyable user experience but also transforms the digital economy by providing tangible benefits to users."
         },
         {
             "id":"6",
-            "title":"Market",
-            "description":""
+            "title":"Trading",
+            "description":"Trading lets users buy and sell assets on digital platforms to earn profits or manage portfolios. It uses real-time data and tools, revolutionizing asset management in the digital economy. "
         },
         {
             "id":"7",
             "title":"Invest",
-            "description":""
+            "description":"Invest involves committing funds to grow assets or earn profits. It targets various options like stocks, real estate, or cryptocurrencies, relying on market analysis and risk assessment."
         },
         {
             "id":"8",
             "title":"Charity",
-            "description":""
+            "description":"Charity supports those in need and tackles social issues through nonprofit efforts like donations and volunteering."
         }
     ]
 }

@@ -1,4 +1,5 @@
 import { tokenFrame as styles } from '@/styles';
+import { ReactNode } from 'react';
 
 const TokenFrame = ({
   title,
@@ -9,7 +10,7 @@ const TokenFrame = ({
   title: string;
   image: { small: string; smallMedium: string; medium: string; large: string };
   price: string;
-  description: string;
+  description: ReactNode;
 }) => {
   return (
     <div id={styles.debug}>
