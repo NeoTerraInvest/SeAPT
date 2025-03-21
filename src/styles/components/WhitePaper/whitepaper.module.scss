@@ -5,13 +5,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 558px;
+    width: 100%; 
     max-width: 1280px;
-    @include dynamic_single_display(480px){
-        // border: 3px solid cyan;
-        max-width: 448px;
-    }
     .image{
         .picture{
             img{
@@ -20,6 +15,9 @@
                 width: 100%;
                 height: 558px;
                 border-radius: var(--radius-size);
+                @include dynamic_single_display(480px){
+                    max-width: 448px;
+                }
             }
         }
     }
@@ -78,10 +76,10 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
+                height: 100%;  
                 @include dynamic_single_display(1025px){
                     align-items: center;
                 }
-                height: 100%;  
                 #btn{
                     display: flex;
                     justify-content: center;

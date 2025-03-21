@@ -1,4 +1,4 @@
-import { WhitePaper } from '@components';
+import { WhitePaper, Univers } from '@components';
 import styles from '@__styles/main.module.scss';
 
 const Dev = () => {
@@ -8,6 +8,8 @@ const Dev = () => {
       <span>UI Desing System</span>
       <div style={{ padding: '30px' }}></div>
       <WhitePaper />
+      <div style={{ padding: '30px' }}></div>
+      <Univers />
       <footer style={{ padding: '30px' }}></footer>
     </div>
   );
