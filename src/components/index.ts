@@ -12,6 +12,7 @@ export { default as RoadMap } from './RoadMap/RoadMap';
 export { default as Train } from './Train/Train';
 export { default as Error } from './BaseLayout/Error';
 export { default as SNS } from './SNS/Sns';
+export { default as WhitePaper } from './WhitePaper';
 //ui
 export { default as AboutFrame } from './ui/AboutFrame';
 export { default as TokenFrame } from './ui/TokenFrame';

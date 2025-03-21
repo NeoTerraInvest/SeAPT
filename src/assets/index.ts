@@ -146,3 +146,7 @@ export { default as roadMapListingSm } from './roadmap/img_Roadmap_listing_on_sm
 //taptoearn
 export { default as roadMapTapToEarnLg } from './roadmap/img_Roadmap_taptoearn_lg.svg';
 export { default as roadMapTapToEarnSm } from './roadmap/img_Roadmap_taptoearn_sm.svg';
+
+//whitepaper
+export { default as whitepaperLg } from './whitepaper/img_whitepaper_lg.svg';
+export { default as whitepaperSm } from './whitepaper/img_whitepaper_sm.svg';
