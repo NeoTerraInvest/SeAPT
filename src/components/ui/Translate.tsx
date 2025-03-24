@@ -38,18 +38,15 @@ const Translate = () => {
           <ul className={styles.menu}>
             {translate.data.map((el) => (
               <li
+                key={el.key}
                 className={styles.element}
                 onClick={() => {
                   setLanguage(el.key);
                   setFlag(el.image);
+                  dispatch(setTranslate(el.key));
                 }}
               >
-                <div
-                  className={styles.group}
-                  onClick={() => {
-                    dispatch(setTranslate(el.key));
-                  }}
-                >
+                <div className={styles.group}>
                   <img src={el.image} alt={el.key} width={26} height={14} />
                   <span id={styles.text}>{el.key}</span>
                 </div>

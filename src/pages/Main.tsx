@@ -12,10 +12,18 @@ import {
 } from '@components';
 import { useTrackingView } from '@model';
 import { main as styles } from '@styles';
+import { RootState } from '@/store';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const Main = () => {
   const isAbout = useTrackingView({ size: 1439 });
   const isToken = useTrackingView({ size: 768 });
+  const language = useSelector((state: RootState) => state.translate.language);
+
+  useEffect(() => {
+    console.log(language);
+  }, [language]);
 
   return (
     <BaseLayout>
