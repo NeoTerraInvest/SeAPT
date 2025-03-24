@@ -1,17 +1,23 @@
 @use '../../mediaQuery' as *;
 
-#debug, #container{
+#debug, #group{
     display: flex;
     align-items: center;
+    overflow: visible;
 }
 
 #debug{
-    // width: 31.94rem;
     //always, debug should have a width of 100%
     width: 100%;
     justify-content: center;
     margin: 32px 0 40px 0;
-    #container{
+    #container{ 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1062px;
+        width: 100%;
+       #group{
         background-color: var(--dark-background);
         width: 51.94rem;
         justify-content: space-between;
@@ -40,5 +46,6 @@
             cursor: pointer;
         }
         
+        }
     }
 }

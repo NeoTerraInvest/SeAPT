@@ -19,6 +19,7 @@ export { default as tokenFrame } from './components/ui/tokenFrame.module.scss';
 export { default as roadMapFrame } from './components/ui/roadMapFrame.module.scss';
 export { default as TrainFrame } from './components/ui/trainFrame.module.scss';
 export { default as snsFrame } from './components/ui/snsFrame.module.scss';
+export { default as translate } from './components/ui/translate.module.scss';
 
 //pages
 export { default as main } from './pages/main.module.scss';
