@@ -1,23 +1,27 @@
+@use '../font' as *;
+.roadmapMargin, .aboutMargin, .tokenomicsMargin, .snsMargin, .whitepaperMargin, .trainMargin, .universeMargin{
+    @include heading2-1439;
+}
 .roadmapMargin{
-    background-color: aqua;
+    // background-color: aqua;
     margin-top: 40px;
     margin-bottom: 32px;
 }
 
 .aboutMargin{
-    background-color: darkcyan;
+    // background-color: darkcyan;
     margin-top: 28px;
     margin-bottom: 40px;
 }
 
 .tokenomicsMargin{
-    background-color: salmon;
+    // background-color: salmon;
     margin-top: 80px;
     margin-bottom: 40px;
 }
 
 .snsMargin{
-    background-color: forestgreen;
+    // background-color: forestgreen;
     margin-top: 40px;
     margin-bottom: 40px;
 }
@@ -28,14 +32,18 @@
 }
 
 .trainMargin{
-    background-color: slateblue;
+    // background-color: slateblue;
     margin-top: 40px;
 }
 
 .universeMargin{
-    background-color: indigo;
+    // background-color: indigo;
     margin: 240px 0;
     #universeMargin{
+        @include heading1-1919;
+        display: flex;
+        flex-direction: column;
         margin-bottom: 88px;
+        text-align: center;
     }
 }

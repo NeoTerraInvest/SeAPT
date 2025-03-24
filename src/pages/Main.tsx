@@ -48,7 +48,10 @@ const Main = () => {
       </div>
       <MarginLayout>
         <div className={styles.universeMargin}>
-          <h1 id={styles.universeMargin}>Own the universe with SeAPT</h1>
+          <h1 id={styles.universeMargin}>
+            <span>Own the universe</span>
+            <span>with SeAPT</span>
+          </h1>
           <Universe />
         </div>
       </MarginLayout>
