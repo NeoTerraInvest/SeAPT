@@ -1,0 +1,15 @@
+@use '../../font' as *;
+
+.debug{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    #element{
+        @include body-md-767;
+        padding: 12px 0;
+        font-weight: 600;
+    }
+    #element:hover{
+        color: var(--dark-text-primary)
+    }
+}
