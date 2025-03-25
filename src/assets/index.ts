@@ -144,8 +144,8 @@ export { default as roadMapBinanceSm } from './roadmap/img_Roadmap_binance_sm.sv
 export { default as roadMapListingLg } from './roadmap/img_Roadmap_listing_on_lg.svg';
 export { default as roadMapListingSm } from './roadmap/img_Roadmap_listing_on_sm.svg';
 //taptoearn
-export { default as roadMapTapToEarnLg } from './roadmap/img_Roadmap_taptoearn_lg.svg';
-export { default as roadMapTapToEarnSm } from './roadmap/img_Roadmap_taptoearn_sm.svg';
+export { default as roadMapTapToEarnLg } from './roadmap/img_Roadmap_tapToEarn_lg.svg';
+export { default as roadMapTapToEarnSm } from './roadmap/img_Roadmap_tapToEarn_sm.svg';
 
 //whitepaper
 export { default as whitepaperLg } from './whitepaper/img_whitepaper_lg.svg';
