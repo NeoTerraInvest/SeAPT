@@ -77,11 +77,11 @@ export { default as aboutNFT1024 } from './about/img_about_NFT_1024.svg';
 export { default as aboutNFT1439 } from './about/img_about_NFT_1439.svg';
 export { default as aboutNFTMax } from './about/img_about_NFT_max.svg';
 //SWAP
-export { default as aboutSWAP480 } from './about/img_about_SWAP_480.svg';
-export { default as aboutSWAP767 } from './about/img_about_SWAP_767.svg';
-export { default as aboutSWAP1024 } from './about/img_about_SWAP_1024.svg';
-export { default as aboutSWAP1439 } from './about/img_about_SWAP_1439.svg';
-export { default as aboutSWAPMax } from './about/img_about_SWAP_max.svg';
+export { default as aboutSWAP480 } from './about/img_about_swap_480.svg';
+export { default as aboutSWAP767 } from './about/img_about_swap_767.svg';
+export { default as aboutSWAP1024 } from './about/img_about_swap_1024.svg';
+export { default as aboutSWAP1439 } from './about/img_about_swap_1439.svg';
+export { default as aboutSWAPMax } from './about/img_about_swap_max.svg';
 //TapToEarn
 export { default as aboutTapToEarn480 } from './about/img_about_tapToEarn_480.svg';
 export { default as aboutTapToEarn767 } from './about/img_about_tapToEarn_767.svg';
