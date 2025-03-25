@@ -1,0 +1,13 @@
+@use '../../font' as *;
+@use '../../mediaQuery' as *;
+
+#debug{
+    box-sizing: border-box;
+    background-color: #c4c4c480;
+    color: tomato;
+    display: flex;
+    // width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

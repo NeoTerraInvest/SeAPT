@@ -1,0 +1,218 @@
+@use './styles/mediaQuery' as *;
+
+:root {
+  --standard-font-size : 16px;
+  --middle-font-size : 14px;
+  --small-font-size : 12px;
+  // color
+  //dark
+  --dark-background : #101010;
+  --dark-contents : #030303;
+  --dark-text-default : #F8F8F5;
+  --dark-text-sub : #7D7D7D;
+  --dark-text-primary : #F5A910;
+  --dark-btn-default: #CC6F1F;
+  --dark-btn-hover: #FF983F;
+  //light
+  --light-background: #F8F8F5;
+  --light-text-default: #222222;
+  --light-text-sub: #666666;
+  --light-text-sub-title: #FFDC91;
+  --light-btn-default: #CC6F1F;
+  --light-btn-hover: #914A10;
+  //object
+  --object-grey-1: #F7F7F7;
+  --object-grey-2: #AFAFAF;
+  --object-grey-3: #515151;
+
+  //object-dark
+  --dark-object-grey-1: #1F1F1F;
+  --dark-object-grey-2: #515151;
+  --dark-object-grey-3: #AFAFAF;
+  --dark-object-grey-4: #F0F0F0;
+  --dark-object-grey-5: #6D6D6D;
+
+  //object-light
+  --light-object-grey-1: #FFFFFF;
+  --light-object-grey-2: #EDEDED;
+  --light-object-grey-3: #AFAFAF;
+  --light-object-grey-4: #494949;
+
+  // radius
+  --radius-size: 24px;
+  --radius-size-middle: 32px;
+  --radius-size-small: 10px;
+
+  // font-styles
+  --font-style: 'Pretendard', sans-serif;
+  --letter-spacing: 0em; /* letter-spacing */
+  
+  // line-hight
+  --line-hight-125: 125%; 
+  --line-hight-150: 150%; 
+  --line-hight-100: 100%; 
+
+  // font-weight
+  --font-weight-bold: 700; /* Bold */
+  --font-weight-semibold: 600; /* Semibold */
+  --font-weight-medium: 500; /* Medium */
+  --font-weight-regular: 400; /* Regular */
+
+  // font-size
+
+  /** 480px*/
+  --heading1-480-26: 26px;
+  --heading2-480-14: 14px;
+  --heading-sub-480-12: 12px;
+  --body-lg-480-20: 20px;
+  --body-md-480-14: 14px;
+  --body-sm-480-12: 12px;
+  --btn-text-480-14: 14px;
+  --btn-link-480-12: 12px;
+  
+  /** 767px*/
+  --heading1-767-28: 28px;
+  --heading2-767-16: 16px;
+  --heading-sub-767-14: 14px;
+  --body-lg-767-22: 22px;
+  --body-md-767-16: 16px;
+  --body-sm-767-14: 14px;
+  --btn-text-767-16: 16px;
+  --btn-link-767-14: 14px;
+
+  /** 1024px*/
+  --heading1-1024-36: 36px;
+  --heading2-1024-20: 20px;
+  --heading-sub-1024-16: 16px;
+  --body-lg-1024-32: 32px;
+  --body-md-1024-18: 18px;
+  --body-sm-1024-16: 16px;
+  --btn-text-1024-16: 16px;
+  --btn-link-1024-18: 18px;
+
+  /** 1439px*/
+  --heading1-1439-44: 44px;
+  --heading2-1439-20: 20px;
+  --heading-sub-1439-16: 16px;
+  --body-lg-1439-36: 36px;
+  --body-md-1439-18: 18px;
+  --body-sm-1439-16: 16px;
+  --btn-text-1439-18: 18px;
+  --btn-link-1439-18: 18px;
+
+  /** 1919px*/
+  --heading1-1919-52: 52px;
+  --heading2-1919-20: 20px;
+  --heading-sub-1919-16: 16px;
+  --body-lg-1919-36: 36px;
+  --body-md-1919-18: 18px;
+  --body-sm-1919-16: 16px;
+  --btn-text-1919-18: 18px;
+  --btn-link-1919-18: 18px;
+
+  /** max*/
+  --heading1-max-52: 52px;
+  --heading2-max-22: 22px;
+  --heading-sub-max-18: 18px;
+  --body-lg-max-38: 38px;
+  --body-md-max-20: 20px;
+  --body-sm-max-18: 18px;
+  --btn-text-max-20: 20px;
+  --btn-link-max-20: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  // for padding styles. if wanna margin should change `border-box`
+  box-sizing: border-box;
+  color: var(--dark-text-default);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+input {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+body {
+  // box-sizing: content-box;
+  font-family: var(--font-style);
+  line-height: 125%;
+  letter-spacing: var(--letter-spacing);
+  background-color: var(--dark-background);
+  width: 100%;
+  max-width: 1440px;
+  min-width: 340px;
+  // margin: 0px 19px;
+  margin: 0 auto;
+  // padding: 0 80px;
+
+  @include dynamic_display(1440px, 1919px){
+    min-width: 1440px;
+    // max-width: 1919px;
+  }
+
+  @include dynamic_display(1025px, 1439px){
+    min-width: 1025px;
+    max-width: 1439px;
+  }
+
+  @include dynamic_display(768px, 1024px){
+    min-width: 768px;
+    max-width: 1024px;
+    padding: 0;
+  }
+
+  @include dynamic_display(481px, 767px){
+    min-width: 481px;
+    max-width: 767px;
+    padding: 0;
+    // padding: 0 24px;
+  }
+
+  @include dynamic_display(340px, 480px){
+    min-width: 340px;
+    max-width: 480px;
+    // padding: 0 16px;
+    padding: 0;
+  }
+}
