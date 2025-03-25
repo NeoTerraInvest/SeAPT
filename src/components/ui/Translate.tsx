@@ -1,15 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { translate as styles } from '@styles';
 import { translate } from '@data';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/store';
 import { setTranslate } from '@/store/slice/translate.slice';
+import { useTrackingView } from '@model';
 
 const Translate = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [isLanguage, setLanguage] = useState<string>(translate.data[0].key);
   const [isFlag, setFlag] = useState<string>(translate.data[0].image);
+  const isMobile = useTrackingView({ size: 757 });
   const dispatch = useDispatch<AppDispatch>();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleDropDown = () => {
     setOpen(!isOpen);
@@ -18,10 +21,23 @@ const Translate = () => {
   useEffect(() => {
     setLanguage(translate.data[0].key);
     setFlag(translate.data[0].image);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, [setLanguage, setFlag]);
 
   return (
-    <div className={styles.debug}>
+    <div className={styles.debug} ref={dropdownRef}>
       <div
         className={isOpen ? styles.active : ''}
         id={styles.translate}
@@ -29,8 +45,13 @@ const Translate = () => {
       >
         <ul className={styles.view}>
           <li className={styles.element}>
-            <img src={isFlag} alt={isLanguage} width={26} height={14} />
-            <span id={styles.text}>{isLanguage}</span>
+            <img
+              src={isFlag}
+              alt={isLanguage}
+              width={!isMobile ? 26 : 18}
+              height={!isMobile ? 14 : 10}
+            />
+            {!isMobile ? <span id={styles.text}>{isLanguage}</span> : null}
             <img src='./arrow.png' alt='arrow' />
           </li>
         </ul>
@@ -47,7 +68,12 @@ const Translate = () => {
                 }}
               >
                 <div className={styles.group}>
-                  <img src={el.image} alt={el.key} width={26} height={14} />
+                  <img
+                    src={el.image}
+                    alt={el.key}
+                    width={!isMobile ? 26 : 18}
+                    height={!isMobile ? 14 : 10}
+                  />
                   <span id={styles.text}>{el.key}</span>
                 </div>
               </li>
