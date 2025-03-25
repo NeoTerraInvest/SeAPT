@@ -13,6 +13,7 @@ export { default as error } from './components/BaseLayout/error.module.scss';
 export { default as sns } from './components/SNS/sns.module.scss';
 export { default as whitepaper } from './components/WhitePaper/whitepaper.module.scss';
 export { default as univers } from './components/Univers/univers.module.scss';
+export { default as modal } from './modal.module.scss';
 //ui
 export { default as aboutFrame } from './components/ui/aboutFrame.module.scss';
 export { default as tokenFrame } from './components/ui/tokenFrame.module.scss';
@@ -20,6 +21,7 @@ export { default as roadMapFrame } from './components/ui/roadMapFrame.module.scs
 export { default as TrainFrame } from './components/ui/trainFrame.module.scss';
 export { default as snsFrame } from './components/ui/snsFrame.module.scss';
 export { default as translate } from './components/ui/translate.module.scss';
+export { default as modalFrame } from './components/ui/modalFrame.module.scss';
 
 //pages
 export { default as main } from './pages/main.module.scss';
