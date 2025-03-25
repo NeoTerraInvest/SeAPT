@@ -38,6 +38,11 @@
             width: 8.625rem;
             padding: 0 0 0 8px;
         }
+        #hambuger{
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+        }
         .content {
             font-size: var(--standard-font-size);
             cursor: pointer;

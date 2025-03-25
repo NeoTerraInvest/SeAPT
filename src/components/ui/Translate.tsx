@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { translate as styles } from '@styles';
 import { translate } from '@data';
 import { useDispatch } from 'react-redux';
@@ -12,6 +12,7 @@ const Translate = () => {
   const [isFlag, setFlag] = useState<string>(translate.data[0].image);
   const isMobile = useTrackingView({ size: 757 });
   const dispatch = useDispatch<AppDispatch>();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleDropDown = () => {
     setOpen(!isOpen);
@@ -20,10 +21,23 @@ const Translate = () => {
   useEffect(() => {
     setLanguage(translate.data[0].key);
     setFlag(translate.data[0].image);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, [setLanguage, setFlag]);
 
   return (
-    <div className={styles.debug}>
+    <div className={styles.debug} ref={dropdownRef}>
       <div
         className={isOpen ? styles.active : ''}
         id={styles.translate}
