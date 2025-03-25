@@ -95,11 +95,11 @@ export { default as aboutLuckyToEarn1024 } from './about/img_about_luckyToEarn_1
 export { default as aboutLuckyToEarn1439 } from './about/img_about_luckyToEarn_1439.svg';
 export { default as aboutLuckyToEarnMax } from './about/img_about_luckyToEarn_max.svg';
 //White Paper
-export { default as aboutWhitePaper480 } from './about/img_about_whitePaper_480.svg';
-export { default as aboutWhitePaper767 } from './about/img_about_whitePaper_767.svg';
-export { default as aboutWhitePaper1024 } from './about/img_about_whitePaper_1024.svg';
-export { default as aboutWhitePaper1439 } from './about/img_about_whitePaper_1439.svg';
-export { default as aboutWhitePaperMax } from './about/img_about_whitePaper_max.svg';
+export { default as aboutWhitePaper480 } from './about/img_about_whitepaper_480.svg';
+export { default as aboutWhitePaper767 } from './about/img_about_whitepaper_767.svg';
+export { default as aboutWhitePaper1024 } from './about/img_about_whitepaper_1024.svg';
+export { default as aboutWhitePaper1439 } from './about/img_about_whitepaper_1439.svg';
+export { default as aboutWhitePaperMax } from './about/img_about_whitepaper_max.svg';
 
 //tokenomics
 //SpaceAPT
