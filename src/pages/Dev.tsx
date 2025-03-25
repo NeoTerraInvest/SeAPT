@@ -1,5 +1,5 @@
-import { WhitePaper, Univers } from '@components';
-import styles from '@__styles/main.module.scss';
+import { WhitePaper, Universe } from '@components';
+import { main as styles } from '@styles';
 
 const Dev = () => {
   return (
@@ -9,7 +9,7 @@ const Dev = () => {
       <div style={{ padding: '30px' }}></div>
       <WhitePaper />
       <div style={{ padding: '30px' }}></div>
-      <Univers />
+      <Universe />
       <footer style={{ padding: '30px' }}></footer>
     </div>
   );
