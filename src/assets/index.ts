@@ -77,11 +77,11 @@ export { default as aboutNFT1024 } from './about/img_about_NFT_1024.svg';
 export { default as aboutNFT1439 } from './about/img_about_NFT_1439.svg';
 export { default as aboutNFTMax } from './about/img_about_NFT_max.svg';
 //SWAP
-export { default as aboutSWAP480 } from './about/img_about_SWAP_480.svg';
-export { default as aboutSWAP767 } from './about/img_about_SWAP_767.svg';
-export { default as aboutSWAP1024 } from './about/img_about_SWAP_1024.svg';
-export { default as aboutSWAP1439 } from './about/img_about_SWAP_1439.svg';
-export { default as aboutSWAPMax } from './about/img_about_SWAP_max.svg';
+export { default as aboutSWAP480 } from './about/img_about_swap_480.svg';
+export { default as aboutSWAP767 } from './about/img_about_swap_767.svg';
+export { default as aboutSWAP1024 } from './about/img_about_swap_1024.svg';
+export { default as aboutSWAP1439 } from './about/img_about_swap_1439.svg';
+export { default as aboutSWAPMax } from './about/img_about_swap_max.svg';
 //TapToEarn
 export { default as aboutTapToEarn480 } from './about/img_about_tapToEarn_480.svg';
 export { default as aboutTapToEarn767 } from './about/img_about_tapToEarn_767.svg';
@@ -95,43 +95,43 @@ export { default as aboutLuckyToEarn1024 } from './about/img_about_luckyToEarn_1
 export { default as aboutLuckyToEarn1439 } from './about/img_about_luckyToEarn_1439.svg';
 export { default as aboutLuckyToEarnMax } from './about/img_about_luckyToEarn_max.svg';
 //White Paper
-export { default as aboutWhitePaper480 } from './about/img_about_whitePaper_480.svg';
-export { default as aboutWhitePaper767 } from './about/img_about_whitePaper_767.svg';
-export { default as aboutWhitePaper1024 } from './about/img_about_whitePaper_1024.svg';
-export { default as aboutWhitePaper1439 } from './about/img_about_whitePaper_1439.svg';
-export { default as aboutWhitePaperMax } from './about/img_about_whitePaper_max.svg';
+export { default as aboutWhitePaper480 } from './about/img_about_whitepaper_480.svg';
+export { default as aboutWhitePaper767 } from './about/img_about_whitepaper_767.svg';
+export { default as aboutWhitePaper1024 } from './about/img_about_whitepaper_1024.svg';
+export { default as aboutWhitePaper1439 } from './about/img_about_whitepaper_1439.svg';
+export { default as aboutWhitePaperMax } from './about/img_about_whitepaper_max.svg';
 
 //tokenomics
 //SpaceAPT
 export { default as tokenmicsSpaceAPT767 } from './tokenomics/img_tokenomics_spaceAPT_767.svg';
 export { default as tokenmicsSpaceAPT1024 } from './tokenomics/img_tokenomics_spaceAPT_1024.svg';
 export { default as tokenmicsSpaceAPT1439 } from './tokenomics/img_tokenomics_spaceAPT_1439.svg';
-export { default as tokenmicsSpaceAPTMax } from './tokenomics/img_tokenomics_spaceAPT_Max.svg';
+export { default as tokenmicsSpaceAPTMax } from './tokenomics/img_tokenomics_spaceAPT_max.svg';
 //Supply
 export { default as tokenmicsTotalSupply767 } from './tokenomics/img_tokenomics_total_supply_767.svg';
 export { default as tokenmicsTotalSupply1024 } from './tokenomics/img_tokenomics_total_supply_1024.svg';
 export { default as tokenmicsTotalSupply1439 } from './tokenomics/img_tokenomics_total_supply_1439.svg';
-export { default as tokenmicsTotalSupplyMax } from './tokenomics/img_tokenomics_total_supply_Max.svg';
+export { default as tokenmicsTotalSupplyMax } from './tokenomics/img_tokenomics_total_supply_max.svg';
 //LP
 export { default as tokenmicsLP767 } from './tokenomics/img_tokenomics_lp_767.svg';
 export { default as tokenmicsLP1024 } from './tokenomics/img_tokenomics_lp_1024.svg';
 export { default as tokenmicsLP1439 } from './tokenomics/img_tokenomics_lp_1439.svg';
-export { default as tokenmicsLPMax } from './tokenomics/img_tokenomics_lp_Max.svg';
+export { default as tokenmicsLPMax } from './tokenomics/img_tokenomics_lp_max.svg';
 //Burn
 export { default as tokenmicsBurn767 } from './tokenomics/img_tokenomics_burn_767.svg';
 export { default as tokenmicsBurn1024 } from './tokenomics/img_tokenomics_burn_1024.svg';
 export { default as tokenmicsBurn1439 } from './tokenomics/img_tokenomics_burn_1439.svg';
-export { default as tokenmicsBurnMax } from './tokenomics/img_tokenomics_burn_Max.svg';
+export { default as tokenmicsBurnMax } from './tokenomics/img_tokenomics_burn_max.svg';
 //Charity
 export { default as tokenmicsCharity767 } from './tokenomics/img_tokenomics_charity_767.svg';
 export { default as tokenmicsCharity1024 } from './tokenomics/img_tokenomics_charity_1024.svg';
 export { default as tokenmicsCharity1439 } from './tokenomics/img_tokenomics_charity_1439.svg';
-export { default as tokenmicsCharityMax } from './tokenomics/img_tokenomics_charity_Max.svg';
+export { default as tokenmicsCharityMax } from './tokenomics/img_tokenomics_charity_max.svg';
 //Marketing
 export { default as tokenmicsMarketing767 } from './tokenomics/img_tokenomics_marketing_767.svg';
 export { default as tokenmicsMarketing1024 } from './tokenomics/img_tokenomics_marketing_1024.svg';
 export { default as tokenmicsMarketing1439 } from './tokenomics/img_tokenomics_marketing_1439.svg';
-export { default as tokenmicsMarketingMax } from './tokenomics/img_tokenomics_marketing_Max.svg';
+export { default as tokenmicsMarketingMax } from './tokenomics/img_tokenomics_marketing_max.svg';
 
 //roadmap
 //achivement
@@ -144,8 +144,8 @@ export { default as roadMapBinanceSm } from './roadmap/img_Roadmap_binance_sm.sv
 export { default as roadMapListingLg } from './roadmap/img_Roadmap_listing_on_lg.svg';
 export { default as roadMapListingSm } from './roadmap/img_Roadmap_listing_on_sm.svg';
 //taptoearn
-export { default as roadMapTapToEarnLg } from './roadmap/img_Roadmap_taptoearn_lg.svg';
-export { default as roadMapTapToEarnSm } from './roadmap/img_Roadmap_taptoearn_sm.svg';
+export { default as roadMapTapToEarnLg } from './roadmap/img_Roadmap_tapToEarn_lg.svg';
+export { default as roadMapTapToEarnSm } from './roadmap/img_Roadmap_tapToEarn_sm.svg';
 
 //whitepaper
 export { default as whitepaperLg } from './whitepaper/img_whitepaper_lg.svg';
