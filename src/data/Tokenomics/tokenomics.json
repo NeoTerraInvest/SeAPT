@@ -1,0 +1,52 @@
+{
+    "data":[
+        {
+            "id":"0",
+            "title":"Token : Space APT",
+            "price":"Symbol : SeAPT",
+            "description":{
+                "eng":"Standard: BEP20\nBlockchain: BSC\nDecimals: 18 Total"
+            }
+        },
+        {
+            "id":"1",
+            "title":"Total Supply",
+            "price":"500 Trillion",
+            "description":{
+                "eng":"SeAPT is a next-generation meme coin built on the BSC network."
+            }
+        },
+        {
+            "id":"2",
+            "title":"LP (Liquidity Pool)",
+            "price":"96%",
+            "description":{
+                "eng":"The ownership of SeAPT coins lies with the SeAPT users, and naturally, the power belongs to them as well."
+            }
+        },
+        {
+            "id":"3",
+            "title":"Burn",
+            "price":"300 Trillion",
+            "description":{
+                "eng":"Although Binance advised burning 200 trillion tokens, we decided to burn 300 trillion instead."
+            }
+        },
+        {
+            "id":"4",
+            "title":"Charity and Aridrops",
+            "price":"2%",
+            "description":{
+                "eng":"Following the spirit of SeAPT, we’ll use these funds to help many people and promote SeAPT worldwide."
+            }
+        },
+        {
+            "id":"5",
+            "title":"Marketing and Exchange Liquidity",
+            "price":"2%",
+            "description":{
+                "eng":"As various exchanges keep asking for SeAPT coins, we’ll allocate some to them and use the rest for marketing."
+            }
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+@mixin dynamic_display($min, $max) {
+    @media (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin dynamic_single_display($max) {
+    @media (max-width: $max) {
+        @content;
+    }
+}

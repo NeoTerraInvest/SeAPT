@@ -1,0 +1,88 @@
+@use '../../mediaQuery' as *;
+
+#debug, .contents, #container{
+    display: flex;
+    width: 100%;
+    @include dynamic_display(340px, 767px){
+        flex-direction: column;
+    }
+}
+
+#debug, #container{
+    display: flex;
+    width: 100%;
+    @include dynamic_display(340px, 767px){
+        flex-direction: column;
+    }
+}
+
+.information, .group{
+    display: flex;
+}
+
+.contents, .group{
+    flex-direction: column;
+}
+.title{
+    color: var(--dark-text-default);
+    font-weight: var(--font-weight-bold);
+}
+
+#debug{
+    background-color: var(--dark-background);
+    justify-content: space-between;
+    // gap: 155px;
+    font: var(--standard-font-size);
+    font-weight: var(--font-weight-medium);
+    padding: 80px 60px 160px 60px;
+    bottom: 0;
+    @include dynamic_display(768px, 1024px){
+        padding: 80px 29px 160px 29px;
+    }
+    @include dynamic_display(340px, 767px){
+        padding: 40px 0px 32px 40px;
+    }
+
+    .contents{
+        img{
+            margin-bottom: 16px;
+            @include dynamic_display(340px, 767px){
+                margin-bottom: 32px;
+            }
+        }
+        .information{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            @include dynamic_display(340px, 767px){
+                margin-top: 56px;
+            }
+            #info{
+                color: var(--dark-text-sub);
+                font: var(--small-font-size);
+                font-weight: var(--font-weight-regular);
+            }
+        }
+    }
+    #container{
+        gap: 120px;
+        @include dynamic_display(340px, 767px){
+            gap: 32px;
+        }
+        .contents{
+            // background-color: darkcyan;
+            gap: 20px;
+            @include dynamic_display(340px, 767px){
+                gap: 16px;
+            }
+            .group{
+                gap: 24px;
+                div{color: var(--dark-text-sub);}
+            }
+            .title{
+                color: var(--dark-text-default);
+                font-weight: var(--font-weight-bold);
+            }
+        }
+    }
+}

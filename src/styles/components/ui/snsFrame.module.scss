@@ -1,0 +1,92 @@
+@use '../../font' as *;
+@use '../../mediaQuery' as *;
+
+#debug, .container,.contents{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-object-grey-1);
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    padding: 24px;
+    @include dynamic_display(481px, 767px){
+        padding: 28px 16px;
+    }
+    @include dynamic_display(400px, 480px){
+        padding: 24px 16px;
+    }
+    @include dynamic_display(340px, 399px){
+        padding: 10px 8px;
+    }
+}
+
+#debug, .container{
+    max-width: 410px;
+    // min-width: 48px;
+    height: auto;
+    width: 100%;
+    // height: auto;
+    border-radius: var(--radius-size);
+    cursor: pointer;
+    @include dynamic_display(340px, 480px){
+        max-width: 110px;
+        min-width: 30px;
+        // width: 100%;
+    }
+
+    #hyperlink{
+        // max-width: 410px;
+        max-height: 20px;
+        min-height: 16px;
+        height: 100%;
+        width: inherit;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        @include dynamic_display(481px, 767px){
+            all: unset;
+        }
+        @include dynamic_display(340px, 480px){
+            // all: unset;
+        }
+    }
+    .contents{
+        #img{
+            margin-bottom: 12px;
+        }
+        #title{
+            margin-bottom: 20px; 
+            @include heading-sub-1439;
+
+            @include dynamic_display(768px, 1024px){
+                @include heading-sub-1024;
+            }
+            @include dynamic_display(481px, 767px){
+                @include heading-sub-767;
+                margin-bottom: 0px; 
+
+            }
+            @include dynamic_display(340px, 480px){
+                @include heading-sub-480;
+            }
+        }
+        #description{ 
+            text-align: center;
+            height: 48px; 
+            @include body-sm-1439;
+            @include dynamic_display(768px, 1024px){
+                @include body-sm-1024;
+            }
+            @include dynamic_display(481px, 767px){
+                @include body-sm-767;
+                height: 24px
+            }
+            @include dynamic_display(340px, 480px){
+                @include body-sm-480;
+                height: 21px
+            }
+        }
+    }
+}

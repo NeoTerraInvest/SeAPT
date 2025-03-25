@@ -1,0 +1,12 @@
+@use '../../mediaQuery' as *;
+
+#debug{
+    display: flex;
+    width: 100%;
+    gap: 120px;
+    margin-right: 120px;
+    @include dynamic_single_display(767px){
+        gap: 64px;
+        margin-right: 64px;
+    }
+}

@@ -1,0 +1,38 @@
+@use '../../font' as *;
+@use '../../mediaQuery' as *;
+
+#layout{
+    // background-color: #64b932;
+    width: 100%;
+    padding: 0 80px;
+
+    @include dynamic_display(768px, 1024px){
+        padding: 0 32px;
+    }
+
+    @include dynamic_display(481px, 767px){
+        padding: 0 24px;
+    }
+    
+    @include dynamic_display(340px, 480px){
+        padding: 0 16px;
+    }
+}
+
+#singleLeft{
+    width: 100%;
+    padding-left:80px;
+
+    @include dynamic_display(768px, 1024px){
+        background-color:cornflowerblue;
+        padding-left:32px;
+    }
+
+    @include dynamic_display(481px, 767px){
+        padding-left:24px;
+    }
+    
+    @include dynamic_display(340px, 480px){
+        padding-left:16px;
+    }
+}
