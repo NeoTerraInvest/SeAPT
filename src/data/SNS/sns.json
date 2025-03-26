@@ -3,17 +3,20 @@
         {
             "id":"0",
             "title": "X",
-            "description": "You can get the latest news on X"
+            "description": "You can get the latest news on X",
+            "linkKey": "X"
         },
         {
             "id":"1",
             "title": "Telegram",
-            "description": "Join Telegram for updates"
+            "description": "Join Telegram for updates",
+            "linkKey": "TELEGRAM"
         },
         {
             "id":"2",
             "title": "YouTube",
-            "description": "Our entertaining videos are here"
+            "description": "Our entertaining videos are here",
+            "linkKey": "YOUTUBE"
         }
     ]
 }
