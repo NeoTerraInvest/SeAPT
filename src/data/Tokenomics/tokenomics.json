@@ -5,7 +5,11 @@
             "title":"Token : Space APT",
             "price":"Symbol : SeAPT",
             "description":{
-                "eng":"Standard: BEP20\nBlockchain: BSC\nDecimals: 18 Total"
+                "EN":"Standard: BEP20\nBlockchain: BSC\nDecimals: 18 Total",
+                "CN":"Standard: BEP20\nBlockchain: BSC\nDecimals: 18 Total",
+                "JP":"Standard: BEP20\nBlockchain: BSC\nDecimals: 18 Total",
+                "KR":"Standard: BEP20\nBlockchain: BSC\nDecimals: 18 Total",
+                "VT":"Standard: BEP20\nBlockchain: BSC\nDecimals: 18 Total"
             }
         },
         {
@@ -13,7 +17,11 @@
             "title":"Total Supply",
             "price":"500 Trillion",
             "description":{
-                "eng":"SeAPT is a next-generation meme coin built on the BSC network."
+                "EN":"SeAPT is a next-generation Meme coin built on the BSC network.",
+                "CN":"SeAPT是一种基于BSC网络的下一代模因币.",
+                "JP":"SeAPTは,BSCネットワーク上に構築された次世代のミームコインです.",
+                "KR":"SeAPT는 BSC 네트워크 기반으로 만들어진 차세대 Meme Coin입니다.",
+                "VT":"SeAPT là một đồng tiền Meme thế hệ mới được xây dựng trên mạng lưới BSC."
             }
         },
         {
@@ -21,7 +29,11 @@
             "title":"LP (Liquidity Pool)",
             "price":"96%",
             "description":{
-                "eng":"The ownership of SeAPT coins lies with the SeAPT users, and naturally, the power belongs to them as well."
+                "EN":"The ownership of SeAPT coins lies with the SeAPT users, and naturally, the power belongs to them as well.",
+                "CN":"SeAPT币的所有权属于SeAPT用户, 因此, 自然地, 权力也掌握在他们手中.",
+                "JP":"SeAPTコインの所有権はSeAPTユーザーにあり, したがって, 自然に権力も彼らの手中にあります.",
+                "KR":"SeAPT 코인의 주권은 SeAPT 유저들한테 있고, 그 Power도 당연히 유저들 몫입니다",
+                "VT":"Quyền sở hữu các đồng SeAPT thuộc về người dùng SeAPT, và một cách tự nhiên, quyền lực cũng thuộc về họ."
             }
         },
         {
@@ -29,7 +41,11 @@
             "title":"Burn",
             "price":"300 Trillion",
             "description":{
-                "eng":"Although Binance advised burning 200 trillion tokens, we decided to burn 300 trillion instead."
+                "EN":"Although Binance advised burning 200 trillion tokens, we decided to burn 300 trillion instead.",
+                "CN":"尽管Binance建议销毁200万亿代币, 我们决定销毁300万亿代币.",
+                "JP":"Binanceが200兆トークンの焼却を提案したにもかかわらず, 私たちは300兆を焼却することを決定しました.",
+                "KR":"바이낸스에서 200조개 소각하라는 조언을 들었는데 통크게 300조개를 소각하기로 했습니다. 아깝지만 가치를 높이는 길을 선택했습니다.",
+                "VT":"Mặc dù Binance đã khuyến nghị đốt 200 nghìn tỷ token, chúng tôi quyết định thay vào đó sẽ đốt 300 nghìn tỷ."
             }
         },
         {
@@ -37,7 +53,11 @@
             "title":"Charity and Aridrops",
             "price":"2%",
             "description":{
-                "eng":"Following the spirit of SeAPT, we’ll use these funds to help many people and promote SeAPT worldwide."
+                "EN":"Following the spirit of SeAPT, we’ll use these funds to help many people and promote SeAPT worldwide.",
+                "CN":"秉承SeAPT的精神, 我们将利用这些资金帮助许多人并在全球范围内推广SeAPT.",
+                "JP":"SeAPTの精神に基づき, 私たちはこれらの資金を活用して多くの人々を助け, 世界中でSeAPTを推進します.",
+                "KR":"SeAPT 정신을 이어받아 많은 사람들을 돕고 SeAPT를 세상에 알리는데 사용하겠습니다.",
+                "VT":"Theo tinh thần của SeAPT, chúng tôi sẽ sử dụng các khoản tiền này để giúp đỡ nhiều người và quảng bá SeAPT trên toàn thế giới."
             }
         },
         {
@@ -45,7 +65,11 @@
             "title":"Marketing and Exchange Liquidity",
             "price":"2%",
             "description":{
-                "eng":"As various exchanges keep asking for SeAPT coins, we’ll allocate some to them and use the rest for marketing."
+                "EN":"As various exchanges keep asking for SeAPT coins, we’ll allocate some to them and use the rest for marketing.",
+                "CN":"随着各大交易所不断要求SeAPT币, 我们会将部分分配给他们, 剩余的用于市场营销.",
+                "JP":"各取引所がSeAPTコインを求め続ける中, 私たちは一部をそれらに割り当て, 残りをマーケティングに使用します.",
+                "KR":"여기저기 거래소에서 자꾸 SeAPT 코인을 달라고 하길래 조금 나눠주고 나머지는 마케팅에 사용합니다.",
+                "VT":"Với việc nhiều sàn giao dịch liên tục yêu cầu đồng SeAPT, chúng tôi sẽ phân bổ một phần cho họ và sử dụng phần còn lại để tiếp thị."
             }
         }
     ]

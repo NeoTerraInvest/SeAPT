@@ -1,18 +1,28 @@
 import { snsFrame as styles } from '@styles';
+import { linkMap, linkKey } from '@types';
 
 const SnsFrame = ({
   image,
   title,
   description,
   state,
+  link,
 }: {
   image: { small: string; smallMedium: string; medium: string; large: string };
   title: string;
   description: string;
   state: boolean;
+  link: linkKey;
 }) => {
+  const handleClick = () => {
+    const fixedLink = linkMap[link];
+    if (fixedLink) {
+      window.open(fixedLink, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
-    <div id={styles.debug}>
+    <div id={styles.debug} onClick={handleClick}>
       <div className={styles.container}>
         <div id={styles.hyperlink}>
           <div></div>

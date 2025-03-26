@@ -11,13 +11,18 @@
     width: 100%;
     justify-content: center;
     margin: 32px 0 40px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
     @include dynamic_single_display(757px){
         justify-content: flex-end;
     }
 
     #container{ 
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         max-width: 1062px;
         width: 100%;
@@ -25,7 +30,15 @@
             max-width: auto;
         }
         @include dynamic_single_display(501px){
-            max-width: 293px;
+            // max-width: 293px;
+            width: 100%;
+            justify-content: flex-end;
+        }
+        #empty{
+            @include dynamic_single_display(501px){
+                display: flex;
+                width: 100%;
+            }
         }
        #group{
         background-color: var(--dark-background);
