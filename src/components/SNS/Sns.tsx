@@ -3,6 +3,7 @@ import { SnsFrame } from '@components';
 import { sns as styles } from '@styles';
 import { sns } from '@data';
 import { useTrackingView } from '@model';
+
 import {
   telegram480,
   telegram767,
@@ -67,6 +68,7 @@ const Sns = () => {
             title={el.title}
             description={el.description}
             state={isDescription}
+            link={el.linkKey}
           />
         );
       })}

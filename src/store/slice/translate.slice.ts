@@ -3,7 +3,6 @@ import { translate } from '@data';
 
 interface translate {
   language: string;
-  // language: 'EN' | 'CN' | 'JP' | 'KR' | 'VT';
 }
 
 const initialState: translate = {

@@ -1,7 +1,7 @@
 import { SliderFlex } from '@model';
 import { AboutFrame } from '@components';
 import { about as rawStyles } from '@/styles';
-import { DefaultStyled } from '@/types';
+import { DefaultStyled, translateKey } from '@/types';
 import { about } from '@data';
 import {
   aboutCharity480,
@@ -53,7 +53,7 @@ import {
 
 const styles = rawStyles as unknown as DefaultStyled;
 
-const About = () => {
+const About = ({ translate }: { translate: translateKey }) => {
   const contentMap: Record<
     string,
     { small: string; smallMedium: string; medium: string; large: string }
@@ -123,7 +123,7 @@ const About = () => {
             id={el.id}
             image={contentMap[el.id]}
             title={el.title}
-            description={el.description}
+            description={el.description[translate]}
           />
         );
       })}

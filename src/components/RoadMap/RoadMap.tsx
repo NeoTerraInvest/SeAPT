@@ -13,8 +13,9 @@ import {
   roadMapListingSm,
   roadMapTapToEarnSm,
 } from '@assets';
+import { translateKey } from '@/types';
 
-const RoadMap = () => {
+const RoadMap = ({ translate }: { translate: translateKey }) => {
   const effectRef = useRef<HTMLDivElement>(null);
 
   const handleInMouse = () => {
@@ -77,7 +78,7 @@ const RoadMap = () => {
                   phase={el.phase}
                   date={el.date}
                   title={el.title}
-                  description={el.description.eng}
+                  description={el.description[translate]}
                   image={contentMap[el.id]}
                 />
               </div>

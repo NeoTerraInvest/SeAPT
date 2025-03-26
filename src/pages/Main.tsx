@@ -12,35 +12,28 @@ import {
 } from '@components';
 import { useTrackingView } from '@model';
 import { main as styles } from '@styles';
-import { RootState } from '@/store';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { translateKey } from '@types';
 
-const Main = () => {
+const Main = ({ translate }: { translate: translateKey }) => {
   const isAbout = useTrackingView({ size: 1439 });
   const isToken = useTrackingView({ size: 768 });
-  const language = useSelector((state: RootState) => state.translate.language);
-
-  useEffect(() => {
-    console.log(language);
-  }, [language]);
-
   return (
     <BaseLayout>
       <MarginLayout>
+        <div className={styles.showMargin} />
         <Show />
       </MarginLayout>
       <MarginLayout>
         <h1 className={styles.roadmapMargin}>Roadmap</h1>
-        <RoadMap />
+        <RoadMap translate={translate} />
       </MarginLayout>
       <MarginLayout auto={!isAbout}>
         <h1 className={styles.aboutMargin}>About SeAPT</h1>
-        <About />
+        <About translate={translate} />
       </MarginLayout>
       <MarginLayout auto={!isToken}>
         <h1 className={styles.tokenomicsMargin}>Tokenomics</h1>
-        <Tokenomics />
+        <Tokenomics translate={translate} />
       </MarginLayout>
       <MarginLayout>
         <h1 className={styles.snsMargin}>Join the Community</h1>
