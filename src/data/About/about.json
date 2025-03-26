@@ -3,47 +3,101 @@
         {
             "id":"0",
             "title":"Tap to Earn",
-            "description":"Tap to Earn lets users earn rewards by completing tasks on digital platforms, offering seamless experiences and transforming digital revenue generation."
+            "description":{
+                "EN": "Tap to Earn lets users earn rewards by completing tasks on digital platforms, offering seamless experiences and transforming digital revenue generation.",
+                "CN": "Tap to Earn让用户通过在数字平台上完成任务来赚取奖励, 提供无缝的体验并改变数字收入生成方式.",
+                "JP": "Tap to Earnは, ユーザーがデジタルプラットフォーム上でタスクを完了することで報酬を獲得できるシステムであり, シームレスな体験を提供し, デジタル収益生成を変革します.",
+                "KR": "Tap to Earn은 사용자가 디지털 플랫폼에서 콘텐츠를 통해해 보상을 얻을 수 있게 하는 시스템으로, 원활한 경험을 제공하며 디지털 수익 창출 방식을 혁신합니다.",
+                "VT": "Tap to Earn cho phép người dùng kiếm phần thưởng bằng cách hoàn thành nhiệm vụ trên các nền tảng kỹ thuật số, mang lại trải nghiệm liền mạch và thay đổi cách tạo doanh thu kỹ thuật số."
+            }
         },
         {
             "id":"1",
             "title":"Swap",
-            "description":"Swap is a concept in the digital economy that enables asset exchanges. Through this, users can trade specific assets on platforms, creating tangible value. This swap model leverages the integration of digital economy and blockchain technology, revolutionizing asset trading methods."
-        },
+            "description":{
+                "EN": "Swap is a concept in the digital economy that enables asset exchanges. Through this, users can trade specific assets on platforms, creating tangible value. This swap model leverages the integration of digital economy and blockchain technology, revolutionizing asset trading methods.",
+                "CN": "Swap是数字经济中的一种概念 能够实现资产交换. 通过这种方式 用户可以在平台上交易特定资产 从而创造实际价值. 这种Swap模式利用了数字经济与区块链技术的整合 革新了资产交易方式.",
+                "JP": "Swapはデジタル経済における資産交換を可能にする概念です. これを通じて, ユーザーはプラットフォーム上で特定の資産を取引し, 実際的な価値を創出できます. このSwapモデルはデジタル経済とブロックチェーン技術の統合を活用し, 資産取引方法を革新します.",
+                "KR": "Swap은 디지털 경제에서 자산 교환을 가능하게 하는 개념입니다. 이를 통해 사용자는 플랫폼에서 특정 자산을 거래하며 실질적인 가치를 창출할 수 있습니다. 이 Swap 모델은 디지털 경제와 블록체인 기술의 통합을 활용하여 자산 거래 방식을 혁신합니다.",
+                "VT": "Swap là một khái niệm trong nền kinh tế số, có khả năng thực hiện trao đổi tài sản. Thông qua cách này, người dùng có thể giao dịch các tài sản cụ thể trên nền tảng, từ đó tạo ra giá trị thực tế. Mô hình Swap này tận dụng sự tích hợp giữa nền kinh tế số và công nghệ blockchain, cách mạng hóa phương pháp giao dịch tài sản."
+            }
+        }, 
         {
             "id":"2",
             "title":"Crypto Card",
-            "description":"Crypto Card connects digital assets to the physical economy, enabling cryptocurrency-to-fiat conversions for everyday purchases. It offers convenience and expands cryptocurrency use cases."
+            "description":{
+                "EN": "Crypto Card connects digital assets to the physical economy, enabling cryptocurrency-to-fiat conversions for everyday purchases. It offers convenience and expands cryptocurrency use cases.",
+                "CN": "Crypto Card将数字资产与实体经济连接起来, 实现加密货币到法定货币的转换, 用于日常消费. 它提供了便利性, 并扩展了加密货币的使用场景.",
+                "JP": "Crypto Cardはデジタル資産を実体経済に結び付け, 暗号通貨から法定通貨への変換を可能にし, 日常の購入に利用できます. これにより利便性が提供され, 暗号通貨の利用ケースが拡大します.",
+                "KR": "Crypto Card는 디지털 자산을 실물 경제와 연결하여, 일상적인 구매를 위해 암호화폐를 법정화폐로 전환할 수 있도록 합니다. 이를 통해 편리함을 제공하며 암호화폐의 활용 사례를 확장합니다.",
+                "VT": "Crypto Card kết nối tài sản kỹ thuật số với nền kinh tế thực tế, thực hiện chuyển đổi từ tiền điện tử sang tiền pháp định để sử dụng trong các giao dịch hàng ngày. Nó mang lại sự tiện lợi và mở rộng các trường hợp sử dụng của tiền điện tử."
+            }
         },
         {
             "id":"3",
             "title":"NFT",
-            "description":"We offer Crypto Property NFTs that. guarantee ownership of unique digital assets, combining real-world value with digital innovation. these NFis provide an unprecedented opportunity. to bridge tangible value and cutting-edge technology, redefining the concept of ownership in the digital age."
+            "description":{
+                "EN": "We offer Crypto Property NFTs that. guarantee ownership of unique digital assets, combining real-world value with digital innovation. these NFis provide an unprecedented opportunity. to bridge tangible value and cutting-edge technology, redefining the concept of ownership in the digital age.",
+                "CN": "我们提供Crypto Property NFTs, 保证独特数字资产的所有权, 将现实世界的价值与数字创新相结合. 这些NFTs提供了前所未有的机会, 在数字时代重新定义所有权的概念, 架起有形价值与尖端技术之间的桥梁.",
+                "JP": "私たちはCrypto Property NFTsを提供します, これにより独特なデジタル資産の所有権を保証し, 現実世界の価値とデジタルイノベーションを融合します. これらのNFTsは前例のない機会を提供し, 有形の価値と最先端技術を橋渡しし, デジタル時代における所有権の概念を再定義します.",
+                "KR": "우리는 고유한 디지털 자산의 소유권을 보장하는 Crypto Property NFT를 제공합니다. 이는 현실 세계의 가치와 디지털 혁신을 결합합니다. 이러한 NFT는 디지털 시대에서 소유권의 개념을 재정의하며, 실질적인 가치와 첨단 기술을 연결하는 전례 없는 기회를 제공합니다.",
+                "VT": "Chúng tôi cung cấp Crypto Property NFTs, đảm bảo quyền sở hữu tài sản kỹ thuật số độc đáo, kết hợp giá trị thực tế với sự đổi mới kỹ thuật số. Những NFTs này mang đến cơ hội chưa từng có, định nghĩa lại khái niệm sở hữu trong thời đại kỹ thuật số, và kết nối giá trị hữu hình với công nghệ tiên tiến."
+            }
         },
         {
             "id":"4",
             "title":"White Paper",
-            "description":""
+            "description":{
+                "EN": "",
+                "CN": "",
+                "JP": "",
+                "KR": "",
+                "VT": ""
+            }
         },
         {
             "id":"5",
             "title":"Lucky to Earn",
-            "description":"Lucky to Earn is a model designed to reward users for their participation in digital platforms. Users can earn rewards by performing specific tasks  or by engaging in events with an element of luck. This model not only offers an enjoyable user experience but also transforms the digital economy by providing tangible benefits to users."
+            "description":{
+                "EN": "Lucky to Earn is a model designed to reward users for their participation in digital platforms. Users can earn rewards by performing specific tasks  or by engaging in events with an element of luck. This model not only offers an enjoyable user experience but also transforms the digital economy by providing tangible benefits to users.",
+                "CN": "Lucky to Earn是一种旨在奖励用户参与数字平台的模式. 用户可以通过执行特定任务或参与带有运气因素的活动来赚取奖励. 这种模式不仅提供了愉快的用户体验, 还通过为用户提供实际收益, 改变了数字经济.",
+                "JP": "Lucky to Earnは, デジタルプラットフォームへの参加に対してユーザーに報酬を提供することを目的としたモデルです. ユーザーは特定のタスクを実行したり, 運の要素を含むイベントに参加したりすることで報酬を得ることができます. このモデルは楽しいユーザー体験を提供するだけでなく, ユーザーに具体的な利益をもたらすことでデジタル経済を変革します.",
+                "KR": "Lucky to Earn은 디지털 플랫폼 참여에 대해 사용자에게 보상을 제공하기 위해 설계된 모델입니다. 사용자는 특정 작업을 수행하거나 운의 요소가 포함된 이벤트에 참여함으로써 보상을 얻을 수 있습니다. 이 모델은 즐거운 사용자 경험을 제공할 뿐만 아니라, 사용자에게 실질적인 이익을 제공함으로써 디지털 경제를 변화시킵니다.",
+                "VT": "Lucky to Earn là một mô hình nhằm mục tiêu thưởng cho người dùng khi tham gia các nền tảng kỹ thuật số. Người dùng có thể kiếm phần thưởng bằng cách thực hiện các nhiệm vụ cụ thể hoặc tham gia các sự kiện có yếu tố may mắn. Mô hình này không chỉ mang lại trải nghiệm thú vị cho người dùng mà còn thay đổi nền kinh tế số bằng cách cung cấp lợi ích thực tế."
+            }
         },
         {
             "id":"6",
             "title":"Trading",
-            "description":"Trading lets users buy and sell assets on digital platforms to earn profits or manage portfolios. It uses real-time data and tools, revolutionizing asset management in the digital economy. "
+            "description":{
+                "EN": "Trading lets users buy and sell assets on digital platforms to earn profits or manage portfolios. It uses real-time data and tools, revolutionizing asset management in the digital economy.",
+                "CN": "Trading允许用户在数字平台上买卖资产以赚取利润或管理投资组合. 它利用实时数据和工具, 革新了数字经济中的资产管理.",
+                "JP": "Tradingは, デジタルプラットフォーム上で資産を売買し, 利益を得たりポートフォリオを管理したりすることを可能にします. それはリアルタイムデータとツールを利用しており, デジタル経済における資産管理を革新します.",
+                "KR": "Trading은 디지털 플랫폼에서 자산을 사고팔아 수익을 창출하거나 포트폴리오를 관리할 수 있도록 합니다. 이는 실시간 데이터와 도구를 활용하여 디지털 경제에서 자산 관리 방식을 혁신합니다.",
+                "VT": "Trading cho phép người dùng mua bán tài sản trên các nền tảng kỹ thuật số để kiếm lợi nhuận hoặc quản lý danh mục đầu tư. Nó sử dụng dữ liệu và công cụ thời gian thực, cách mạng hóa việc quản lý tài sản trong nền kinh tế số."
+            }
         },
         {
             "id":"7",
             "title":"Invest",
-            "description":"Invest involves committing funds to grow assets or earn profits. It targets various options like stocks, real estate, or cryptocurrencies, relying on market analysis and risk assessment."
+            "description":{
+                "EN": "Invest involves committing funds to grow assets or earn profits. It targets various options like stocks, real estate, or cryptocurrencies, relying on market analysis and risk assessment.",
+                "CN": "Invest涉及投入资金以增长资产或赚取利润. 它针对股票, 房地产或加密货币等各种选择, 依赖于市场分析和风险评估.",
+                "JP": "Investは, 資金を投入して資産を増やしたり利益を得たりすることを伴います. 株式, 不動産, 暗号通貨などの様々な選択肢を対象とし, 市場分析とリスク評価に基づいて行われます.",
+                "KR": "Invest는 자산을 성장시키거나 수익을 창출하기 위해 자금을 투입하는 것을 포함합니다. 이는 주식, 부동산, 암호화폐와 같은 다양한 선택지를 대상으로 하며, 시장 분석과 위험 평가에 기반합니다.",
+                "VT": "Invest liên quan đến việc cam kết vốn để gia tăng tài sản hoặc kiếm lợi nhuận. Nó nhắm đến các lựa chọn như cổ phiếu, bất động sản hoặc tiền điện tử, dựa vào phân tích thị trường và đánh giá rủi ro."
+            }
         },
         {
             "id":"8",
             "title":"Charity",
-            "description":"Charity supports those in need and tackles social issues through nonprofit efforts like donations and volunteering."
+            "description":{
+                "EN": "Charity supports those in need and tackles social issues through nonprofit efforts like donations and volunteering.",
+                "CN": "Charity通过捐赠和志愿服务等非营利性努力来支持有需要的人并解决社会问题.",
+                "JP": "Charityは寄付やボランティア活動などの非営利的な取り組みを通じて, 困っている人々を支援し, 社会問題に取り組みます.",
+                "KR": "Charity는 기부와 자원봉사와 같은 비영리적 활동을 통해 도움이 필요한 사람들을 지원하고 사회 문제를 해결합니다.",
+                "VT": "Charity hỗ trợ những người cần giúp đỡ và giải quyết các vấn đề xã hội thông qua các nỗ lực phi lợi nhuận như quyên góp và hoạt động tình nguyện."
+            }
         }
     ]
 }

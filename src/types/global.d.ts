@@ -9,3 +9,5 @@ export interface DefaultStyled {
 }
 
 export type linkKey = keyof typeof linkMap;
+
+export type translateKey = 'EN' | 'CN' | 'JP' | 'KR' | 'VT';
