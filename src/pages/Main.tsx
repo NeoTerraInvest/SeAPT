@@ -19,6 +19,7 @@ import { useSelector } from 'react-redux';
 const Main = () => {
   const isAbout = useTrackingView({ size: 1439 });
   const isToken = useTrackingView({ size: 768 });
+
   const language = useSelector((state: RootState) => state.translate.language);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const Main = () => {
   return (
     <BaseLayout>
       <MarginLayout>
+        <div className={styles.showMargin} />
         <Show />
       </MarginLayout>
       <MarginLayout>

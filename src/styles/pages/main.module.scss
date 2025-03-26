@@ -2,6 +2,11 @@
 .roadmapMargin, .aboutMargin, .tokenomicsMargin, .snsMargin, .whitepaperMargin, .trainMargin, .universeMargin{
     @include heading2-1439;
 }
+
+.showMargin{
+    margin-top: 126px;
+}
+
 .roadmapMargin{
     // background-color: aqua;
     margin-top: 40px;
