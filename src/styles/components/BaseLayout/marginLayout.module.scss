@@ -24,7 +24,7 @@
     padding-left:80px;
 
     @include dynamic_display(768px, 1024px){
-        background-color:cornflowerblue;
+        // background-color:cornflowerblue;
         padding-left:32px;
     }
 

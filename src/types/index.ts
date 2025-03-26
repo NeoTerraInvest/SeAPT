@@ -1,1 +1,2 @@
-export type { DefaultStyled } from './global';
+export type { DefaultStyled, linkKey, translateKey } from './global';
+export { linkMap } from './mapping';
