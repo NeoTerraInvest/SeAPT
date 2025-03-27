@@ -1,4 +1,4 @@
-import { WhitePaper, Universe } from '@components';
+import { Universe } from '@components';
 import { main as styles } from '@styles';
 import { useModal } from '@model';
 
@@ -10,7 +10,7 @@ const Dev = () => {
       Dev
       <span>UI Desing System</span>
       <div style={{ padding: '30px' }}></div>
-      <WhitePaper />
+      {/* <WhitePaper /> */}
       <div style={{ padding: '30px' }}></div>
       <Universe />
       <div style={{ padding: '30px' }}></div>
