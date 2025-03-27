@@ -6,8 +6,10 @@ import {
   mainCharcter767,
 } from '@assets';
 import { useTrackingView } from '@model';
+import { show } from '@data';
+import { translateKey } from '@types';
 
-const Show = () => {
+const Show = ({ translate }: { translate: translateKey }) => {
   const isMobile767 = useTrackingView({ size: 900 });
   const isMobile880 = useTrackingView({ size: 880 });
   const isMobile340 = useTrackingView({ size: 340 });
@@ -36,14 +38,10 @@ const Show = () => {
                 <div>a home in space?</div>
               </div>
               <div id={styles.content}>
-                Let’s build a home in space! Send out my loyal companion, Se
-                APT, to conquer the universe and create a home among the stars.
-                When you venture into space and claim the stars, you’ll discover
-                countless treasures (coins). Those treasures (coins) will turn
-                me into a billionaire!
+                {show.data[0].description[translate]}
               </div>
             </div>
-            <button>Explore</button>
+            <button id={styles.explore}>Explore</button>
           </div>
         </div>
         <div className={styles.image}>

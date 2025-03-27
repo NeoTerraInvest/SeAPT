@@ -17,7 +17,17 @@ const Univers = () => {
             <span>THE TIME IS NOW</span>
             <span>GET APT IN SPACE</span>
           </div>
-          <button>Lean More</button>
+          <button
+            onClick={() =>
+              window.open(
+                import.meta.env.VITE_LINK_X,
+                '_blank',
+                'noopener,noreferrer',
+              )
+            }
+          >
+            Lean More
+          </button>
         </div>
       </div>
     </div>
