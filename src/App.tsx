@@ -9,6 +9,7 @@ import { translateKey } from '@types';
 
 const App = () => {
   const isState = useEnvModeState();
+  const isMobileDomain = window.location.hostname.startsWith('m.');
   console.log(
     `Called App: ${isState ? 'production-' : 'development-'}${isState}`,
   );
@@ -22,7 +23,12 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path='/' element={<Home translate={language} />} />
+      {isMobileDomain ? (
+        <Route path='/m' element={<Home translate={language} />} />
+      ) : (
+        <Route path='/' element={<Home translate={language} />} />
+      )}
+
       {isState ? '' : <Route path='/Ui' element={<Ui />} />}
       {isState ? '' : <Route path='/Trade' element={<Test />} />}
       {isState ? '' : <Route path='/Swap' element={<Test />} />}
