@@ -1,7 +1,9 @@
 import { whitepaperLg, whitepaperSm } from '@assets';
 import { whitepaper as styles } from '@styles';
+import { whitepaper } from '@data';
+import { translateKey } from '@types';
 
-const WhitePaper = () => {
+const WhitePaper = ({ translate }: { translate: translateKey }) => {
   return (
     <div className={styles.debug}>
       <div className={styles.image}>
@@ -15,10 +17,7 @@ const WhitePaper = () => {
         <div className={styles.text}>
           <div id={styles.title}>White Paper</div>
           <div id={styles.description}>
-            The "Lucky to Earn" model rewards users for engaging with digital
-            platforms by completing tasks or participating in luck-based events.
-            It merges entertainment with financial incentives, enhancing user
-            experience and reshaping the digital economy.
+            {whitepaper.data[0].description[translate]}
           </div>
           <div className={styles.button}>
             <button id={styles.btn}>Get White Paper</button>

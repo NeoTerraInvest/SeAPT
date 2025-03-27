@@ -21,7 +21,7 @@ const Main = ({ translate }: { translate: translateKey }) => {
     <BaseLayout>
       <MarginLayout>
         <div className={styles.showMargin} />
-        <Show />
+        <Show translate={translate} />
       </MarginLayout>
       <MarginLayout>
         <h1 className={styles.roadmapMargin}>Roadmap</h1>
@@ -41,7 +41,7 @@ const Main = ({ translate }: { translate: translateKey }) => {
       </MarginLayout>
       <MarginLayout>
         <div className={styles.whitepaperMargin}>
-          <WhitePaper />
+          <WhitePaper translate={translate} />
         </div>
       </MarginLayout>
       <div className={styles.trainMargin}>
