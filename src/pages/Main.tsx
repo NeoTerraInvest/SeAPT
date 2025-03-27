@@ -20,28 +20,36 @@ const Main = ({ translate }: { translate: translateKey }) => {
   return (
     <BaseLayout>
       <MarginLayout>
-        <div className={styles.showMargin} />
-        <Show />
+        <div className={styles.showMargin} id='target-show' />
+        <Show translate={translate} />
       </MarginLayout>
       <MarginLayout>
-        <h1 className={styles.roadmapMargin}>Roadmap</h1>
+        <h1 className={styles.roadmapMargin} id='target-roadMap'>
+          Roadmap
+        </h1>
         <RoadMap translate={translate} />
       </MarginLayout>
       <MarginLayout auto={!isAbout}>
-        <h1 className={styles.aboutMargin}>About SeAPT</h1>
+        <h1 className={styles.aboutMargin} id='target-about'>
+          About SeAPT
+        </h1>
         <About translate={translate} />
       </MarginLayout>
       <MarginLayout auto={!isToken}>
-        <h1 className={styles.tokenomicsMargin}>Tokenomics</h1>
+        <h1 className={styles.tokenomicsMargin} id='target-tokenomics'>
+          Tokenomics
+        </h1>
         <Tokenomics translate={translate} />
       </MarginLayout>
       <MarginLayout>
-        <h1 className={styles.snsMargin}>Join the Community</h1>
+        <h1 className={styles.snsMargin} id='target-sns'>
+          Join the Community
+        </h1>
         <SNS />
       </MarginLayout>
       <MarginLayout>
-        <div className={styles.whitepaperMargin}>
-          <WhitePaper />
+        <div className={styles.whitepaperMargin} id='target-whitepaper'>
+          <WhitePaper translate={translate} />
         </div>
       </MarginLayout>
       <div className={styles.trainMargin}>

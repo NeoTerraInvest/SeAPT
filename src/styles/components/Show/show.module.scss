@@ -140,7 +140,7 @@
                     }
 
                 }
-                button{
+                #explore{
                     position: relative;
                     z-index: 1;
                     @include btn-txt-max;
@@ -150,7 +150,7 @@
                     background-color: var(--dark-btn-default);
                     padding: 15px 0px;
                     border-radius: var(--radius-size);
-
+                    // cursor: pointer;
                     @include dynamic_display(1440px, 1919px){
                         @include btn-txt-1919
                     }

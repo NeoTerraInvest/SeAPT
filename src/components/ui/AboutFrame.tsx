@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { aboutFrame as styles } from '@styles';
 import { btnClose } from '@assets';
+import { HashLink } from 'react-router-hash-link';
+
 const AboutFrame = ({
   id,
   title,
@@ -47,11 +49,24 @@ const AboutFrame = ({
               <div id={styles.btn}>
                 <button
                   onClick={() => {
-                    setState(!isState);
-                    console.log(id);
+                    if (id !== '0') {
+                      setState(!isState);
+                      console.log(id);
+                    } else {
+                      window.open(
+                        import.meta.env.VITE_LINK_GAME,
+                        '_blank',
+                        'noopener,noreferrer',
+                      );
+                      window.location.reload();
+                    }
                   }}
                 >
-                  <img src={btnClose} alt='' width={16} height={16} />
+                  {id !== '0' ? (
+                    <img src={btnClose} alt='' width={16} height={16} />
+                  ) : (
+                    <span>Enjoy!</span>
+                  )}
                 </button>
               </div>
             </div>
@@ -59,15 +74,17 @@ const AboutFrame = ({
         </div>
         <div id={styles.layout}>
           {!isState ? (
-            <button
-              onClick={() => {
-                if (id !== '4') {
-                  setState(!isState);
-                }
-              }}
-            >
-              Details
-            </button>
+            <HashLink smooth to={id !== '4' ? '' : '/#target-whitepaper'}>
+              <button
+                onClick={() => {
+                  if (id !== '4') {
+                    setState(!isState);
+                  }
+                }}
+              >
+                Details
+              </button>
+            </HashLink>
           ) : null}
         </div>
       </div>
