@@ -1,9 +1,10 @@
+import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { header as styles } from '@styles';
 import { headerLogoWeb, headerLogoMobile, hambuger } from '@assets';
 import { useTrackingView, useModal } from '@model';
 import { Translate, ModalFrame, MarginLayout } from '@components';
-import React from 'react';
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
   const isMobile1260 = useTrackingView({ size: 1260 });
@@ -52,17 +53,38 @@ const Header = () => {
           <div id={styles.group}>
             {isMobile ? (
               <div id={styles.hambuger} onClick={openModal}>
-                <img src={headerLogoMobile} alt='' width={86} height={48} />
+                <HashLink smooth to='/#target-show'>
+                  <img
+                    src={headerLogoMobile}
+                    alt='logo-m'
+                    width={86}
+                    height={48}
+                  />
+                </HashLink>
                 <img src={hambuger} alt='' width={44} height={48} />
               </div>
             ) : (
-              <img src={headerLogoWeb} alt='' width={120} height={48} />
+              <HashLink smooth to='/#target-show'>
+                <img src={headerLogoWeb} alt='logo-w' width={120} height={48} />
+              </HashLink>
             )}
             {/* <div id={styles.contents}> */}
-            <div className={styles.content}>Roadmap</div>
-            <div className={styles.content}>About</div>
-            <div className={styles.content}>Tokenomics</div>
-            <div className={styles.content}>Community</div>
+            <HashLink className={styles.content} smooth to='/#target-roadMap'>
+              Roadmap
+            </HashLink>
+            <HashLink className={styles.content} smooth to='/#target-about'>
+              About
+            </HashLink>
+            <HashLink
+              className={styles.content}
+              smooth
+              to='/#target-tokenomics'
+            >
+              Tokenomics
+            </HashLink>
+            <HashLink className={styles.content} smooth to='/#target-sns'>
+              Community
+            </HashLink>
             {/* </div> */}
           </div>
           <div className={styles.tool}>
