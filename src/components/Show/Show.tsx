@@ -41,7 +41,7 @@ const Show = ({ translate }: { translate: translateKey }) => {
                 {show.data[0].description[translate]}
               </div>
             </div>
-            <button>Explore</button>
+            <button id={styles.explore}>Explore</button>
           </div>
         </div>
         <div className={styles.image}>

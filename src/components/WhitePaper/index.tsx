@@ -20,7 +20,18 @@ const WhitePaper = ({ translate }: { translate: translateKey }) => {
             {whitepaper.data[0].description[translate]}
           </div>
           <div className={styles.button}>
-            <button id={styles.btn}>Get White Paper</button>
+            <button
+              id={styles.btn}
+              onClick={() => {
+                window.open(
+                  `${import.meta.env.VITE_API_VERCEL_URL}/pdf/seapt_white_paper.pdf`,
+                  '_blank',
+                  'noopener,noreferrer',
+                );
+              }}
+            >
+              Get White Paper
+            </button>
           </div>
         </div>
       </div>

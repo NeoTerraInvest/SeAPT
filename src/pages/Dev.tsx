@@ -9,6 +9,17 @@ const Dev = () => {
     <div id={styles.debug} style={{ backgroundColor: 'gray' }}>
       Dev
       <span>UI Desing System</span>
+      <button
+        onClick={() => {
+          window.open(
+            `${import.meta.env.VITE_API_VERCEL_URL}/pdf/seapt_white_paper.pdf`,
+            '_blank',
+            'noopener,noreferrer',
+          );
+        }}
+      >
+        Test
+      </button>
       <div style={{ padding: '30px' }}></div>
       {/* <WhitePaper /> */}
       <div style={{ padding: '30px' }}></div>
