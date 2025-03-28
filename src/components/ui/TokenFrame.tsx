@@ -1,6 +1,8 @@
 import { tokenFrame as styles } from '@/styles';
 import { ReactNode } from 'react';
 
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
+
 const TokenFrame = ({
   title,
   image,
@@ -16,10 +18,23 @@ const TokenFrame = ({
     <div id={styles.debug}>
       <div id={styles.image}>
         <picture className={styles.picture}>
-          <source srcSet={image.small} media='(max-width: 767px)' />
-          <source srcSet={image.smallMedium} media='(max-width: 1024px)' />
-          <source srcSet={image.medium} media='(max-width: 1439px)' />
-          <img src={image.medium} alt='TokenFrame' loading='lazy' />
+          <source
+            srcSet={`${CDNURL}/images/tokenomics/${image.small}.svg`}
+            media='(max-width: 767px)'
+          />
+          <source
+            srcSet={`${CDNURL}/images/tokenomics/${image.smallMedium}.svg`}
+            media='(max-width: 1024px)'
+          />
+          <source
+            srcSet={`${CDNURL}/images/tokenomics/${image.medium}.svg`}
+            media='(max-width: 1439px)'
+          />
+          <img
+            src={`${CDNURL}/images/tokenomics/${image.medium}.svg`}
+            alt='TokenFrame'
+            loading='lazy'
+          />
         </picture>
       </div>
       <div id={styles.container}>

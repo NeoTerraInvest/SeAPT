@@ -77,7 +77,7 @@
             }
             .group{
                 gap: 24px;
-                div{color: var(--dark-text-sub);}
+                div{color: var(--dark-text-sub); cursor: pointer;}
             }
             .title{
                 color: var(--dark-text-default);

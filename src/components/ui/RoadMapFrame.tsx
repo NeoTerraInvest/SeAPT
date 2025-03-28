@@ -1,6 +1,8 @@
 import { roadMapFrame as styles } from '@styles';
 import { useTrackingView } from '@model';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
+
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
 
 const RoadMapFrame = ({
   phase,
@@ -16,16 +18,23 @@ const RoadMapFrame = ({
   image: { smallMedium: string; large: string };
 }) => {
   const isMobile = useTrackingView();
-  useEffect(() => {
-    // console.log(isMobile);
-  }, [isMobile]);
+  // useEffect(() => {
+  //   // console.log(isMobile);
+  // }, [isMobile]);
   return (
     <div id={styles.debug}>
       {isMobile && (
         <div id={styles.imgCol}>
           <picture>
-            <source srcSet={image.smallMedium} media='(max-width: 767px)' />
-            <img src={image.large} alt='image' loading='lazy' />
+            <source
+              srcSet={`${CDNURL}/images/roadmap/${image.smallMedium}.svg`}
+              media='(max-width: 767px)'
+            />
+            <img
+              src={`${CDNURL}/images/roadmap/${image.large}.svg`}
+              alt='image'
+              loading='lazy'
+            />
           </picture>
         </div>
       )}
@@ -40,8 +49,15 @@ const RoadMapFrame = ({
       {!isMobile && (
         <div id={styles.imgRow}>
           <picture>
-            <source srcSet={image.smallMedium} media='(max-width: 767px)' />
-            <img src={image.large} alt='image' loading='lazy' />
+            <source
+              srcSet={`${CDNURL}/images/roadmap/${image.smallMedium}.svg`}
+              media='(max-width: 767px)'
+            />
+            <img
+              src={`${CDNURL}/images/roadmap/${image.large}.svg`}
+              alt='image'
+              loading='lazy'
+            />
           </picture>
         </div>
       )}
