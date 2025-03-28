@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { aboutFrame as styles } from '@styles';
-import { btnClose } from '@assets';
 import { HashLink } from 'react-router-hash-link';
 
 const CDNURL = import.meta.env.VITE_API_CDN_URL;
@@ -79,7 +78,12 @@ const AboutFrame = ({
                   }}
                 >
                   {id !== '0' ? (
-                    <img src={btnClose} alt='' width={16} height={16} />
+                    <img
+                      src={`${CDNURL}/images/global/btn_close.svg`}
+                      alt=''
+                      width={16}
+                      height={16}
+                    />
                   ) : (
                     <span>Enjoy!</span>
                   )}

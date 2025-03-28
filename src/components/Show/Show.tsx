@@ -1,13 +1,11 @@
 import { show as styles } from '@styles';
-import {
-  // mainCharcter1439,
-  mainCharcter1919,
-  // mainCharcter1024,
-  mainCharcter767,
-} from '@assets';
 import { useTrackingView } from '@model';
 import { show } from '@data';
 import { translateKey } from '@types';
+
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
+const mainCharcter1919 = `${CDNURL}/images/global/1919/img_main_charcter.svg`;
+const mainCharcter767 = `${CDNURL}/images/global/img_main_charcter_767`;
 
 const Show = ({ translate }: { translate: translateKey }) => {
   const isMobile767 = useTrackingView({ size: 900 });
@@ -15,14 +13,12 @@ const Show = ({ translate }: { translate: translateKey }) => {
   const isMobile340 = useTrackingView({ size: 340 });
   return (
     <div id={styles.debug}>
-      {/* <div id={styles.background}>
-        {isMobile767 || isMobile340 ? (
-          <div id={styles.charcter}>
-            <img src={mainCharcter767} alt='' loading='lazy' />
-          </div>
-        ) : null}
-      </div> */}
-      <div id={styles.container}>
+      <div
+        id={styles.container}
+        style={{
+          backgroundImage: `url('${CDNURL}/images/global/img_main_background.svg')`,
+        }}
+      >
         <div id={styles.background}>
           {isMobile767 || isMobile340 ? (
             <div id={styles.charcter}>

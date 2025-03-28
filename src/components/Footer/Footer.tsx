@@ -1,6 +1,9 @@
 import { footer as styles } from '@styles';
-import { footerLogo } from '@assets';
+// import { footerLogo } from '@assets';
 import { useTrackingView } from '@model';
+
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
+const footerLogo = `${CDNURL}/images/footer-logo.svg`;
 
 const Footer = () => {
   const isMobile = useTrackingView();
@@ -9,13 +12,25 @@ const Footer = () => {
     <div id={styles.debug}>
       {isMobile ? (
         <div className={styles.contents}>
-          <img src={footerLogo} width={120} height={48} alt='' />
+          <img
+            src={footerLogo}
+            width={120}
+            height={48}
+            alt='logo'
+            loading='lazy'
+          />
         </div>
       ) : (
         <div className={styles.contents}>
-          <img src={footerLogo} width={120} height={48} alt='' />
+          <img
+            src={footerLogo}
+            width={120}
+            height={48}
+            alt='logo'
+            loading='lazy'
+          />
           <div className={styles.information}>
-            <div id={styles.info}>contact : email@email.com</div>
+            <div id={styles.info}>contact : neoterrafund@gmail.com</div>
             <div id={styles.info}>Space APT © 2025. All rights reserved.</div>
           </div>
         </div>
@@ -49,7 +64,7 @@ const Footer = () => {
       {isMobile ? (
         <div className={styles.contents}>
           <div className={styles.information}>
-            <div id={styles.info}>contact : email@email.com</div>
+            <div id={styles.info}>contact : neoterrafund@gmail.com</div>
             <div id={styles.info}>Space APT © 2025. All rights reserved.</div>
           </div>
         </div>
