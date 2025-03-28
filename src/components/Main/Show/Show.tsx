@@ -5,7 +5,7 @@ import { translateKey } from '@types';
 
 const CDNURL = import.meta.env.VITE_API_CDN_URL;
 const mainCharcter1919 = `${CDNURL}/images/global/1919/img_main_charcter.svg`;
-const mainCharcter767 = `${CDNURL}/images/global/img_main_charcter_767`;
+const mainCharcter767 = `${CDNURL}/images/global/img_main_charcter_767.svg`;
 
 const Show = ({ translate }: { translate: translateKey }) => {
   const isMobile767 = useTrackingView({ size: 900 });
