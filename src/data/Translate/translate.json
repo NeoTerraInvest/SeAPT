@@ -2,28 +2,23 @@
     "data": [
         {
           "key": "EN",
-          "language": "EN",
-          "image": "./EN.png"
+          "language": "EN"
         },
         {
           "key": "CN",
-          "language": "CN",
-          "image": "./CN.png"
+          "language": "CN"
         },
         {
           "key": "JP",
-          "language": "JP",
-          "image": "./JP.png"
+          "language": "JP"
         },
         {
           "key": "KR",
-          "language": "KR",
-          "image": "./KR.png"
+          "language": "KR"
         },
         {
           "key": "VT",
-          "language": "VT",
-          "image": "./VT.png"
+          "language": "VT"
         }
       ]
 }
