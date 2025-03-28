@@ -1,35 +1,8 @@
 import { TokenFrame } from '@components';
 import { tokenomics as rawStyles } from '@styles';
 import { SliderFlex, useTrackingView } from '@model';
-import { DefaultStyled } from '@types';
+import { DefaultStyled, translateKey } from '@types';
 import { tokenomics } from '@data';
-import {
-  tokenmicsSpaceAPT767,
-  tokenmicsSpaceAPT1024,
-  tokenmicsSpaceAPT1439,
-  tokenmicsSpaceAPTMax,
-  tokenmicsTotalSupply767,
-  tokenmicsTotalSupply1024,
-  tokenmicsTotalSupply1439,
-  tokenmicsTotalSupplyMax,
-  tokenmicsLP767,
-  tokenmicsLP1024,
-  tokenmicsLP1439,
-  tokenmicsLPMax,
-  tokenmicsBurn767,
-  tokenmicsBurn1024,
-  tokenmicsBurn1439,
-  tokenmicsBurnMax,
-  tokenmicsCharity767,
-  tokenmicsCharity1024,
-  tokenmicsCharity1439,
-  tokenmicsCharityMax,
-  tokenmicsMarketing767,
-  tokenmicsMarketing1024,
-  tokenmicsMarketing1439,
-  tokenmicsMarketingMax,
-} from '@assets';
-import { translateKey } from '@types';
 
 const styles = rawStyles as unknown as DefaultStyled;
 
@@ -41,40 +14,40 @@ const Tokenomics = ({ translate }: { translate: translateKey }) => {
     { small: string; smallMedium: string; medium: string; large: string }
   > = {
     0: {
-      small: tokenmicsSpaceAPT767,
-      smallMedium: tokenmicsSpaceAPT1024,
-      medium: tokenmicsSpaceAPT1439,
-      large: tokenmicsSpaceAPTMax,
+      small: 'img_tokenomics_spaceAPT_767',
+      smallMedium: 'img_tokenomics_spaceAPT_1024',
+      medium: 'img_tokenomics_spaceAPT_1439',
+      large: 'img_tokenomics_spaceAPT_Max',
     },
     1: {
-      small: tokenmicsTotalSupply767,
-      smallMedium: tokenmicsTotalSupply1024,
-      medium: tokenmicsTotalSupply1439,
-      large: tokenmicsTotalSupplyMax,
+      small: 'img_tokenomics_total_supply_767',
+      smallMedium: 'img_tokenomics_total_supply_1024',
+      medium: 'img_tokenomics_total_supply_1439',
+      large: 'img_tokenomics_total_supply_Max',
     },
     2: {
-      small: tokenmicsLP767,
-      smallMedium: tokenmicsLP1024,
-      medium: tokenmicsLP1439,
-      large: tokenmicsLPMax,
+      small: 'img_tokenomics_lp_767',
+      smallMedium: 'img_tokenomics_lp_1024',
+      medium: 'img_tokenomics_lp_1439',
+      large: 'img_tokenomics_lp_Max',
     },
     3: {
-      small: tokenmicsBurn767,
-      smallMedium: tokenmicsBurn1024,
-      medium: tokenmicsBurn1439,
-      large: tokenmicsBurnMax,
+      small: 'img_tokenomics_burn_767',
+      smallMedium: 'img_tokenomics_burn_1024',
+      medium: 'img_tokenomics_burn_1439',
+      large: 'img_tokenomics_burn_Max',
     },
     4: {
-      small: tokenmicsCharity767,
-      smallMedium: tokenmicsCharity1024,
-      medium: tokenmicsCharity1439,
-      large: tokenmicsCharityMax,
+      small: 'img_tokenomics_charity_767',
+      smallMedium: 'img_tokenomics_charity_1024',
+      medium: 'img_tokenomics_charity_1439',
+      large: 'img_tokenomics_charity_Max',
     },
     5: {
-      small: tokenmicsMarketing767,
-      smallMedium: tokenmicsMarketing1024,
-      medium: tokenmicsMarketing1439,
-      large: tokenmicsMarketingMax,
+      small: 'img_tokenomics_marketing_767',
+      smallMedium: 'img_tokenomics_marketing_1024',
+      medium: 'img_tokenomics_marketing_1439',
+      large: 'img_tokenomics_marketing_Max',
     },
   };
 

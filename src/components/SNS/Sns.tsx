@@ -4,21 +4,6 @@ import { sns as styles } from '@styles';
 import { sns } from '@data';
 import { useTrackingView } from '@model';
 
-import {
-  telegram480,
-  telegram767,
-  telegram1024,
-  telegram1439,
-  x480,
-  x767,
-  x1024,
-  x1439,
-  youtube480,
-  youtube767,
-  youtube1024,
-  youtube1439,
-} from '@assets';
-
 const Sns = () => {
   const isMobile1439 = useTrackingView({ size: 1439 });
   const isMobile1024 = useTrackingView({ size: 1024 });
@@ -39,22 +24,22 @@ const Sns = () => {
     { small: string; smallMedium: string; medium: string; large: string }
   > = {
     0: {
-      small: x480,
-      smallMedium: x767,
-      medium: x1024,
-      large: x1439,
+      small: 'x-480',
+      smallMedium: 'x-767',
+      medium: 'x-1024',
+      large: 'x-1439',
     },
     1: {
-      small: telegram480,
-      smallMedium: telegram767,
-      medium: telegram1024,
-      large: telegram1439,
+      small: 'telegram-480',
+      smallMedium: 'telegram-767',
+      medium: 'telegram-1024',
+      large: 'telegram-1439',
     },
     2: {
-      small: youtube480,
-      smallMedium: youtube767,
-      medium: youtube1024,
-      large: youtube1439,
+      small: 'youtube-480',
+      smallMedium: 'youtube-767',
+      medium: 'youtube-1024',
+      large: 'youtube-1439',
     },
   };
 

@@ -1,14 +1,25 @@
 import { univers as styles } from '@styles';
-import { universLg, universSm } from '@assets';
+
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
 
 const Univers = () => {
   return (
     <div className={styles.debug}>
       <div className={styles.image}>
         <picture className={styles.picture}>
-          <source srcSet={universSm} media='(max-width: 1024px)' />
-          <source srcSet={universLg} media='(max-width: 1439px)' />
-          <img src={universLg} alt='TokenFrame' loading='lazy' />
+          <source
+            srcSet={`${CDNURL}/images/univers/img_univers_sm.svg`}
+            media='(max-width: 1024px)'
+          />
+          <source
+            srcSet={`${CDNURL}/images/univers/img_univers_lg.svg`}
+            media='(max-width: 1439px)'
+          />
+          <img
+            src={`${CDNURL}/images/univers/img_univers_lg.svg`}
+            alt='TokenFrame'
+            loading='lazy'
+          />
         </picture>
       </div>
       <div className={styles.contents}>

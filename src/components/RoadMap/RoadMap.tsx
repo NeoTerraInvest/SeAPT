@@ -3,16 +3,6 @@ import { roadMap as styles } from '@styles';
 import { useTrackingView } from '@model';
 import { roadmap } from '@/data';
 import { RoadMapFrame } from '@components';
-import {
-  roadMapAchivementLg,
-  roadMapBinanceLg,
-  roadMapListingLg,
-  roadMapTapToEarnLg,
-  roadMapAchivementSm,
-  roadMapBinanceSm,
-  roadMapListingSm,
-  roadMapTapToEarnSm,
-} from '@assets';
 import { translateKey } from '@/types';
 
 const RoadMap = ({ translate }: { translate: translateKey }) => {
@@ -35,20 +25,20 @@ const RoadMap = ({ translate }: { translate: translateKey }) => {
 
   const contentMap: Record<string, { smallMedium: string; large: string }> = {
     0: {
-      smallMedium: roadMapTapToEarnSm,
-      large: roadMapTapToEarnLg,
+      smallMedium: 'img_Roadmap_tapToEarn_sm',
+      large: 'img_Roadmap_tapToEarn_lg',
     },
     1: {
-      smallMedium: roadMapListingSm,
-      large: roadMapListingLg,
+      smallMedium: 'img_Roadmap_listing_on_sm',
+      large: 'img_Roadmap_listing_on_lg',
     },
     2: {
-      smallMedium: roadMapAchivementSm,
-      large: roadMapAchivementLg,
+      smallMedium: 'img_Roadmap_achivement_sm',
+      large: 'img_Roadmap_achivement_lg',
     },
     3: {
-      smallMedium: roadMapBinanceSm,
-      large: roadMapBinanceLg,
+      smallMedium: 'img_Roadmap_binance_sm',
+      large: 'img_Roadmap_binance_lg',
     },
   };
 

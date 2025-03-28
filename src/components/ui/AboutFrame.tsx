@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { aboutFrame as styles } from '@styles';
-import { btnClose } from '@assets';
 import { HashLink } from 'react-router-hash-link';
+
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
 
 const AboutFrame = ({
   id,
@@ -23,10 +24,24 @@ const AboutFrame = ({
   return (
     <div id={styles.debug}>
       <picture className={styles.picture}>
-        <source srcSet={image.small} media='(max-width: 480px)' />
-        <source srcSet={image.smallMedium} media='(max-width: 767px)' />
-        <source srcSet={image.medium} media='(max-width: 1024px)' />
-        <img id={styles.image} src={image.large} alt={title} loading='lazy' />
+        <source
+          srcSet={`${CDNURL}/images/about/${image.small}.svg`}
+          media='(max-width: 480px)'
+        />
+        <source
+          srcSet={`${CDNURL}/images/about/${image.smallMedium}.svg`}
+          media='(max-width: 767px)'
+        />
+        <source
+          srcSet={`${CDNURL}/images/about/${image.medium}.svg`}
+          media='(max-width: 1024px)'
+        />
+        <img
+          id={styles.image}
+          src={`${CDNURL}/images/about/${image.large}.svg`}
+          alt={title}
+          loading='lazy'
+        />
       </picture>
       <div className={styles.aboutFrame}>
         <div id={styles.group}>
@@ -63,7 +78,12 @@ const AboutFrame = ({
                   }}
                 >
                   {id !== '0' ? (
-                    <img src={btnClose} alt='' width={16} height={16} />
+                    <img
+                      src={`${CDNURL}/images/global/btn_close.svg`}
+                      alt=''
+                      width={16}
+                      height={16}
+                    />
                   ) : (
                     <span>Enjoy!</span>
                   )}

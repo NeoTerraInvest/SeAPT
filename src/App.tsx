@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Test, Error } from '@components';
+import { Error } from '@components';
 import { Main as Home, Dev as Ui } from './pages';
 import { useEnvModeState } from '@model';
 import { useSelector } from 'react-redux';
@@ -25,8 +25,8 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home translate={language} />} />
       {isState ? '' : <Route path='/Ui' element={<Ui />} />}
-      {isState ? '' : <Route path='/Trade' element={<Test />} />}
-      {isState ? '' : <Route path='/Swap' element={<Test />} />}
+      {/* {isState ? '' : <Route path='/Trade' element={<Test />} />} */}
+      {/* {isState ? '' : <Route path='/Swap' element={<Test />} />} */}
       <Route path='*' element={<Error />} />
     </Routes>
   );
