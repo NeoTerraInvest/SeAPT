@@ -22,7 +22,7 @@ const Show = ({ translate }: { translate: translateKey }) => {
         <div id={styles.background}>
           {isMobile767 || isMobile340 ? (
             <div id={styles.charcter}>
-              <img src={mainCharcter767} alt='' loading='lazy' />
+              <img src={mainCharcter767} alt='main' loading='lazy' />
             </div>
           ) : null}
         </div>
@@ -46,6 +46,7 @@ const Show = ({ translate }: { translate: translateKey }) => {
               id={styles.outer}
               src={!isMobile880 ? mainCharcter1919 : mainCharcter767}
               loading='lazy'
+              alt='main'
             />
           ) : null}
         </div>
