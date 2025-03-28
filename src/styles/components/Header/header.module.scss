@@ -55,6 +55,10 @@
             display: flex;
             justify-content: center;
             cursor: pointer;
+            img{
+                display: flex;
+                justify-content: center;
+            }
         }
         .content {
             font-size: var(--standard-font-size);

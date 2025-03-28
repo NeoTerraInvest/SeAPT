@@ -22,7 +22,11 @@ const useModal = () => {
   }, []);
 
   const ModalComponent = useCallback(
-    ({ modalChildren }: { modalChildren: ReactNode }) => {
+    ({
+      modalChildren,
+    }: {
+      modalChildren: (closeModal: () => void) => ReactNode;
+    }) => {
       if (!visible) return null;
 
       return (
@@ -33,7 +37,7 @@ const useModal = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* <div className={styles.handle} /> */}
-            {modalChildren}
+            {modalChildren(closeModal)}
           </div>
         </div>
       );
