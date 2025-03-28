@@ -1,9 +1,9 @@
 import { Universe } from '@components';
 import { main as styles } from '@styles';
-import { useModal } from '@model';
+// import { useModal } from '@model';
 
 const Dev = () => {
-  const { ModalComponent, openModal } = useModal();
+  // const { ModalComponent, openModal } = useModal();
 
   return (
     <div id={styles.debug} style={{ backgroundColor: 'gray' }}>
@@ -12,7 +12,7 @@ const Dev = () => {
       <button
         onClick={() => {
           window.open(
-            `${import.meta.env.VITE_API_VERCEL_URL}/pdf/seapt_white_paper.pdf`,
+            `${import.meta.env.VITE_API_CDN_URL}/pdf/seapt_white_paper.pdf`,
             '_blank',
             'noopener,noreferrer',
           );
@@ -26,10 +26,10 @@ const Dev = () => {
       <Universe />
       <div style={{ padding: '30px' }}></div>
       <>
-        <button onClick={openModal}>Open Modal</button>
-        <ModalComponent
+        {/* <button onClick={openModal}>Open Modal</button> */}
+        {/* <ModalComponent
           modalChildren={<div>👋 Hello! I am a slide-up modal!</div>}
-        />
+        /> */}
       </>
       <footer style={{ padding: '30px' }}></footer>
     </div>

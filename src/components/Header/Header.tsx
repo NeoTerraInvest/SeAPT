@@ -90,7 +90,11 @@ const Header = () => {
           <div className={styles.tool}>
             <Translate />
           </div>
-          <ModalComponent modalChildren={<ModalFrame />} />
+          <ModalComponent
+            modalChildren={(closeModal) => (
+              <ModalFrame closeModal={closeModal} />
+            )}
+          />
         </div>
       </Wrapper>
     </div>
