@@ -1,10 +1,14 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { header as styles } from '@styles';
-import { headerLogoWeb, headerLogoMobile, hambuger } from '@assets';
 import { useTrackingView, useModal } from '@model';
 import { Translate, ModalFrame, MarginLayout } from '@components';
 import { HashLink } from 'react-router-hash-link';
+
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
+const headerLogoWeb = `${CDNURL}/images/header-logo-120-48.svg`;
+const headerLogoMobile = `${CDNURL}/images/header-logo-86-48.svg`;
+const hambuger = `${CDNURL}/images/hambuger.svg`;
 
 const Header = () => {
   const isMobile1260 = useTrackingView({ size: 1260 });

@@ -1,6 +1,9 @@
 import { error as styles } from '@styles';
-import { mainCharcter1919, mainBackground } from '@assets';
 import { useNavigate } from 'react-router-dom';
+
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
+const mainCharcter1919 = `${CDNURL}/images/global/1919/img_main_charcter.svg`;
+const mainBackground = `${CDNURL}/images/global/img_main_background.svg`;
 
 const Error = () => {
   const navigate = useNavigate();

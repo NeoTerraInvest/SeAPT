@@ -6,10 +6,11 @@ import { AppDispatch } from '@/store';
 import { setTranslate } from '@/store/slice/translate.slice';
 import { useTrackingView } from '@model';
 
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
+
 const Translate = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [isLanguage, setLanguage] = useState<string>(translate.data[0].key);
-  const [isFlag, setFlag] = useState<string>(translate.data[0].image);
   const isMobile = useTrackingView({ size: 757 });
   const dispatch = useDispatch<AppDispatch>();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -20,7 +21,6 @@ const Translate = () => {
 
   useEffect(() => {
     setLanguage(translate.data[0].key);
-    setFlag(translate.data[0].image);
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
@@ -34,7 +34,7 @@ const Translate = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [setLanguage, setFlag]);
+  }, [setLanguage]);
 
   return (
     <div className={styles.debug} ref={dropdownRef}>
@@ -46,13 +46,13 @@ const Translate = () => {
         <ul className={styles.view}>
           <li className={styles.element}>
             <img
-              src={isFlag}
+              src={`${CDNURL}/images/ui/${isLanguage}.png`}
               alt={isLanguage}
               width={!isMobile ? 26 : 18}
               height={!isMobile ? 14 : 10}
             />
             {!isMobile ? <span id={styles.text}>{isLanguage}</span> : null}
-            <img src='./arrow.png' alt='arrow' />
+            <img src={`${CDNURL}/images/ui/arrow.png`} alt='arrow' />
           </li>
         </ul>
         {isOpen && (
@@ -63,13 +63,13 @@ const Translate = () => {
                 className={styles.element}
                 onClick={() => {
                   setLanguage(el.key);
-                  setFlag(el.image);
+                  // setFlag(el.image);
                   dispatch(setTranslate(el.key));
                 }}
               >
                 <div className={styles.group}>
                   <img
-                    src={el.image}
+                    src={`${CDNURL}/images/ui/${el.key}.png`}
                     alt={el.key}
                     width={!isMobile ? 26 : 18}
                     height={!isMobile ? 14 : 10}

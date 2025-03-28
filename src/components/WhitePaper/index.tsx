@@ -1,16 +1,27 @@
-import { whitepaperLg, whitepaperSm } from '@assets';
 import { whitepaper as styles } from '@styles';
 import { whitepaper } from '@data';
 import { translateKey } from '@types';
+
+const CDNURL = import.meta.env.VITE_API_CDN_URL;
 
 const WhitePaper = ({ translate }: { translate: translateKey }) => {
   return (
     <div className={styles.debug}>
       <div className={styles.image}>
         <picture className={styles.picture}>
-          <source srcSet={whitepaperSm} media='(max-width: 1024px)' />
-          <source srcSet={whitepaperLg} media='(max-width: 1439px)' />
-          <img src={whitepaperLg} alt='TokenFrame' loading='lazy' />
+          <source
+            srcSet={`${CDNURL}/images/whitepaper/img_whitepaper_sm.svg`}
+            media='(max-width: 1024px)'
+          />
+          <source
+            srcSet={`${CDNURL}/images/whitepaper/img_whitepaper_lg.svg`}
+            media='(max-width: 1439px)'
+          />
+          <img
+            src={`${CDNURL}/images/whitepaper/img_whitepaper_lg.svg`}
+            alt='TokenFrame'
+            loading='lazy'
+          />
         </picture>
       </div>
       <div className={styles.contents}>
