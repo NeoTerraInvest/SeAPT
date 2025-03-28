@@ -24,7 +24,7 @@ const WhitePaper = ({ translate }: { translate: translateKey }) => {
               id={styles.btn}
               onClick={() => {
                 window.open(
-                  `${import.meta.env.VITE_API_VERCEL_URL}/pdf/seapt_white_paper.pdf`,
+                  `${import.meta.env.VITE_API_CDN_URL}/pdf/seapt_white_paper.pdf`,
                   '_blank',
                   'noopener,noreferrer',
                 );
