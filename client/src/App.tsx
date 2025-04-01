@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Error } from '@components';
 import { Main as Home, Dev as Ui } from './pages';
+import { DexChart } from '@components';
 import { useEnvModeState } from '@model';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@/store';
@@ -16,18 +17,17 @@ const App = () => {
   const language = useSelector(
     (state: RootState) => state.translate.language,
   ) as translateKey;
-  const temp = false;
+
   useEffect(() => {
     console.log(isMobileDomain);
   }, [isMobileDomain]);
 
   return (
     <Routes>
-      <Route path='/' element={<Error />} />
-      {temp ? <Route path='/' element={<Home translate={language} />} /> : null}
+      <Route path='/' element={<Home translate={language} />} />
       {isState ? '' : <Route path='/Ui' element={<Ui />} />}
-      {/* {isState ? '' : <Route path='/Trade' element={<Test />} />} */}
-      {/* {isState ? '' : <Route path='/Swap' element={<Test />} />} */}
+      {isState ? '' : <Route path='/Trade' element={<DexChart />} />}
+      {isState ? '' : <Route path='/Swap' element={<Error />} />}
       <Route path='*' element={<Error />} />
     </Routes>
   );
