@@ -16,15 +16,13 @@ const App = () => {
   const language = useSelector(
     (state: RootState) => state.translate.language,
   ) as translateKey;
-  const temp = false;
   useEffect(() => {
     console.log(isMobileDomain);
   }, [isMobileDomain]);
 
   return (
     <Routes>
-      <Route path='/' element={<Error />} />
-      {temp ? <Route path='/' element={<Home translate={language} />} /> : null}
+      <Route path='/' element={<Home translate={language} />} />
       {isState ? '' : <Route path='/Ui' element={<Ui />} />}
       {/* {isState ? '' : <Route path='/Trade' element={<Test />} />} */}
       {/* {isState ? '' : <Route path='/Swap' element={<Test />} />} */}
