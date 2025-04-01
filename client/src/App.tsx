@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { Error } from '@components';
+import { DexList, DexChart, Error } from '@components';
 import { Main as Home, Dev as Ui } from './pages';
-import { DexChart } from '@components';
 import { useEnvModeState } from '@model';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@/store';
@@ -26,7 +25,8 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home translate={language} />} />
       {isState ? '' : <Route path='/Ui' element={<Ui />} />}
-      {isState ? '' : <Route path='/Trade' element={<DexChart />} />}
+      {isState ? '' : <Route path='/DexList' element={<DexList />} />}
+      {isState ? '' : <Route path='/DexStock/:pairId' element={<DexChart />} />}
       {isState ? '' : <Route path='/Swap' element={<Error />} />}
       <Route path='*' element={<Error />} />
     </Routes>
