@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Error } from '@components';
+import { DexList, DexChart, Error } from '@components';
 import { Main as Home, Dev as Ui } from './pages';
 import { useEnvModeState } from '@model';
 import { useSelector } from 'react-redux';
@@ -16,6 +16,7 @@ const App = () => {
   const language = useSelector(
     (state: RootState) => state.translate.language,
   ) as translateKey;
+  
   useEffect(() => {
     console.log(isMobileDomain);
   }, [isMobileDomain]);
@@ -24,8 +25,9 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home translate={language} />} />
       {isState ? '' : <Route path='/Ui' element={<Ui />} />}
-      {/* {isState ? '' : <Route path='/Trade' element={<Test />} />} */}
-      {/* {isState ? '' : <Route path='/Swap' element={<Test />} />} */}
+      {isState ? '' : <Route path='/DexList' element={<DexList />} />}
+      {isState ? '' : <Route path='/DexStock/:pairId' element={<DexChart />} />}
+      {isState ? '' : <Route path='/Swap' element={<Error />} />}
       <Route path='*' element={<Error />} />
     </Routes>
   );

@@ -4,3 +4,4 @@ export { default as useTrackingView } from './useTrackingView';
 export { default as InfinitySlider } from './InfinitySlider';
 export { default as useEnvModeState } from './useEnvModeState';
 export { default as useModal } from './useModal';
+export { default as fetchPriceData } from './DexChart/priceFetcher';

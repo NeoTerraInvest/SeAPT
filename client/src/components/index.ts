@@ -22,3 +22,5 @@ export { default as TrainFrame } from './ui/TrainFrame';
 export { default as SnsFrame } from './ui/SnsFrame';
 export { default as Translate } from './ui/Translate';
 export { default as ModalFrame } from './ui/ModalFrame';
+export { default as DexChart } from './DexChart/DexChart';
+export { default as DexList } from './DexList/DexList';
