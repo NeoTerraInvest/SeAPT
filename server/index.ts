@@ -8,7 +8,8 @@ app.use(express.json());
 
 app.post("/api/uniswap", async (req, res) => {
   const graphRes = await fetch(
-    "https://gateway.thegraph.com/api/69fd7adc60944263f17777c0cff219b1/subgraphs/id/A3Np3RQbaBA6oKJgiwDJeo5T3zrYfGHPWFYayMwtNDum",
+    // "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3",
+    "https://gateway.thegraph.com/api/69fd7adc60944263f17777c0cff219b1/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },

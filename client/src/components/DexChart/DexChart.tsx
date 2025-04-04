@@ -11,83 +11,100 @@ import '../../styles/components/DexChart/DexChart.scss';
 type Swap = {
   timestamp: string;
   amountUSD: string;
+  pool: {
+    id: string;
+  };
 };
 
 const DexChart = () => {
-  const { pairId } = useParams<{ pairId: string }>();
+  const { poolId } = useParams<{ poolId: string }>();
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const [priceData, setPriceData] = useState<LineData[]>([]);
+  const [loading, setLoading] = useState(true);
   const [interval, setInterval] = useState<'1m' | '1h' | '1d'>('1h');
 
   useEffect(() => {
-    if (!pairId) return;
+    if (!poolId) return;
 
-    const getRoundedTimestamp = (timestamp: number, type: typeof interval) => {
+    const getRoundedTimestamp = (timestamp: number, unit: typeof interval) => {
       const date = new Date(timestamp * 1000);
-      if (type === '1m') {
-        return Math.floor(date.getTime() / 60000) * 60;
-      }
-      if (type === '1h') {
-        return Math.floor(date.getTime() / 3600000) * 60 * 60;
-      }
-      if (type === '1d') {
-        return Math.floor(date.getTime() / 86400000) * 24 * 60 * 60;
-      }
+      if (unit === '1m') return Math.floor(date.getTime() / 60000) * 60;
+      if (unit === '1h') return Math.floor(date.getTime() / 3600000) * 3600;
+      if (unit === '1d') return Math.floor(date.getTime() / 86400000) * 86400;
       return timestamp;
     };
 
     const fetchPriceData = async () => {
+      setLoading(true);
       const query = `
         {
           swaps(
-            first: 200
+            first: 1000
             orderBy: timestamp
-            orderDirection: asc
-            where: { pair: "${pairId}" }
+            orderDirection: desc
           ) {
-            amountUSD
             timestamp
+            amountUSD
+            pool {
+              id
+            }
+          }
+          _meta {
+            block {
+              timestamp
+            }
           }
         }
       `;
 
-      const response = await fetch('http://localhost:4000/api/uniswap', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query }),
-      });
+      try {
+        const response = await fetch('http://localhost:4000/api/uniswap', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query }),
+        });
 
-      const json = await response.json();
-      const rawSwaps: Swap[] = json.data?.swaps ?? [];
+        const json = await response.json();
 
-      const grouped: Record<number, { total: number; count: number }> = {};
-
-      rawSwaps.forEach((swap) => {
-        const t = getRoundedTimestamp(Number(swap.timestamp), interval);
-        const value = Number(swap.amountUSD);
-        if (!grouped[t]) grouped[t] = { total: value, count: 1 };
-        else {
-          grouped[t].total += value;
-          grouped[t].count += 1;
+        const blockTimestamp = json.data?._meta?.block?.timestamp;
+        if (blockTimestamp) {
+          const latest = new Date(blockTimestamp * 1000).toISOString();
+          console.log('🧭 인덱싱된 마지막 블록 시간:', latest);
         }
-      });
 
-      const averaged: LineData[] = Object.entries(grouped)
-        .map(([time, { total, count }]) => {
-          const avg = total / count;
-          return {
+        const allSwaps: Swap[] = json.data?.swaps ?? [];
+        const filtered = allSwaps.filter(
+          (swap) => swap.pool?.id?.toLowerCase() === poolId.toLowerCase(),
+        );
+
+        console.log(`📦 필터링된 swaps 수: ${filtered.length}`);
+
+        const grouped: Record<number, number> = {};
+        filtered.forEach((swap) => {
+          const ts = Number(swap.timestamp);
+          const rounded = getRoundedTimestamp(ts, interval);
+          const amount = Number(swap.amountUSD);
+          if (!grouped[rounded]) grouped[rounded] = amount;
+          else grouped[rounded] += amount;
+        });
+
+        const transformed: LineData[] = Object.entries(grouped)
+          .map(([time, value]) => ({
             time: Number(time) as UTCTimestamp,
-            value: avg,
-          };
-        })
-        .filter((item) => item.value < 9e15); // lightweight limit
+            value,
+          }))
+          .sort((a, b) => a.time - b.time);
 
-      const sorted = averaged.sort((a, b) => Number(a.time) - Number(b.time));
-      setPriceData(sorted);
+        setPriceData(transformed);
+      } catch (err) {
+        console.error('❌ Fetch 에러:', err);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchPriceData();
-  }, [pairId, interval]);
+  }, [poolId, interval]);
 
   useEffect(() => {
     if (chartContainerRef.current && priceData.length > 0) {
@@ -107,10 +124,7 @@ const DexChart = () => {
           secondsVisible: false,
           tickMarkFormatter: (time: number) => {
             const date = new Date(time * 1000);
-            const year = date.getUTCFullYear();
-            const month = date.getMonth() + 1;
-            const day = date.getDate();
-            return `${year}/${month}/${day}`; // 예: 4/11
+            return `${date.getUTCFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
           },
         },
       });
@@ -121,19 +135,21 @@ const DexChart = () => {
       });
 
       lineSeries.setData(priceData);
+
       return () => chart.remove();
     }
   }, [priceData]);
 
   return (
     <div className='dex-chart-wrapper'>
-      <h2>DEX Chart - {pairId}</h2>
+      <h2>📊 DEX Chart - {poolId}</h2>
 
-      <div style={{ marginBottom: '10px' }}>
+      <div style={{ marginBottom: '12px' }}>
         <label htmlFor='interval'>⏱️ 시간 단위: </label>
         <select
           id='interval'
           value={interval}
+          style={{ color: 'black' }}
           onChange={(e) => setInterval(e.target.value as '1m' | '1h' | '1d')}
         >
           <option value='1m'>1분</option>
@@ -142,7 +158,11 @@ const DexChart = () => {
         </select>
       </div>
 
-      <div ref={chartContainerRef} className='chart-container' />
+      {loading ? (
+        <p>⏳ 불러오는 중...</p>
+      ) : (
+        <div ref={chartContainerRef} className='chart-container' />
+      )}
     </div>
   );
 };
