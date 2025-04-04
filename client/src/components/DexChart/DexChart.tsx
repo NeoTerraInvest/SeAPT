@@ -14,23 +14,33 @@ type Swap = {
 };
 
 const DexChart = () => {
-  const { pairId } = useParams();
+  const { pairId } = useParams<{ pairId: string }>();
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const [priceData, setPriceData] = useState<LineData[]>([]);
+  const [interval, setInterval] = useState<'1m' | '1h' | '1d'>('1h');
 
   useEffect(() => {
-    if (!pairId) {
-      console.warn('⚠️ pairId is Empty');
-      return;
-    }
+    if (!pairId) return;
+
+    const getRoundedTimestamp = (timestamp: number, type: typeof interval) => {
+      const date = new Date(timestamp * 1000);
+      if (type === '1m') {
+        return Math.floor(date.getTime() / 60000) * 60;
+      }
+      if (type === '1h') {
+        return Math.floor(date.getTime() / 3600000) * 60 * 60;
+      }
+      if (type === '1d') {
+        return Math.floor(date.getTime() / 86400000) * 24 * 60 * 60;
+      }
+      return timestamp;
+    };
 
     const fetchPriceData = async () => {
-      console.log('🚀 pairId =', pairId);
-
       const query = `
         {
           swaps(
-            first: 100
+            first: 200
             orderBy: timestamp
             orderDirection: asc
             where: { pair: "${pairId}" }
@@ -41,89 +51,43 @@ const DexChart = () => {
         }
       `;
 
-      try {
-        const response = await fetch('http://localhost:4000/api/uniswap', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query }),
-        });
+      const response = await fetch('http://localhost:4000/api/uniswap', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query }),
+      });
 
-        if (!response.ok) {
-          console.error(
-            '❌ fetch faild:',
-            response.status,
-            response.statusText,
-          );
-          return;
+      const json = await response.json();
+      const rawSwaps: Swap[] = json.data?.swaps ?? [];
+
+      const grouped: Record<number, { total: number; count: number }> = {};
+
+      rawSwaps.forEach((swap) => {
+        const t = getRoundedTimestamp(Number(swap.timestamp), interval);
+        const value = Number(swap.amountUSD);
+        if (!grouped[t]) grouped[t] = { total: value, count: 1 };
+        else {
+          grouped[t].total += value;
+          grouped[t].count += 1;
         }
+      });
 
-        const json = await response.json();
-        console.log('📦 raw json =', json);
+      const averaged: LineData[] = Object.entries(grouped)
+        .map(([time, { total, count }]) => {
+          const avg = total / count;
+          return {
+            time: Number(time) as UTCTimestamp,
+            value: avg,
+          };
+        })
+        .filter((item) => item.value < 9e15); // lightweight limit
 
-        if (json.errors) {
-          console.error('❌ GraphQL Errors:', json.errors);
-          return;
-        }
-
-        const rawSwaps: Swap[] = json.data?.swaps ?? [];
-        console.log('🔢 swaps 개수:', rawSwaps.length);
-        if (rawSwaps.length === 0) {
-          console.warn('⚠️ swaps is Empty');
-        }
-
-        const result: LineData[] = rawSwaps.map(
-          (swap: Swap): LineData => ({
-            time: Number(swap.timestamp) as UTCTimestamp,
-            value: Number(swap.amountUSD),
-          }),
-        );
-
-        const grouped = result.reduce(
-          (acc: Record<number, { total: number; count: number }>, curr) => {
-            const t = curr.time as number;
-            if (!acc[t]) {
-              acc[t] = { total: curr.value, count: 1 };
-            } else {
-              acc[t].total += curr.value;
-              acc[t].count += 1;
-            }
-            return acc;
-          },
-          {},
-        );
-
-        const averaged: LineData[] = Object.entries(grouped)
-          .map(([time, { total, count }]) => {
-            const avg = total / count;
-            return {
-              time: Number(time) as UTCTimestamp,
-              value: avg,
-            };
-          })
-          .filter((item) => {
-            const inRange =
-              item.value >= -90071992547409.91 &&
-              item.value <= 90071992547409.91 &&
-              !Number.isNaN(item.value);
-            if (!inRange) {
-              console.warn('⚠️ OverFlow Value:', item);
-            }
-            return inRange;
-          });
-
-        const sorted = averaged.sort(
-          (a, b) => (a.time as number) - (b.time as number),
-        );
-
-        console.log('✅ lastest priceData (sorted):', sorted);
-        setPriceData(sorted);
-      } catch (error) {
-        console.error('🔥 fetchPriceData Error:', error);
-      }
+      const sorted = averaged.sort((a, b) => Number(a.time) - Number(b.time));
+      setPriceData(sorted);
     };
 
     fetchPriceData();
-  }, [pairId]);
+  }, [pairId, interval]);
 
   useEffect(() => {
     if (chartContainerRef.current && priceData.length > 0) {
@@ -138,6 +102,17 @@ const DexChart = () => {
           vertLines: { color: '#2B2B43' },
           horzLines: { color: '#363C4E' },
         },
+        timeScale: {
+          timeVisible: true,
+          secondsVisible: false,
+          tickMarkFormatter: (time: number) => {
+            const date = new Date(time * 1000);
+            const year = date.getUTCFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            return `${year}/${month}/${day}`; // 예: 4/11
+          },
+        },
       });
 
       const lineSeries = chart.addSeries(LineSeries, {
@@ -146,21 +121,27 @@ const DexChart = () => {
       });
 
       lineSeries.setData(priceData);
-      console.log('📊 Chart Completed');
       return () => chart.remove();
-    } else {
-      if (!chartContainerRef.current) {
-        console.warn('❗ chartContainerRef is Empty');
-      }
-      if (priceData.length === 0) {
-        console.warn('❗ priceData is Empty');
-      }
     }
   }, [priceData]);
 
   return (
     <div className='dex-chart-wrapper'>
       <h2>DEX Chart - {pairId}</h2>
+
+      <div style={{ marginBottom: '10px' }}>
+        <label htmlFor='interval'>⏱️ 시간 단위: </label>
+        <select
+          id='interval'
+          value={interval}
+          onChange={(e) => setInterval(e.target.value as '1m' | '1h' | '1d')}
+        >
+          <option value='1m'>1분</option>
+          <option value='1h'>1시간</option>
+          <option value='1d'>1일</option>
+        </select>
+      </div>
+
       <div ref={chartContainerRef} className='chart-container' />
     </div>
   );
