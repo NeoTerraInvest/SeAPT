@@ -1,4 +1,5 @@
 //Test
+export { default as DexTest } from './DexTest';
 // export { default as Test } from './Test/Test';
 // components
 export { default as Header } from './Main/Header/Header';
