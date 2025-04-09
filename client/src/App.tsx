@@ -6,8 +6,10 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '@/store';
 import { useEffect } from 'react';
 import { translateKey } from '@types';
+import usePageTracking from './hook/global';
 
 const App = () => {
+  usePageTracking();
   const isState = useEnvModeState();
   const isMobileDomain = window.location.hostname.startsWith('m.');
   console.log(
