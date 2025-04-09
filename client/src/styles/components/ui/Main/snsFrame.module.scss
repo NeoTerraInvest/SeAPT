@@ -1,5 +1,5 @@
-@use '../../font' as *;
-@use '../../mediaQuery' as *;
+@use '../../../font' as *;
+@use '../../../mediaQuery' as *;
 
 #debug, .container,.contents{
     display: flex;
