@@ -15,10 +15,10 @@ export { default as SNS } from './Main/SNS/Sns';
 export { default as WhitePaper } from './Main/WhitePaper';
 export { default as Universe } from './Main/Universe';
 //ui
-export { default as AboutFrame } from './ui/AboutFrame';
-export { default as TokenFrame } from './ui/TokenFrame';
-export { default as RoadMapFrame } from './ui/RoadMapFrame';
-export { default as TrainFrame } from './ui/TrainFrame';
-export { default as SnsFrame } from './ui/SnsFrame';
-export { default as Translate } from './ui/Translate';
-export { default as ModalFrame } from './ui/ModalFrame';
+export { default as AboutFrame } from './ui/Main/AboutFrame';
+export { default as TokenFrame } from './ui/Main/TokenFrame';
+export { default as RoadMapFrame } from './ui/Main/RoadMapFrame';
+export { default as TrainFrame } from './ui/Main/TrainFrame';
+export { default as SnsFrame } from './ui/Main/SnsFrame';
+export { default as Translate } from './ui/Main/Translate';
+export { default as ModalFrame } from './ui/Main/ModalFrame';
