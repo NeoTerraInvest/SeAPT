@@ -24,6 +24,14 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: mode === 'development' ? 3000 : 5173, // develop: 3000, build : 5173
+      proxy: {
+        '/api': {
+          target: env.VITE_PROBIT_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '/api/exchange/v1'),
+          secure: false,
+        },
+      },
     },
   };
 });

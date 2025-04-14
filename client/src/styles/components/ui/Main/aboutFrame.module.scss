@@ -1,5 +1,5 @@
-@use '../../font' as *;
-@use '../../mediaQuery' as *;
+@use '../../../font' as *;
+@use '../../../mediaQuery' as *;
 
 #debug, #effect, #aboutFrame, #group{
     display: flex;

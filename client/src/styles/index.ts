@@ -16,13 +16,13 @@ export { default as whitepaper } from './components/Main/WhitePaper/whitepaper.m
 export { default as univers } from './components/Main/Univers/univers.module.scss';
 export { default as modal } from './modal.module.scss';
 //ui
-export { default as aboutFrame } from './components/ui/aboutFrame.module.scss';
-export { default as tokenFrame } from './components/ui/tokenFrame.module.scss';
-export { default as roadMapFrame } from './components/ui/roadMapFrame.module.scss';
-export { default as TrainFrame } from './components/ui/trainFrame.module.scss';
-export { default as snsFrame } from './components/ui/snsFrame.module.scss';
-export { default as translate } from './components/ui/translate.module.scss';
-export { default as modalFrame } from './components/ui/modalFrame.module.scss';
+export { default as aboutFrame } from './components/ui/Main/aboutFrame.module.scss';
+export { default as tokenFrame } from './components/ui/Main/tokenFrame.module.scss';
+export { default as roadMapFrame } from './components/ui/Main/roadMapFrame.module.scss';
+export { default as TrainFrame } from './components/ui/Main/trainFrame.module.scss';
+export { default as snsFrame } from './components/ui/Main/snsFrame.module.scss';
+export { default as translate } from './components/ui/Main/translate.module.scss';
+export { default as modalFrame } from './components/ui/Main/modalFrame.module.scss';
 
 //pages
 export { default as main } from './pages/main.module.scss';
