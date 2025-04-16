@@ -1,0 +1,43 @@
+.baseList,
+#token,
+#price,
+#volume,
+#range {
+  display: flex;
+  width: 100%;
+}
+
+.debug{
+    #search{
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        border-radius: 4px;
+        border: 1px solid var(--object-grey-5);
+    }
+
+    .baseList {
+        justify-content: space-between;
+        padding: 17px 0 24px 0;
+
+        #token {
+            max-width: 256px;
+            width: 25%;
+        }
+        #price {
+            max-width: 121px;
+            width: 25%;
+            justify-content: flex-end;
+        }
+        #volume {
+            max-width: 150px;
+            width: 25%;
+            justify-content: flex-end;  
+        }
+        #range {
+            max-width: 150px;
+            width: 25%;
+            justify-content: flex-end;
+        }
+    }
+}

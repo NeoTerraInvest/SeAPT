@@ -18,8 +18,23 @@ declare namespace API {
     closed: boolean;
   }
 
+  interface tickerRes {
+    last: string;
+    low: string;
+    high: string;
+    change: string;
+    base_volume: string;
+    quote_volume: string;
+    market_id: string;
+    time: string;
+  }
+
   interface marketResList {
     data: marketRes[];
+  }
+
+  interface tickerResList {
+    data: tickerRes[];
   }
 }
 

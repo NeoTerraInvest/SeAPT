@@ -23,6 +23,7 @@ export { default as TrainFrame } from './components/ui/Main/trainFrame.module.sc
 export { default as snsFrame } from './components/ui/Main/snsFrame.module.scss';
 export { default as translate } from './components/ui/Main/translate.module.scss';
 export { default as modalFrame } from './components/ui/Main/modalFrame.module.scss';
-
+export { default as tokenListFrame } from './components/ui/TokenList/tokenListFrame.module.scss';
+export { default as tokenListBase } from './components/ui/TokenList/tokenListBase.module.scss';
 //pages
 export { default as main } from './pages/main.module.scss';
