@@ -4,10 +4,14 @@ const TokenListBase = ({
   isSearch,
   setSearch,
   isFilter,
+  onFilterActive,
+  isActiveFilter,
 }: {
   isSearch: string;
   setSearch: (value: string) => void;
   isFilter: string[];
+  onFilterActive: (filter: string) => void;
+  isActiveFilter: string | null;
 }) => {
   return (
     <div className={styles.debug}>
@@ -22,9 +26,25 @@ const TokenListBase = ({
       <div className={styles.filter}>
         <div className={styles.filterList}>
           {/* <span>Quick Filter</span> */}
-          {isFilter.map((el) => (
-            <button key={el}>{el}</button>
-          ))}
+          {isFilter.map((el) => {
+            const isActive = el === isActiveFilter;
+            return (
+              <button
+                key={el}
+                style={
+                  isActive
+                    ? {
+                        backgroundColor: 'rgb(107, 241, 83, 0.7)',
+                        color: 'var(--object-grey-6)',
+                      }
+                    : {}
+                }
+                onClick={() => onFilterActive(el)}
+              >
+                {el}
+              </button>
+            );
+          })}
         </div>
       </div>
 
