@@ -8,7 +8,7 @@ const TokenList = () => {
   const [isVisible, setVisible] = useState<number>(0);
   const VISIBLE_COUNT = 10;
   const observerRef = useRef<HTMLDivElement>(null);
-
+  const [isFilter, setFilter] = useState<string[]>([]);
   const { isData, isLoading, isError, isSuccess } =
     useApiData<API.tickerResList>({
       api: () => getApi<API.tickerResList>('/ticker'),
@@ -41,6 +41,10 @@ const TokenList = () => {
   useEffect(() => {
     if (isSuccess) {
       console.log('🟢 isData:', isData);
+      const filter = [
+        ...new Set(isData?.data.map((el) => el.market_id.split('-')[1])),
+      ];
+      setFilter(filter);
     }
     if (isLoading) {
       console.log('🟠 isLoading:', isLoading);
@@ -70,7 +74,11 @@ const TokenList = () => {
       {isSuccess && (
         <>
           <MarginLayout>
-            <TokenListBase isSearch={isSearch} setSearch={setSearch} />
+            <TokenListBase
+              isSearch={isSearch}
+              setSearch={setSearch}
+              isFilter={isFilter}
+            />
 
             {displayData?.map((el) => (
               <TokenListFrame

@@ -1,3 +1,4 @@
+.filter,
 .baseList,
 #token,
 #price,
@@ -8,6 +9,27 @@
 }
 
 .debug{
+    .filter{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 16px 0;
+        width: 100%;
+        .filterList{
+            display: flex;
+            width: 25%;
+            justify-content: space-between;
+            align-items: center;
+            button{
+                background-color: var(--object-grey-6);
+                color: var(--chart-green);
+                // width: 50px;
+                // height: 32px;
+                padding: 8px 12px;
+                border-radius: 4px;
+            }
+        }
+    }
     #search{
         width: 100%;
         padding: 8px;
@@ -23,20 +45,24 @@
         #token {
             max-width: 256px;
             width: 25%;
+            // padding-right: 25%;
         }
         #price {
             max-width: 121px;
             width: 25%;
+            // padding-right: 10%;
             justify-content: flex-end;
         }
         #volume {
             max-width: 150px;
             width: 25%;
+            // padding-right: 10%;
             justify-content: flex-end;  
         }
         #range {
-            max-width: 150px;
+            min-width: 150px;
             width: 25%;
+            // padding-right: 25%;
             justify-content: flex-end;
         }
     }
