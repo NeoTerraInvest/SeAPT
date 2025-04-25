@@ -26,7 +26,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home translate={language} />} />
       {isState ? '' : <Route path='/Ui' element={<Ui />} />}
-      {isState ? '' : <Route path='/TokenList' element={<TokenList />} />}
+      <Route path='/TokenList' element={<TokenList />} />
       {/* {isState ? '' : <Route path='/Trade' element={<Test />} />} */}
       {/* {isState ? '' : <Route path='/Swap' element={<Test />} />} */}
       <Route path='*' element={<Error />} />
