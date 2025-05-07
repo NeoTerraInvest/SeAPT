@@ -1,0 +1,92 @@
+@use '../../../font' as *;
+@use '../../../mediaQuery' as *;
+.filter,
+.baseList,
+#token,
+#price,
+#volume,
+#range {
+  display: flex;
+  width: 100%;
+}
+
+.debug{
+    .filter{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 16px 0;
+        width: 100%;
+        margin-bottom: 30px;
+        .filterList{
+            display: flex;
+            width: 100%;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            button{
+                background-color: var(--object-grey-6);
+                color: var(--chart-green);
+                // width: 50px;
+                // height: 32px;
+                padding: 8px 12px;
+                border-radius: 4px;
+            }
+        }
+    }
+    #search{
+        width: 100%;
+        min-width: 448px;
+        padding: 8px;
+        margin-bottom: 16px;
+        border-radius: 4px;
+        border: 1px solid var(--object-grey-5);
+
+        @include dynamic_single_display(500px){
+            min-width: 300px;
+        }
+    }
+
+    .baseList {
+        background-color: #171717;
+        display: flex;
+        justify-content: space-between;
+        @include heading-sub-1024;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        width: 100%;
+        min-width: 448px;
+        gap:8px;
+    
+        padding: 20px 0px 21px 0px;
+
+        @include dynamic_single_display(500px){
+            min-width: 300px;
+        }
+
+        #token {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            min-width: 100px;
+            width: 25%;
+            padding-left: 20px;
+        }
+        #price {
+            min-width: 100px;
+            width: 25%;
+            justify-content: flex-end;
+        }
+        #volume {
+            min-width: 180px;
+            width: 25%;
+            justify-content: flex-end;  
+        }
+        #range {
+            min-width: 150px;
+            width: 25%;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+    }
+}
