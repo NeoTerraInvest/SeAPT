@@ -12,6 +12,7 @@ import {
   TokenListCategory,
   // TokenRanking,
 } from '@components';
+import { tokenList as styles } from '@styles';
 
 const TokenList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -121,13 +122,7 @@ const TokenList = () => {
             <MarginLayout>
               {/* <h1>🔥Live Token Ranking</h1>
               <TokenRanking /> */}
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  marginBottom: '30px',
-                }}
-              >
+              <div className={styles.tokenListCategory}>
                 <TokenListCategory category='🪙 Top Price' type='price' />
                 <TokenListCategory category='💰 Top Volume' type='volume' />
                 <TokenListCategory category='🔥 Crypto Live' type='live' />
@@ -150,6 +145,7 @@ const TokenList = () => {
                   range={el.change}
                   high={formatNumber(el.high)}
                   low={formatNumber(el.low)}
+                  marketId={el.market_id}
                 />
               ))}
 

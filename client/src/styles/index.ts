@@ -29,3 +29,4 @@ export { default as tokenListBase } from './components/ui/TokenList/tokenListBas
 export { default as tokenFilterFrame } from './components/ui/TokenList/tokenFilterFrame.module.scss';
 //pages
 export { default as main } from './pages/main.module.scss';
+export { default as tokenList } from './pages/TokenList/tokenList.module.scss';

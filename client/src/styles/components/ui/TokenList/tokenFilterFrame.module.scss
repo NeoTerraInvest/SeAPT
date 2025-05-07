@@ -1,7 +1,10 @@
+@use '../../../mediaQuery' as *;
+
 .debug{
     background-color: #171717;
     display: flex;
-    min-width: 310px;
+    // max-width: 310px;
+    // min-width: 310px;
     width: 100%;
 }
 .filterList{
@@ -9,7 +12,8 @@
     align-items: center;
     width: 100%;
     gap: 15px;
-    .filter, #logo{
+
+    #logo{
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -18,15 +22,33 @@
         border-radius: 50%;
     }
     .filter{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
         width: 50%;
         #logo{
             gap: 10px;
         }
     }
-    #high, #low{
+    .price{
         display: flex;
         justify-content: flex-end;
-        width: 25%;
+        width: 100%;
+        gap: 10px;
+
+        @include dynamic_single_display(1000px){
+            // background-color: red;
+            flex-direction: column;
+            align-items: flex-end;
+
+        }
+
+        #high{
+            color: var(--chart-red);
+        }
+        #low{
+            color: var(--chart-green);
+        }
     }
 }
 

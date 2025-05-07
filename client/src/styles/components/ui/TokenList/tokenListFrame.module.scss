@@ -1,5 +1,5 @@
 @use '../../../font' as *;
-
+@use '../../../mediaQuery' as *;
 .name, .price, .volume, .range{
     display: flex;
     flex-direction: column;
@@ -16,6 +16,9 @@
     border-bottom: 1px solid var(--object-grey-5);
     gap:8px;
     padding: 0px 20px;
+    @include dynamic_single_display(500px){
+        min-width: 300px;
+    }
     .token{
         display: flex;
         align-items: center;
@@ -40,7 +43,7 @@
     }}
     .price{
         align-items: flex-end;
-        min-width: 200px;
+        min-width: 100px;
         width: 25%;
         div:nth-child(2){
             @include btn-txt-max;

@@ -23,8 +23,10 @@ const TokenFilterFrame = ({
             <div id={style.name}>{name}</div>
           </div>
         </div>
-        <div id={style.high}>{high}</div>
-        <div id={style.low}>{low}</div>
+        <div className={style.price}>
+          <div id={style.high}>{high}</div>
+          <div id={style.low}>{low}</div>
+        </div>
       </div>
     </div>
   );

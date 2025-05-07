@@ -3,7 +3,11 @@
 .debug{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    width: 100%;
+    // max-width: 350px;
+    max-width: 445px;
+    min-width: 210px;
+    gap: 15px;
     padding: 16px;
     border-radius: 16px;
     background-color:  #171717;
@@ -11,6 +15,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 10px;
         #category{
             @include heading-sub-1024
         }
