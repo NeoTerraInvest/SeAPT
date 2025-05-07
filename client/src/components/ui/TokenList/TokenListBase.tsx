@@ -1,5 +1,5 @@
 import { tokenListBase as styles } from '@styles';
-
+// import { tokenListFrame as epic } from '@styles';
 const TokenListBase = ({
   isSearch,
   setSearch,
@@ -45,9 +45,49 @@ const TokenListBase = ({
               </button>
             );
           })}
+          <button
+            style={
+              isActiveFilter === 'Price Up 10%+'
+                ? {
+                    backgroundColor: 'rgb(107, 241, 83, 0.7)',
+                    color: 'var(--object-grey-6)',
+                  }
+                : {}
+            }
+            onClick={() => onFilterActive('Price Up 10%+')}
+          >
+            Price Up 10%+
+          </button>
+          <button
+            style={
+              isActiveFilter === 'Volume 1M+'
+                ? {
+                    backgroundColor: 'rgb(107, 241, 83, 0.7)',
+                    color: 'var(--object-grey-6)',
+                  }
+                : {}
+            }
+            onClick={() => onFilterActive('Volume 1M+')}
+          >
+            Volume 1M+
+          </button>
+          <button
+            style={
+              isActiveFilter === 'Volatility 5%+'
+                ? {
+                    backgroundColor: 'rgb(107, 241, 83, 0.7)',
+                    color: 'var(--object-grey-6)',
+                  }
+                : {}
+            }
+            onClick={() => onFilterActive('Volatility 5%+')}
+          >
+            Volatility 5%+
+          </button>
         </div>
       </div>
 
+      {/* <div className={styles.baseList}> */}
       <div className={styles.baseList}>
         <div id={styles.token}>Token</div>
         <div id={styles.price}>Price</div>

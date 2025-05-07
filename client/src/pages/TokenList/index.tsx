@@ -1,3 +1,4 @@
+import { useSearchParams } from 'react-router-dom';
 import { useApiData } from '@hook';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import getApi from '@/service/get.api';
@@ -7,15 +8,22 @@ import {
   MarginLayout,
   TokenListBase,
   TokenListFrame,
+  TokenListCategory,
+  // TokenRanking,
 } from '@components';
-import TokenRanking from '@/components/ui/TokenList/TokenRanking';
+
 const TokenList = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialFilter = searchParams.get('filter');
+
   const VISIBLE_COUNT = 10;
   const [isSearch, setSearch] = useState<string>('');
   const [isVisible, setVisible] = useState<number>(VISIBLE_COUNT);
   const observerRef = useRef<HTMLDivElement>(null);
   const [isFilter, setFilter] = useState<string[]>([]);
-  const [isActiveFilter, setActiveFilter] = useState<string | null>(null);
+  const [isActiveFilter, setActiveFilter] = useState<string | null>(
+    initialFilter,
+  );
   const { isData, isLoading, isError, isSuccess } =
     useApiData<API.tickerResList>({
       api: () => getApi<API.tickerResList>('/ticker'),
@@ -27,13 +35,30 @@ const TokenList = () => {
       .toLowerCase()
       .includes(isSearch.toLowerCase());
     const matchedFilter = isActiveFilter
-      ? el.market_id.split('-')[1] === isActiveFilter
+      ? (() => {
+          switch (isActiveFilter) {
+            case 'Price Up 10%+':
+              return Number(el.change) > 10;
+            case 'Volume 1M+':
+              return Number(el.base_volume) > 1000000;
+            case 'Volatility 5%+':
+              return Math.abs(Number(el.change)) > 5;
+            default:
+              return el.market_id.split('-')[1] === isActiveFilter;
+          }
+        })()
       : true;
     return matchedSearch && matchedFilter;
   });
 
   //duplicate check
   const handleFilterActive = (filter: string) => {
+    if (isActiveFilter === filter) {
+      searchParams.delete('filter');
+    } else {
+      searchParams.set('filter', filter);
+    }
+    setSearchParams(searchParams);
     setActiveFilter(isActiveFilter === filter ? null : filter);
     setVisible(VISIBLE_COUNT);
   };
@@ -93,9 +118,19 @@ const TokenList = () => {
         {isSuccess && (
           <>
             <MarginLayout>
-              <h1>🔥Live Token Ranking</h1>
-              <TokenRanking />
-
+              {/* <h1>🔥Live Token Ranking</h1>
+              <TokenRanking /> */}
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginBottom: '30px',
+                }}
+              >
+                <TokenListCategory category='🪙 Top Price' type='price' />
+                <TokenListCategory category='💰 Top Volume' type='volume' />
+                <TokenListCategory category='🔥 Crypto Live' type='live' />
+              </div>
               <TokenListBase
                 isSearch={isSearch}
                 setSearch={setSearch}
@@ -110,7 +145,7 @@ const TokenList = () => {
                   name={el.market_id.split('-')[0]}
                   quote={el.market_id.split('-')[1]}
                   price={el.last}
-                  baseVolume={Number(el.base_volume).toFixed(2)}
+                  baseVolume={Number(el.quote_volume).toFixed(2)}
                   range={el.change}
                   high={el.high}
                   low={el.low}
@@ -122,6 +157,7 @@ const TokenList = () => {
                   <div>Loading more...</div>
                 </div>
               )}
+              <div style={{ padding: '30px' }} />
             </MarginLayout>
           </>
         )}
