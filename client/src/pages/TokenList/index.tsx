@@ -3,6 +3,7 @@ import { useApiData } from '@hook';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import getApi from '@/service/get.api';
 import { API } from '@types';
+import formatNumber from '@/utils/formatNumber';
 import {
   BaseLayout,
   MarginLayout,
@@ -144,11 +145,11 @@ const TokenList = () => {
                   key={el.market_id}
                   name={el.market_id.split('-')[0]}
                   quote={el.market_id.split('-')[1]}
-                  price={el.last}
+                  price={formatNumber(el.last)}
                   baseVolume={Number(el.quote_volume).toFixed(2)}
                   range={el.change}
-                  high={el.high}
-                  low={el.low}
+                  high={formatNumber(el.high)}
+                  low={formatNumber(el.low)}
                 />
               ))}
 

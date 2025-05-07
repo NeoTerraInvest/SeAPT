@@ -3,6 +3,7 @@ import getApi from '@/service/get.api';
 import { TokenFilterFrame } from '@components';
 import { API } from '@types';
 import { tokenListCategory as styles } from '@styles';
+import formatNumber from '@/utils/formatNumber';
 
 const TokenListCategory = ({
   category = 'category',
@@ -14,18 +15,6 @@ const TokenListCategory = ({
   const { isData, refetch } = useApiData<API.tickerResList>({
     api: () => getApi<API.tickerResList>('/ticker'),
   });
-
-  const formatNumber = (num: string) => {
-    const number = Number(num);
-    if (number < 0.0001) {
-      const originalNum = num.toString().replace('.', '');
-      const firstNonZero = originalNum.search(/[1-9]/);
-      const power = firstNonZero;
-      const cleanNumber = originalNum.slice(firstNonZero);
-      return `0.0(x${power})${cleanNumber}`;
-    }
-    return number.toFixed(2);
-  };
 
   const getSortedTokens = (type: string) => {
     if (!isData) return [];
@@ -64,8 +53,8 @@ const TokenListCategory = ({
         <TokenFilterFrame
           key={el.market_id}
           name={el.market_id.split('-')[0]}
-          high={formatNumber(el.high)}
-          low={formatNumber(el.low)}
+          high={formatNumber(el.high, 2)}
+          low={formatNumber(el.low, 2)}
         />
       ))}
     </div>

@@ -1,5 +1,5 @@
 import { tokenListBase as styles } from '@styles';
-// import { tokenListFrame as epic } from '@styles';
+
 const TokenListBase = ({
   isSearch,
   setSearch,
