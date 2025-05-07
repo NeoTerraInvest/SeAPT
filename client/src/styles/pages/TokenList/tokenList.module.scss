@@ -1,0 +1,13 @@
+@use '../../mediaQuery' as *;
+
+.tokenListCategory{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    width: 100%;
+    gap: 10px;
+    @include dynamic_single_display(500px){
+        flex-direction: column;
+        align-items: center;
+    }
+}

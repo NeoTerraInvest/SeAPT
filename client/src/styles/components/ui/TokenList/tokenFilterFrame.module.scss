@@ -1,0 +1,54 @@
+@use '../../../mediaQuery' as *;
+
+.debug{
+    background-color: #171717;
+    display: flex;
+    // max-width: 310px;
+    // min-width: 310px;
+    width: 100%;
+}
+.filterList{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+
+    #logo{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    #logo img{
+        border-radius: 50%;
+    }
+    .filter{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 50%;
+        #logo{
+            gap: 10px;
+        }
+    }
+    .price{
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 10px;
+
+        @include dynamic_single_display(1000px){
+            // background-color: red;
+            flex-direction: column;
+            align-items: flex-end;
+
+        }
+
+        #high{
+            color: var(--chart-red);
+        }
+        #low{
+            color: var(--chart-green);
+        }
+    }
+}
+
