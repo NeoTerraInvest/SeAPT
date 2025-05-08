@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import { useApiData } from '@hook';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import getApi from '@/service/get.api';
 import { API } from '@types';
 import formatNumber from '@/utils/formatNumber';
@@ -8,8 +8,8 @@ import {
   BaseLayout,
   MarginLayout,
   TokenListBase,
-  TokenListFrame,
   TokenListCategory,
+  MemoizedTokenListFrame,
   // TokenRanking,
 } from '@components';
 import { tokenList as styles } from '@styles';
@@ -26,6 +26,12 @@ const TokenList = () => {
   const [isActiveFilter, setActiveFilter] = useState<string | null>(
     initialFilter,
   );
+  const [isOpenChart, setIsOpenChart] = useState<string | null>(null);
+
+  const handleOpenChart = useCallback((marketId: string) => {
+    setIsOpenChart((prev) => (prev === marketId ? null : marketId));
+  }, []);
+
   const { isData, isLoading, isError, isSuccess } =
     useApiData<API.tickerResList>({
       api: () => getApi<API.tickerResList>('/ticker'),
@@ -54,18 +60,19 @@ const TokenList = () => {
   });
 
   //duplicate check
-  const handleFilterActive = (filter: string) => {
-    if (isActiveFilter === filter) {
-      searchParams.delete('filter');
-    } else {
-      searchParams.set('filter', filter);
-    }
-    setSearchParams(searchParams);
-    setActiveFilter(isActiveFilter === filter ? null : filter);
-    setVisible(VISIBLE_COUNT);
-  };
-
-  const displayData = filteredData?.slice(0, isVisible);
+  const handleFilterActive = useCallback(
+    (filter: string) => {
+      if (isActiveFilter === filter) {
+        searchParams.delete('filter');
+      } else {
+        searchParams.set('filter', filter);
+      }
+      setSearchParams(searchParams);
+      setActiveFilter(isActiveFilter === filter ? null : filter);
+      setVisible(VISIBLE_COUNT);
+    },
+    [isActiveFilter, searchParams, setSearchParams],
+  );
 
   const fetchMoreData = useCallback(
     (entries: IntersectionObserverEntry[]) => {
@@ -112,6 +119,21 @@ const TokenList = () => {
     }
   }, [fetchMoreData]);
 
+  const memoizedDisplayData = useMemo(() => {
+    if (!filteredData) return [];
+    return filteredData.slice(0, isVisible).map((el) => ({
+      name: el.market_id.split('-')[0],
+      quote: el.market_id.split('-')[1],
+      price: formatNumber(el.last ? String(el.last) : '0'), // null 체크 추가
+      baseVolume: Number(el.quote_volume || 0).toFixed(2), // null 체크 추가
+      range: el.change || '0', // null 체크 추가
+      high: formatNumber(el.high ? String(el.high) : '0'), // null 체크 추가
+      low: formatNumber(el.low ? String(el.low) : '0'), // null 체크 추가
+      marketId: el.market_id,
+      isChart: isOpenChart === el.market_id,
+    }));
+  }, [filteredData, isOpenChart, isVisible]);
+
   return (
     <BaseLayout>
       <div style={{ marginTop: '150px' }}>
@@ -135,17 +157,11 @@ const TokenList = () => {
                 isActiveFilter={isActiveFilter}
               />
 
-              {displayData?.map((el) => (
-                <TokenListFrame
-                  key={el.market_id}
-                  name={el.market_id.split('-')[0]}
-                  quote={el.market_id.split('-')[1]}
-                  price={formatNumber(el.last)}
-                  baseVolume={Number(el.quote_volume).toFixed(2)}
-                  range={el.change}
-                  high={formatNumber(el.high)}
-                  low={formatNumber(el.low)}
-                  marketId={el.market_id}
+              {memoizedDisplayData?.map((el) => (
+                <MemoizedTokenListFrame
+                  key={el.marketId}
+                  {...el}
+                  onOpenChart={handleOpenChart}
                 />
               ))}
 
