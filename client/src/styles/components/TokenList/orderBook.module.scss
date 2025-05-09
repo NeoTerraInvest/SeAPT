@@ -13,6 +13,12 @@
       border-bottom: 1px solid var(--object-grey-5);
       color: #aaa;
       font-weight: bold;
+      #amount {
+        text-align: right;
+      }
+      #total {
+        text-align: right;
+      }
     }
   
     .sellOrders, .buyOrders {
@@ -20,50 +26,51 @@
       display: flex;
       flex-direction: column;
       overflow-y: auto;
-    }
-  
-    .orderRow {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      padding: 8px 10px;
-      border-bottom: 1px solid var(--object-grey-5);
-      align-items: center;
-    }
-  
-    .quantityContainer {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 10px;
-  
-      .gaugeBar {
-        position: absolute;
-        left: 0;
-        height: 100%;
-        opacity: 0.2;
-        transition: width 0.3s ease;
+
+      .orderRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 8px 10px;
+        border-bottom: 1px solid var(--object-grey-5);
+        align-items: center;
+
+        .sellPrice {
+            color: var(--chart-red);
+        }
+
+        .buyPrice {
+            color: var(--chart-green);
+        }
+
+        .amount {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+        
+          //   .gaugeBar {
+          //     position: absolute;
+          //     right: 0;
+          //     height: 100%;
+          //     opacity: 0.2;
+          //     transition: width 0.3s ease;
+          //   }
+        
+            #quantity {
+              background-color: #aaa;
+              position: relative;
+              z-index: 1;
+            }
+          }
+        
+          .total {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            color: #aaa;
+          }
       }
-  
-      .quantity {
-        position: relative;
-        z-index: 1;
-      }
-    }
-  
-    .sellPrice {
-      color: #FF4D4D;
-    }
-  
-    .buyPrice {
-      color: #6BF153;
-    }
-  
-    .total {
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-      color: #aaa;
     }
   }

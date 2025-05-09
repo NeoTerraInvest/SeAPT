@@ -59,7 +59,7 @@ const TokenList = () => {
     return matchedSearch && matchedFilter;
   });
 
-  //duplicate check
+  // duplicate check
   const handleFilterActive = useCallback(
     (filter: string) => {
       if (isActiveFilter === filter) {
@@ -74,6 +74,7 @@ const TokenList = () => {
     [isActiveFilter, searchParams, setSearchParams],
   );
 
+  // infinite scroll
   const fetchMoreData = useCallback(
     (entries: IntersectionObserverEntry[]) => {
       const target = entries[0];

@@ -1,27 +1,24 @@
 // client/src/components/ui/TokenList/OrderBook.tsx
 import useOrderBook from '@/hook/global/api/useOrderBook';
 import { orderBook as styles } from '@styles';
+import formatNumber from '@/utils/formatNumber';
 
-interface OrderBookProps {
-  marketId: string;
-}
+// const formatNumber = (value: string | number, fraction = 2) =>
+//   Number(value).toLocaleString(undefined, {
+//     minimumFractionDigits: fraction,
+//     maximumFractionDigits: fraction,
+//   });
 
-const formatNumber = (value: string | number, fraction = 2) =>
-  Number(value).toLocaleString(undefined, {
-    minimumFractionDigits: fraction,
-    maximumFractionDigits: fraction,
-  });
-
-const OrderBook = ({ marketId }: OrderBookProps) => {
+const OrderBook = ({ marketId }: { marketId: string }) => {
   const orderBook = useOrderBook(marketId);
   const DISPLAY_LIMIT = 7;
 
-  // 최대 수량 계산 (게이지 바용)
-  const maxQuantity = Math.max(
-    ...orderBook.sell.map((order) => Number(order.quantity)),
-    ...orderBook.buy.map((order) => Number(order.quantity)),
-    1, // 0으로 나누는 것 방지
-  );
+  // // 최대 수량 계산 (게이지 바용)
+  // const maxQuantity = Math.max(
+  //   ...orderBook.sell.map((order) => Number(order.quantity)),
+  //   ...orderBook.buy.map((order) => Number(order.quantity)),
+  //   1, // 0으로 나누는 것 방지
+  // );
 
   // 매도(SELL): 가격 오름차순
   const sellOrders = [...orderBook.sell]
@@ -38,8 +35,8 @@ const OrderBook = ({ marketId }: OrderBookProps) => {
     <div className={styles.orderBook}>
       <div className={styles.orderBookHeader}>
         <div>Price (USDT)</div>
-        <div>Amount (BTC)</div>
-        <div>Total (USDT)</div>
+        <div id={styles.amount}>Amount (BTC)</div>
+        <div id={styles.total}>Total (USDT)</div>
       </div>
 
       <div className={styles.sellOrders}>
@@ -48,20 +45,18 @@ const OrderBook = ({ marketId }: OrderBookProps) => {
             <div className={styles.sellPrice}>
               {formatNumber(order.price, 2)}
             </div>
-            <div className={styles.quantityContainer}>
-              <div
+            <div className={styles.amount}>
+              {/* <div
                 className={styles.gaugeBar}
                 style={{
                   width: `${(Number(order.quantity) / maxQuantity) * 100}%`,
                   backgroundColor: '#FF4D4D',
                 }}
-              />
-              <div className={styles.quantity}>
-                {formatNumber(order.quantity, 4)}
-              </div>
+              /> */}
+              <div id={styles.quantity}>{formatNumber(order.quantity, 4)}</div>
             </div>
             <div className={styles.total}>
-              {formatNumber(Number(order.price) * Number(order.quantity), 2)}
+              {formatNumber(Number(order.price) * Number(order.quantity), 4)}
             </div>
           </div>
         ))}
@@ -73,20 +68,18 @@ const OrderBook = ({ marketId }: OrderBookProps) => {
             <div className={styles.buyPrice}>
               {formatNumber(order.price, 2)}
             </div>
-            <div className={styles.quantityContainer}>
-              <div
+            <div className={styles.amount}>
+              {/* <div
                 className={styles.gaugeBar}
                 style={{
                   width: `${(Number(order.quantity) / maxQuantity) * 100}%`,
                   backgroundColor: '#6BF153',
                 }}
-              />
-              <div className={styles.quantity}>
-                {formatNumber(order.quantity, 4)}
-              </div>
+              /> */}
+              <div id={styles.quantity}>{formatNumber(order.quantity, 4)}</div>
             </div>
             <div className={styles.total}>
-              {formatNumber(Number(order.price) * Number(order.quantity), 2)}
+              {formatNumber(Number(order.price) * Number(order.quantity), 4)}
             </div>
           </div>
         ))}
