@@ -2,6 +2,7 @@ import { show as styles } from '@styles';
 import { useTrackingView } from '@model';
 import { show } from '@data';
 import { translateKey } from '@types';
+import { useNavigate } from 'react-router-dom';
 
 const CDNURL = import.meta.env.VITE_API_CDN_URL;
 const mainCharcter1919 = `${CDNURL}/images/global/1919/img_main_charcter.svg`;
@@ -11,6 +12,8 @@ const Show = ({ translate }: { translate: translateKey }) => {
   const isMobile767 = useTrackingView({ size: 900 });
   const isMobile880 = useTrackingView({ size: 880 });
   const isMobile340 = useTrackingView({ size: 340 });
+  const navigate = useNavigate();
+
   return (
     <div id={styles.debug}>
       <div
@@ -37,7 +40,14 @@ const Show = ({ translate }: { translate: translateKey }) => {
                 {show.data[0].description[translate]}
               </div>
             </div>
-            <button id={styles.explore}>Explore</button>
+            <button
+              id={styles.explore}
+              onClick={() => {
+                navigate('/TokenList');
+              }}
+            >
+              Explore
+            </button>
           </div>
         </div>
         <div className={styles.image}>
