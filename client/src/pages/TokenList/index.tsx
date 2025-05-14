@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import { useApiData } from '@hook';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import getApi from '@/service/get.api';
 import { API } from '@types';
 import formatNumber from '@/utils/formatNumber';
@@ -9,7 +9,8 @@ import {
   MarginLayout,
   TokenListBase,
   TokenListCategory,
-  MemoizedTokenListFrame,
+  TokenListFrame,
+  // MemoizedTokenListFrame,
   // TokenRanking,
 } from '@components';
 import { tokenList as styles } from '@styles';
@@ -120,20 +121,27 @@ const TokenList = () => {
     }
   }, [fetchMoreData]);
 
-  const memoizedDisplayData = useMemo(() => {
-    if (!filteredData) return [];
-    return filteredData.slice(0, isVisible).map((el) => ({
-      name: el.market_id.split('-')[0],
-      quote: el.market_id.split('-')[1],
-      price: formatNumber(el.last ? String(el.last) : '0'), // null 체크 추가
-      baseVolume: Number(el.quote_volume || 0).toFixed(2), // null 체크 추가
-      range: el.change || '0', // null 체크 추가
-      high: formatNumber(el.high ? String(el.high) : '0'), // null 체크 추가
-      low: formatNumber(el.low ? String(el.low) : '0'), // null 체크 추가
-      marketId: el.market_id,
-      isChart: isOpenChart === el.market_id,
-    }));
-  }, [filteredData, isOpenChart, isVisible]);
+  // const memoizedDisplayData = useMemo(() => {
+  //   if (!filteredData) return [];
+  //   return filteredData.slice(0, isVisible).map((el) => ({
+  //     name: el.market_id.split('-')[0],
+  //     quote: el.market_id.split('-')[1],
+  //     price: formatNumber(el.last ? String(el.last) : '0'), // null 체크 추가
+  //     baseVolume: Number(el.quote_volume || 0).toFixed(2), // null 체크 추가
+  //     range: el.change || '0', // null 체크 추가
+  //     high: formatNumber(el.high ? String(el.high) : '0'), // null 체크 추가
+  //     low: formatNumber(el.low ? String(el.low) : '0'), // null 체크 추가
+  //     marketId: el.market_id,
+  //     isChart: isOpenChart === el.market_id,
+  //   }));
+  // }, [filteredData, isOpenChart, isVisible]);
+
+  const displayData = filteredData?.slice(0, isVisible);
+
+  // useEffect(() => {
+  //   console.log('🟢 displayData:', displayData);
+  //   console.log('memoizedDisplayData:', memoizedDisplayData);
+  // }, [displayData, memoizedDisplayData]);
 
   return (
     <BaseLayout>
@@ -158,10 +166,17 @@ const TokenList = () => {
                 isActiveFilter={isActiveFilter}
               />
 
-              {memoizedDisplayData?.map((el) => (
-                <MemoizedTokenListFrame
-                  key={el.marketId}
-                  {...el}
+              {displayData?.map((el) => (
+                <TokenListFrame
+                  key={el.market_id}
+                  name={el.market_id.split('-')[0]}
+                  quote={el.market_id.split('-')[1]}
+                  price={formatNumber(el.last ? String(el.last) : '0')}
+                  baseVolume={Number(el.quote_volume || 0).toFixed(2)}
+                  high={formatNumber(el.high ? String(el.high) : '0')}
+                  low={formatNumber(el.low ? String(el.low) : '0')}
+                  marketId={el.market_id}
+                  isChart={isOpenChart === el.market_id}
                   onOpenChart={handleOpenChart}
                 />
               ))}

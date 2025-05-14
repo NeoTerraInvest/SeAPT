@@ -11,7 +11,7 @@ const TokenListFrame = memo(
     // range = 'Test Range',
     high = 'Test High',
     low = 'Test Low',
-    // marketId = 'Test Market Id',
+    marketId,
     isChart,
     onOpenChart,
   }: {
@@ -24,14 +24,17 @@ const TokenListFrame = memo(
     low: string;
     marketId?: string;
     isChart: boolean;
-    onOpenChart: () => void;
+    onOpenChart: (marketId: string) => void;
   }) => {
     // const tempState = false;
     // const [isChart, setIsChart] = useState<boolean>(false);
     const isMobile750 = useTrackingView({ size: 750 });
     const isMobile450 = useTrackingView({ size: 450 });
     return (
-      <div className={styles.debug} onClick={onOpenChart}>
+      <div
+        className={styles.debug}
+        onClick={() => marketId && onOpenChart(marketId)}
+      >
         {/* tokenInfo 부분만 추가 */}
         <div className={styles.tokenInfo}>
           <div className={styles.token}>
