@@ -169,6 +169,7 @@ const TokenList = () => {
               {displayData?.map((el) => (
                 <TokenListFrame
                   key={el.market_id}
+                  id={el.market_id}
                   name={el.market_id.split('-')[0]}
                   quote={el.market_id.split('-')[1]}
                   price={formatNumber(el.last ? String(el.last) : '0')}

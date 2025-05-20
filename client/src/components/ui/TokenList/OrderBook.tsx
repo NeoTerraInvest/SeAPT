@@ -43,7 +43,7 @@ const OrderBook = ({ marketId }: { marketId: string }) => {
         {sellOrders.map((order, index) => (
           <div key={`sell-${index}`} className={styles.orderRow}>
             <div className={styles.sellPrice}>
-              {formatNumber(order.price, 2)}
+              {formatNumber(order.price, 4)}
             </div>
             <div className={styles.amount}>
               {/* <div
@@ -66,7 +66,7 @@ const OrderBook = ({ marketId }: { marketId: string }) => {
         {buyOrders.map((order, index) => (
           <div key={`buy-${index}`} className={styles.orderRow}>
             <div className={styles.buyPrice}>
-              {formatNumber(order.price, 2)}
+              {formatNumber(order.price, 4)}
             </div>
             <div className={styles.amount}>
               {/* <div

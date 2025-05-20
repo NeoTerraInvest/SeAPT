@@ -87,7 +87,11 @@ const useOrderBook = (marketId: string = 'BTC-USDT') => {
               (item) => item.price === order.price,
             );
             if (index !== -1) {
-              currentOrderBook.buy[index].quantity = order.quantity;
+              if (Number(order.quantity) === 0) {
+                currentOrderBook.buy.splice(index, 1); // ✅ buy도 삭제 처리 추가
+              } else {
+                currentOrderBook.buy[index].quantity = order.quantity;
+              }
             } else if (Number(order.quantity) > 0) {
               currentOrderBook.buy.push(order);
             }

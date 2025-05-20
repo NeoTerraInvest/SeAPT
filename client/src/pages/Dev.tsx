@@ -1,6 +1,6 @@
 import { Universe } from '@components';
 import { main as styles } from '@styles';
-import { OrderBook } from '@components';
+import { OrderBook, Chart } from '@components';
 // import { useModal } from '@model';
 
 const Dev = () => {
@@ -33,6 +33,7 @@ const Dev = () => {
         /> */}
       </>
       <OrderBook marketId='SEAPT-USDT' />
+      <Chart marketId='SEAPT-USDT' />
       <footer style={{ padding: '30px' }}></footer>
     </div>
   );

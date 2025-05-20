@@ -4,6 +4,7 @@ import { useTrackingView } from '@model';
 import { LiveTokenList } from '@components';
 const TokenListFrame = memo(
   ({
+    id,
     name = 'Test Name',
     quote = 'Test Quote',
     price = 'Test Price',
@@ -15,6 +16,7 @@ const TokenListFrame = memo(
     isChart,
     onOpenChart,
   }: {
+    id: string;
     name: string;
     quote: string;
     price: string;
@@ -74,7 +76,7 @@ const TokenListFrame = memo(
           className={`${styles.chartContainer} ${isChart ? styles.show : styles.hide}`}
         >
           <div className={styles.chart}>
-            <LiveTokenList />
+            <LiveTokenList marketId={id} />
           </div>
         </div>
       </div>
