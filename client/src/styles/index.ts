@@ -15,7 +15,7 @@ export { default as sns } from './components/Main/SNS/sns.module.scss';
 export { default as whitepaper } from './components/Main/WhitePaper/whitepaper.module.scss';
 export { default as univers } from './components/Main/Univers/univers.module.scss';
 export { default as modal } from './modal.module.scss';
-export { default as orderBook } from './components/TokenList/orderBook.module.scss';
+export { default as orderBook } from './components/ui/TokenList/orderBook.module.scss';
 
 //ui
 export { default as aboutFrame } from './components/ui/Main/aboutFrame.module.scss';

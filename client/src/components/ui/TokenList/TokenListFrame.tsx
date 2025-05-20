@@ -76,7 +76,7 @@ const TokenListFrame = memo(
           className={`${styles.chartContainer} ${isChart ? styles.show : styles.hide}`}
         >
           <div className={styles.chart}>
-            <LiveTokenList marketId={id} />
+            <LiveTokenList marketId={id} isActive={isChart} />
           </div>
         </div>
       </div>

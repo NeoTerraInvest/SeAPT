@@ -95,7 +95,7 @@ const TokenList = () => {
   // fetch data
   useEffect(() => {
     if (isSuccess) {
-      console.log('🟢 isData:', isData);
+      // console.log('🟢 isData:', isData);
       const filter = [
         ...new Set(isData?.data.map((el) => el.market_id.split('-')[1])),
       ];

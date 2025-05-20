@@ -38,7 +38,7 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
     if (!chartContainerRef.current) return;
 
     const chart = LightweightCharts.createChart(chartContainerRef.current, {
-      width: chartContainerRef.current.clientWidth,
+      width: chartContainerRef.current.clientWidth || 800,
       height: 500,
       layout: {
         background: { color: '#000' },
@@ -59,6 +59,17 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
         },
       },
     });
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      if (entries[0] && chartRef.current) {
+        const width = entries[0].contentRect.width;
+        chartRef.current.applyOptions({ width });
+      }
+    });
+
+    if (chartContainerRef.current) {
+      resizeObserver.observe(chartContainerRef.current);
+    }
 
     chartRef.current = chart;
     const priceDecimalPrecision = 5;
@@ -87,8 +98,8 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
         const json = await getApi<CandleResponse>(url);
         const data = json.data || [];
 
-        console.log('📦 API 응답 데이터:', data);
-        console.log('📦 시간:', end);
+        // console.log('📦 API 응답 데이터:', data);
+        // console.log('📦 시간:', end);
 
         const bars: LightweightCharts.CandlestickData[] = data
           .filter((c) => !!c.start_time && !isNaN(Date.parse(c.start_time)))
@@ -112,7 +123,7 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
           seriesRef.current.setData(bars);
 
           // 👉 마지막 봉을 기준으로 최근 100개 캔들만 보이게 확대
-          const visibleBars = 1000;
+          const visibleBars = 100;
           const totalBars = bars.length;
 
           if (totalBars >= visibleBars) {
@@ -157,7 +168,7 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
         const currentTime = Math.floor(Date.now() / 1000);
         const currentMinute = Math.floor(currentTime / 60);
 
-        setCurrentPrice(formatNumber(data.ticker.last));
+        setCurrentPrice(formatNumber(data.ticker.last, 5));
 
         if (currentMinuteRef.current !== currentMinute) {
           currentMinuteRef.current = currentMinute;
@@ -183,33 +194,29 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
       }
     };
 
-    const handleResize = () => {
-      if (chartContainerRef.current && chartRef.current) {
-        chartRef.current.applyOptions({
-          width: chartContainerRef.current.clientWidth,
-        });
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-
     return () => {
       isMounted = false;
       ws.close();
       chart.remove();
-      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
     };
-  }, [marketId]);
+  }, [marketId, isCurrentPrice]);
 
   return (
-    <div ref={chartContainerRef} style={{ width: '100%', height: '100%' }}>
-      <div style={{ margin: '15px 0' }}>
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <div style={{ width: '100%', margin: '15px 0' }}>
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            maxWidth: '818px',
           }}
         >
           <div style={{ fontSize: '24px', fontWeight: 'bold' }}>
@@ -232,6 +239,10 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
           {name}/{unit}
         </div>
       </div>
+      <div
+        ref={chartContainerRef}
+        style={{ width: '100%', flex: 1, minHeight: 0 }}
+      />
     </div>
   );
 };

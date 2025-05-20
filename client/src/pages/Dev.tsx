@@ -1,6 +1,6 @@
-import { Universe } from '@components';
+import { OrderBook, Universe } from '@components';
 import { main as styles } from '@styles';
-import { OrderBook, Chart } from '@components';
+import { Chart } from '@components';
 // import { useModal } from '@model';
 
 const Dev = () => {
@@ -32,7 +32,7 @@ const Dev = () => {
           modalChildren={<div>👋 Hello! I am a slide-up modal!</div>}
         /> */}
       </>
-      <OrderBook marketId='SEAPT-USDT' />
+      <OrderBook marketId='SEAPT-USDT' isActive={true} />
       <Chart marketId='SEAPT-USDT' />
       <footer style={{ padding: '30px' }}></footer>
     </div>
