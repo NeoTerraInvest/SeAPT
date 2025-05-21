@@ -2,6 +2,7 @@
 import useOrderBook from '@/hook/global/api/useOrderBook';
 import { orderBook as styles } from '@styles';
 import formatNumber from '@/utils/formatNumber';
+// import { useEffect } from 'react';
 
 // const formatNumber = (value: string | number, fraction = 2) =>
 //   Number(value).toLocaleString(undefined, {
@@ -9,16 +10,26 @@ import formatNumber from '@/utils/formatNumber';
 //     maximumFractionDigits: fraction,
 //   });
 
-const OrderBook = ({ marketId }: { marketId: string }) => {
-  const orderBook = useOrderBook(marketId);
+const OrderBook = ({
+  marketId,
+  isActive = false,
+}: {
+  marketId: string;
+  isActive?: boolean;
+}) => {
+  const orderBook = useOrderBook(marketId, isActive);
   const DISPLAY_LIMIT = 7;
-
+  // console.log('✅ marketId:', marketId);
   // // 최대 수량 계산 (게이지 바용)
   // const maxQuantity = Math.max(
   //   ...orderBook.sell.map((order) => Number(order.quantity)),
   //   ...orderBook.buy.map((order) => Number(order.quantity)),
   //   1, // 0으로 나누는 것 방지
   // );
+  // console.log('isActive:', isActive);
+  // useEffect(() => {
+  //   console.log('🟢 isActive:', isActive);
+  // }, [isActive]);
 
   // 매도(SELL): 가격 오름차순
   const sellOrders = [...orderBook.sell]
@@ -30,6 +41,8 @@ const OrderBook = ({ marketId }: { marketId: string }) => {
   const buyOrders = [...orderBook.buy]
     .sort((a, b) => Number(b.price) - Number(a.price))
     .slice(0, DISPLAY_LIMIT);
+
+  // console.log('🔁 buyOrders:', buyOrders);
 
   return (
     <div className={styles.orderBook}>
@@ -43,7 +56,7 @@ const OrderBook = ({ marketId }: { marketId: string }) => {
         {sellOrders.map((order, index) => (
           <div key={`sell-${index}`} className={styles.orderRow}>
             <div className={styles.sellPrice}>
-              {formatNumber(order.price, 2)}
+              {formatNumber(order.price, 4)}
             </div>
             <div className={styles.amount}>
               {/* <div
@@ -66,7 +79,7 @@ const OrderBook = ({ marketId }: { marketId: string }) => {
         {buyOrders.map((order, index) => (
           <div key={`buy-${index}`} className={styles.orderRow}>
             <div className={styles.buyPrice}>
-              {formatNumber(order.price, 2)}
+              {formatNumber(order.price, 4)}
             </div>
             <div className={styles.amount}>
               {/* <div

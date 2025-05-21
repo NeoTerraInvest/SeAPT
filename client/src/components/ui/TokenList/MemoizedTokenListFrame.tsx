@@ -23,6 +23,7 @@ const MemoizedTokenListFrame = memo(
     return (
       <TokenListFrame
         {...props}
+        id={marketId}
         marketId={marketId}
         onOpenChart={handleChartToggle}
       />

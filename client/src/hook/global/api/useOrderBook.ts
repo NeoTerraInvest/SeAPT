@@ -1,6 +1,6 @@
-// client/src/hook/global/api/useOrderBook.ts
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import getApi from '@/service/get.api';
+import socketManager from '@/utils/MarketSocketManager';
 
 interface OrderBookData {
   price: string;
@@ -20,106 +20,78 @@ interface OrderBookResponse {
   };
 }
 
-const useOrderBook = (marketId: string = 'BTC-USDT') => {
+const useOrderBook = (marketId: string, isActive: boolean) => {
   const [orderBook, setOrderBook] = useState<OrderBookState>({
     buy: [],
     sell: [],
   });
-  const ws = useRef<WebSocket | null>(null);
-  const orderBookRef = useRef<OrderBookState>({ buy: [], sell: [] });
 
-  // REST API로 초기 호가창 데이터 가져오기
+  const orderBookRef = useRef<OrderBookState>({
+    buy: [],
+    sell: [],
+  });
+
   const fetchInitialOrderBook = useCallback(async () => {
     try {
       const response = await getApi<OrderBookResponse>(
         `/order_book?market_id=${marketId}`,
       );
-      const buyOrders = (response.data?.buy ?? []).map((item) => ({
-        price: item.price,
-        quantity: item.quantity,
-        side: 'buy' as const,
-      }));
-      const sellOrders = (response.data?.sell ?? []).map((item) => ({
-        price: item.price,
-        quantity: item.quantity,
-        side: 'sell' as const,
-      }));
+      const buy = response.data?.buy ?? [];
+      const sell = response.data?.sell ?? [];
 
-      const initialOrderBook: OrderBookState = {
-        buy: buyOrders,
-        sell: sellOrders,
+      const initialState: OrderBookState = {
+        buy: buy.map((item) => ({ ...item, side: 'buy' as const })),
+        sell: sell.map((item) => ({ ...item, side: 'sell' as const })),
       };
 
-      orderBookRef.current = initialOrderBook;
-      setOrderBook(initialOrderBook);
+      orderBookRef.current = initialState;
+      setOrderBook(initialState);
     } catch (error) {
-      console.error('Failed to fetch initial order book:', error);
+      console.error('❌ 초기 호가창 로딩 실패:', error);
     }
   }, [marketId]);
 
   useEffect(() => {
-    // 초기 데이터 로드
     fetchInitialOrderBook();
+  }, [fetchInitialOrderBook]);
 
-    // WebSocket 연결
-    ws.current = new WebSocket('wss://api.probit.com/api/exchange/v1/ws');
+  useEffect(() => {
+    if (isActive) {
+      socketManager.subscribe(marketId, (patchList: OrderBookData[]) => {
+        const current = { ...orderBookRef.current };
 
-    ws.current.onopen = () => {
-      const subscribeMessage = {
-        channel: 'marketdata',
-        filter: ['order_books'],
-        interval: 100,
-        market_id: marketId,
-        type: 'subscribe',
-      };
-      ws.current?.send(JSON.stringify(subscribeMessage));
-    };
+        patchList.forEach((update) => {
+          const list = current[update.side];
+          const index = list.findIndex((o) => o.price === update.price);
 
-    ws.current.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-
-      if (data.channel === 'marketdata' && data.order_books) {
-        const currentOrderBook = { ...orderBookRef.current };
-
-        data.order_books.forEach((order: OrderBookData) => {
-          if (order.side === 'buy') {
-            const index = currentOrderBook.buy.findIndex(
-              (item) => item.price === order.price,
-            );
-            if (index !== -1) {
-              currentOrderBook.buy[index].quantity = order.quantity;
-            } else if (Number(order.quantity) > 0) {
-              currentOrderBook.buy.push(order);
+          if (index !== -1) {
+            if (Number(update.quantity) === 0) {
+              list.splice(index, 1); // 수량 0이면 삭제
+            } else {
+              list[index].quantity = update.quantity; // 수량 업데이트
             }
           } else {
-            const index = currentOrderBook.sell.findIndex(
-              (item) => item.price === order.price,
-            );
-            if (index !== -1) {
-              if (Number(order.quantity) === 0) {
-                currentOrderBook.sell.splice(index, 1);
-              } else {
-                currentOrderBook.sell[index].quantity = order.quantity;
-              }
-            } else if (Number(order.quantity) > 0) {
-              currentOrderBook.sell.push(order);
+            if (Number(update.quantity) > 0) {
+              list.push(update); // 새로 추가
             }
           }
         });
 
         // 정렬 유지
-        currentOrderBook.buy.sort((a, b) => Number(b.price) - Number(a.price));
-        currentOrderBook.sell.sort((a, b) => Number(a.price) - Number(b.price));
+        current.buy.sort((a, b) => Number(b.price) - Number(a.price));
+        current.sell.sort((a, b) => Number(a.price) - Number(b.price));
 
-        orderBookRef.current = currentOrderBook;
-        setOrderBook(currentOrderBook);
-      }
-    };
+        orderBookRef.current = current;
+        setOrderBook({ ...current });
+      });
+    } else {
+      socketManager.unsubscribe(marketId);
+    }
 
     return () => {
-      ws.current?.close();
+      socketManager.unsubscribe(marketId);
     };
-  }, [marketId, fetchInitialOrderBook]);
+  }, [isActive, marketId]);
 
   return orderBook;
 };

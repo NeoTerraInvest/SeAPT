@@ -1,13 +1,19 @@
-import { OrderBook, Chart } from '@components';
-
-const LiveTokenList = () => {
+import { Chart, OrderBook } from '@components';
+import { liveTokenList as styles } from '@styles';
+const LiveTokenList = ({
+  marketId,
+  isActive,
+}: {
+  marketId: string;
+  isActive: boolean;
+}) => {
   return (
-    <div style={{ display: 'flex', gap: '20px' }}>
-      <div style={{ width: '70%', height: '100%' }}>
-        <Chart />
+    <div className={styles.debug}>
+      <div className={styles.chart}>
+        <Chart marketId={marketId} />
       </div>
-      <div style={{ width: '30%' }}>
-        <OrderBook marketId='BTC-USDT' />
+      <div className={styles.orderBook}>
+        <OrderBook marketId={marketId} isActive={isActive} />
       </div>
     </div>
   );
