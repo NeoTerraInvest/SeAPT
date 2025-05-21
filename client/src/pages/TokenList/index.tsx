@@ -1,21 +1,38 @@
+import { useSearchParams } from 'react-router-dom';
 import { useApiData } from '@hook';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import getApi from '@/service/get.api';
 import { API } from '@types';
+import formatNumber from '@/utils/formatNumber';
 import {
   BaseLayout,
   MarginLayout,
   TokenListBase,
+  TokenListCategory,
   TokenListFrame,
+  // MemoizedTokenListFrame,
+  // TokenRanking,
 } from '@components';
-import TokenRanking from '@/components/ui/TokenList/TokenRanking';
+import { tokenList as styles } from '@styles';
+
 const TokenList = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialFilter = searchParams.get('filter');
+
   const VISIBLE_COUNT = 10;
   const [isSearch, setSearch] = useState<string>('');
   const [isVisible, setVisible] = useState<number>(VISIBLE_COUNT);
   const observerRef = useRef<HTMLDivElement>(null);
   const [isFilter, setFilter] = useState<string[]>([]);
-  const [isActiveFilter, setActiveFilter] = useState<string | null>(null);
+  const [isActiveFilter, setActiveFilter] = useState<string | null>(
+    initialFilter,
+  );
+  const [isOpenChart, setIsOpenChart] = useState<string | null>(null);
+
+  const handleOpenChart = useCallback((marketId: string) => {
+    setIsOpenChart((prev) => (prev === marketId ? null : marketId));
+  }, []);
+
   const { isData, isLoading, isError, isSuccess } =
     useApiData<API.tickerResList>({
       api: () => getApi<API.tickerResList>('/ticker'),
@@ -27,19 +44,38 @@ const TokenList = () => {
       .toLowerCase()
       .includes(isSearch.toLowerCase());
     const matchedFilter = isActiveFilter
-      ? el.market_id.split('-')[1] === isActiveFilter
+      ? (() => {
+          switch (isActiveFilter) {
+            case 'Price Up 10%+':
+              return Number(el.change) > 10;
+            case 'Volume 1M+':
+              return Number(el.base_volume) > 1000000;
+            case 'Volatility 5%+':
+              return Math.abs(Number(el.change)) > 5;
+            default:
+              return el.market_id.split('-')[1] === isActiveFilter;
+          }
+        })()
       : true;
     return matchedSearch && matchedFilter;
   });
 
-  //duplicate check
-  const handleFilterActive = (filter: string) => {
-    setActiveFilter(isActiveFilter === filter ? null : filter);
-    setVisible(VISIBLE_COUNT);
-  };
+  // duplicate check
+  const handleFilterActive = useCallback(
+    (filter: string) => {
+      if (isActiveFilter === filter) {
+        searchParams.delete('filter');
+      } else {
+        searchParams.set('filter', filter);
+      }
+      setSearchParams(searchParams);
+      setActiveFilter(isActiveFilter === filter ? null : filter);
+      setVisible(VISIBLE_COUNT);
+    },
+    [isActiveFilter, searchParams, setSearchParams],
+  );
 
-  const displayData = filteredData?.slice(0, isVisible);
-
+  // infinite scroll
   const fetchMoreData = useCallback(
     (entries: IntersectionObserverEntry[]) => {
       const target = entries[0];
@@ -59,7 +95,7 @@ const TokenList = () => {
   // fetch data
   useEffect(() => {
     if (isSuccess) {
-      console.log('🟢 isData:', isData);
+      // console.log('🟢 isData:', isData);
       const filter = [
         ...new Set(isData?.data.map((el) => el.market_id.split('-')[1])),
       ];
@@ -85,6 +121,28 @@ const TokenList = () => {
     }
   }, [fetchMoreData]);
 
+  // const memoizedDisplayData = useMemo(() => {
+  //   if (!filteredData) return [];
+  //   return filteredData.slice(0, isVisible).map((el) => ({
+  //     name: el.market_id.split('-')[0],
+  //     quote: el.market_id.split('-')[1],
+  //     price: formatNumber(el.last ? String(el.last) : '0'), // null 체크 추가
+  //     baseVolume: Number(el.quote_volume || 0).toFixed(2), // null 체크 추가
+  //     range: el.change || '0', // null 체크 추가
+  //     high: formatNumber(el.high ? String(el.high) : '0'), // null 체크 추가
+  //     low: formatNumber(el.low ? String(el.low) : '0'), // null 체크 추가
+  //     marketId: el.market_id,
+  //     isChart: isOpenChart === el.market_id,
+  //   }));
+  // }, [filteredData, isOpenChart, isVisible]);
+
+  const displayData = filteredData?.slice(0, isVisible);
+
+  // useEffect(() => {
+  //   console.log('🟢 displayData:', displayData);
+  //   console.log('memoizedDisplayData:', memoizedDisplayData);
+  // }, [displayData, memoizedDisplayData]);
+
   return (
     <BaseLayout>
       <div style={{ marginTop: '150px' }}>
@@ -93,9 +151,13 @@ const TokenList = () => {
         {isSuccess && (
           <>
             <MarginLayout>
-              <h1>🔥Live Token Ranking</h1>
-              <TokenRanking />
-
+              {/* <h1>🔥Live Token Ranking</h1>
+              <TokenRanking /> */}
+              <div className={styles.tokenListCategory}>
+                <TokenListCategory category='🪙 Top Price' type='price' />
+                <TokenListCategory category='💰 Top Volume' type='volume' />
+                <TokenListCategory category='🔥 Crypto Live' type='live' />
+              </div>
               <TokenListBase
                 isSearch={isSearch}
                 setSearch={setSearch}
@@ -107,13 +169,16 @@ const TokenList = () => {
               {displayData?.map((el) => (
                 <TokenListFrame
                   key={el.market_id}
+                  id={el.market_id}
                   name={el.market_id.split('-')[0]}
                   quote={el.market_id.split('-')[1]}
-                  price={el.last}
-                  baseVolume={Number(el.base_volume).toFixed(2)}
-                  range={el.change}
-                  high={el.high}
-                  low={el.low}
+                  price={formatNumber(el.last ? String(el.last) : '0')}
+                  baseVolume={Number(el.quote_volume || 0).toFixed(2)}
+                  high={formatNumber(el.high ? String(el.high) : '0')}
+                  low={formatNumber(el.low ? String(el.low) : '0')}
+                  marketId={el.market_id}
+                  isChart={isOpenChart === el.market_id}
+                  onOpenChart={handleOpenChart}
                 />
               ))}
 
@@ -122,6 +187,7 @@ const TokenList = () => {
                   <div>Loading more...</div>
                 </div>
               )}
+              <div style={{ padding: '30px' }} />
             </MarginLayout>
           </>
         )}

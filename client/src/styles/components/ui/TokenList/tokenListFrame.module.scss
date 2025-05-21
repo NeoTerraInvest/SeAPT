@@ -1,5 +1,5 @@
 @use '../../../font' as *;
-
+@use '../../../mediaQuery' as *;
 .name, .price, .volume, .range{
     display: flex;
     flex-direction: column;
@@ -8,65 +8,108 @@
 
 .debug{
     background-color: var(--dark-background);
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-rows: auto auto;
     width: 100%;
-    height: 84px;
     min-width: 448px;
     border-bottom: 1px solid var(--object-grey-5);
     gap:8px;
-    .token{
+    padding: 0px 20px;
+    @include dynamic_single_display(500px){
+        min-width: 300px;
+    }
+    // tokenInfo css만 추가
+    .tokenInfo{
         display: flex;
-        align-items: center;
-        min-width: 100px;
-        width: 25%;
+        justify-content: space-between;
+        height: 84px;
         gap: 8px;
-        .logo{
+        padding: 0px 20px;
+    
+        .token{
             display: flex;
-            width: 32px;
-            height: 32px;
-            img{
-                border-radius: 50%;
-                // width: 100%;
-                // height: 100%;
+            align-items: center;
+            min-width: 100px;
+            width: 25%;
+            gap: 8px;
+            .logo{
+                display: flex;
+                width: 32px;
+                height: 32px;
+                img{
+                    border-radius: 50%;
+                    // width: 100%;
+                    // height: 100%;
+                }
+            }
+            .name{
+                @include btn-txt-max;
+                div:nth-child(2){
+                color: var(--object-grey-5);
+            }
+        }}
+        .price{
+            align-items: flex-end;
+            min-width: 100px;
+            width: 25%;
+            div:nth-child(2){
+                @include btn-txt-max;
+                color: var(--object-grey-5);
             }
         }
-        .name{
-            @include btn-txt-max;
+        .volume{
+            // background-color: red;
+            align-items: flex-end;
+            min-width: 180px;
+            width: 25%;
             div:nth-child(2){
-            color: var(--object-grey-5);
+                @include btn-txt-max;
+                color: var(--object-grey-5);
+            }
         }
-    }}
-    .price{
-        align-items: flex-end;
-        min-width: 200px;
-        width: 25%;
-        div:nth-child(2){
-            @include btn-txt-max;
-            color: var(--object-grey-5);
-        }
-    }
-    .volume{
-        // background-color: red;
-        align-items: flex-end;
-        min-width: 180px;
-        width: 25%;
-        div:nth-child(2){
-            @include btn-txt-max;
-            color: var(--object-grey-5);
+        .range{
+            flex-direction: column;
+            align-items: flex-end;
+            min-width: 150px;
+            width: 25%;
+            gap: 8px;
+            #high{
+                color: #6BF153;
+            }
+            #low{
+                    color: #FF4D4D;
+                }
         }
     }
-    .range{
-        flex-direction: column;
-        align-items: flex-end;
-        min-width: 150px;
-        width: 25%;
-        gap: 8px;
-        #high{
-            color: #6BF153;
+}
+
+.chartContainer{
+    width: 100%;
+    background-color: var(--dark-background);
+    border-bottom: 1px solid var(--object-grey-5);
+    padding: 0px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+
+    &.show {
+        max-height: 750px; // chart 높이 + padding
+        height: 100%;
+        opacity: 1;
+        @include dynamic_single_display(500px){
+            max-height: 100%;
         }
-        #low{
-            color: #FF4D4D;
-        }
+      }
+      
+    &.hide {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 20px;
+    }
+
+    .chart{
+        width: 100%;
+        // height: 750px;
     }
 }
