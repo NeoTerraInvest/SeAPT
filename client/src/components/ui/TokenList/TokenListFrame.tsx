@@ -33,12 +33,12 @@ const TokenListFrame = memo(
     const isMobile750 = useTrackingView({ size: 750 });
     const isMobile450 = useTrackingView({ size: 450 });
     return (
-      <div
-        className={styles.debug}
-        onClick={() => marketId && onOpenChart(marketId)}
-      >
+      <div className={styles.debug}>
         {/* tokenInfo 부분만 추가 */}
-        <div className={styles.tokenInfo}>
+        <div
+          className={styles.tokenInfo}
+          onClick={() => marketId && onOpenChart(marketId)}
+        >
           <div className={styles.token}>
             <div className={styles.logo}>
               <img

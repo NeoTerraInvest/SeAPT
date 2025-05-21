@@ -231,6 +231,12 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
               borderRadius: '5px',
               color: 'var(--chart-green)',
             }}
+            onClick={() => {
+              window.open(
+                `https://www.probit.com/en-us/app/exchange/${marketId}`,
+                '_blank',
+              );
+            }}
           >
             Buy
           </button>
