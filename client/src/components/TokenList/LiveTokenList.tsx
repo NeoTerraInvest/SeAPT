@@ -1,5 +1,5 @@
 import { Chart, OrderBook } from '@components';
-
+import { liveTokenList as styles } from '@styles';
 const LiveTokenList = ({
   marketId,
   isActive,
@@ -8,11 +8,11 @@ const LiveTokenList = ({
   isActive: boolean;
 }) => {
   return (
-    <div style={{ display: 'flex', gap: '10px', padding: '30px' }}>
-      <div style={{ width: '70%', height: '100%' }}>
+    <div className={styles.debug}>
+      <div className={styles.chart}>
         <Chart marketId={marketId} />
       </div>
-      <div style={{ width: '30%' }}>
+      <div className={styles.orderBook}>
         <OrderBook marketId={marketId} isActive={isActive} />
       </div>
     </div>

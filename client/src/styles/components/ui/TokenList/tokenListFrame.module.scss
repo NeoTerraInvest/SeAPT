@@ -95,7 +95,11 @@
 
     &.show {
         max-height: 750px; // chart 높이 + padding
+        height: 100%;
         opacity: 1;
+        @include dynamic_single_display(500px){
+            max-height: 100%;
+        }
       }
       
     &.hide {
@@ -106,6 +110,6 @@
 
     .chart{
         width: 100%;
-        height: 750px;
+        // height: 750px;
     }
 }
