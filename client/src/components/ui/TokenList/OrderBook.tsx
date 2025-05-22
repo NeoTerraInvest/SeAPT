@@ -1,4 +1,3 @@
-// client/src/components/ui/TokenList/OrderBook.tsx
 import useOrderBook from '@/hook/global/api/useOrderBook';
 import { orderBook as styles } from '@styles';
 import formatNumber from '@/utils/formatNumber';

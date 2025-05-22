@@ -8,7 +8,7 @@ type OrderBookState = {
   buy: OrderBookData[];
   sell: OrderBookData[];
 };
-type OrderBookCallback = (data: OrderBookData[]) => void;
+type OrderBookCallback = (data: OrderBookData[]) => void; // 콜백 타입
 
 class MarketSocketManager {
   private socket: WebSocket | null = null;
@@ -56,12 +56,13 @@ class MarketSocketManager {
         };
 
         orders.forEach((order) => {
-          if (order.side === 'buy') orderBook.buy.push(order);
+          if (order.side === 'buy')
+            orderBook.buy.push(order); //array에 맞게 push
           else orderBook.sell.push(order);
         });
 
         // 해당 마켓 콜백 실행
-        const callback = this.callbacks.get(marketId);
+        const callback = this.callbacks.get(marketId); //Map에 맞게 get
         if (callback) {
           callback([...orderBook.buy, ...orderBook.sell]);
         }
@@ -75,10 +76,10 @@ class MarketSocketManager {
       return;
     }
 
+    // 중복 방지
     if (this.subscribedMarkets.has(marketId)) return;
-
-    this.subscribedMarkets.add(marketId);
-    this.callbacks.set(marketId, onData); // 콜백 저장
+    this.subscribedMarkets.add(marketId); //Set에 맞게 add 사용
+    this.callbacks.set(marketId, onData); // 중복을 허용하지 않게 구현
 
     const subscribeMsg = {
       type: 'subscribe',
@@ -97,7 +98,7 @@ class MarketSocketManager {
     if (!this.subscribedMarkets.has(marketId)) return;
 
     this.subscribedMarkets.delete(marketId);
-    this.callbacks.delete(marketId); // 콜백 제거
+    this.callbacks.delete(marketId);
 
     const unsubscribeMsg = {
       type: 'unsubscribe',
