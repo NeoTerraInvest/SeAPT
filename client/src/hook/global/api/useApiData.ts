@@ -29,7 +29,7 @@ const useApiData = <DataType>({ api }: { api: () => Promise<DataType> }) => {
   // only once call fetchState
   useEffect(() => {
     if (!fetchFlag.current) {
-      console.log('🟢 fetchFlag.current:', fetchFlag.current);
+      // console.log('🟢 fetchFlag.current:', fetchFlag.current);
       fetchFlag.current = true;
       fetchState();
     }

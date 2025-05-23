@@ -9,12 +9,16 @@ const TokenRanking = () => {
       }}
     >
       <TokenListFrame
+        id='test'
+        marketId='test'
         name='Test Name'
         quote='Test Quote'
         price='Test Price'
         baseVolume='Test Volume'
         high='Test High'
         low='Test Low'
+        isChart={false}
+        onOpenChart={() => {}}
       />
     </div>
   );

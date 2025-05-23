@@ -8,8 +8,9 @@ import {
   BaseLayout,
   MarginLayout,
   TokenListBase,
-  TokenListFrame,
   TokenListCategory,
+  TokenListFrame,
+  // MemoizedTokenListFrame,
   // TokenRanking,
 } from '@components';
 import { tokenList as styles } from '@styles';
@@ -26,6 +27,12 @@ const TokenList = () => {
   const [isActiveFilter, setActiveFilter] = useState<string | null>(
     initialFilter,
   );
+  const [isOpenChart, setIsOpenChart] = useState<string | null>(null);
+
+  const handleOpenChart = useCallback((marketId: string) => {
+    setIsOpenChart((prev) => (prev === marketId ? null : marketId));
+  }, []);
+
   const { isData, isLoading, isError, isSuccess } =
     useApiData<API.tickerResList>({
       api: () => getApi<API.tickerResList>('/ticker'),
@@ -53,20 +60,22 @@ const TokenList = () => {
     return matchedSearch && matchedFilter;
   });
 
-  //duplicate check
-  const handleFilterActive = (filter: string) => {
-    if (isActiveFilter === filter) {
-      searchParams.delete('filter');
-    } else {
-      searchParams.set('filter', filter);
-    }
-    setSearchParams(searchParams);
-    setActiveFilter(isActiveFilter === filter ? null : filter);
-    setVisible(VISIBLE_COUNT);
-  };
+  // duplicate check
+  const handleFilterActive = useCallback(
+    (filter: string) => {
+      if (isActiveFilter === filter) {
+        searchParams.delete('filter');
+      } else {
+        searchParams.set('filter', filter);
+      }
+      setSearchParams(searchParams);
+      setActiveFilter(isActiveFilter === filter ? null : filter);
+      setVisible(VISIBLE_COUNT);
+    },
+    [isActiveFilter, searchParams, setSearchParams],
+  );
 
-  const displayData = filteredData?.slice(0, isVisible);
-
+  // infinite scroll
   const fetchMoreData = useCallback(
     (entries: IntersectionObserverEntry[]) => {
       const target = entries[0];
@@ -86,7 +95,7 @@ const TokenList = () => {
   // fetch data
   useEffect(() => {
     if (isSuccess) {
-      console.log('🟢 isData:', isData);
+      // console.log('🟢 isData:', isData);
       const filter = [
         ...new Set(isData?.data.map((el) => el.market_id.split('-')[1])),
       ];
@@ -111,6 +120,28 @@ const TokenList = () => {
       observer.observe(observerRef.current);
     }
   }, [fetchMoreData]);
+
+  // const memoizedDisplayData = useMemo(() => {
+  //   if (!filteredData) return [];
+  //   return filteredData.slice(0, isVisible).map((el) => ({
+  //     name: el.market_id.split('-')[0],
+  //     quote: el.market_id.split('-')[1],
+  //     price: formatNumber(el.last ? String(el.last) : '0'), // null 체크 추가
+  //     baseVolume: Number(el.quote_volume || 0).toFixed(2), // null 체크 추가
+  //     range: el.change || '0', // null 체크 추가
+  //     high: formatNumber(el.high ? String(el.high) : '0'), // null 체크 추가
+  //     low: formatNumber(el.low ? String(el.low) : '0'), // null 체크 추가
+  //     marketId: el.market_id,
+  //     isChart: isOpenChart === el.market_id,
+  //   }));
+  // }, [filteredData, isOpenChart, isVisible]);
+
+  const displayData = filteredData?.slice(0, isVisible);
+
+  // useEffect(() => {
+  //   console.log('🟢 displayData:', displayData);
+  //   console.log('memoizedDisplayData:', memoizedDisplayData);
+  // }, [displayData, memoizedDisplayData]);
 
   return (
     <BaseLayout>
@@ -138,14 +169,16 @@ const TokenList = () => {
               {displayData?.map((el) => (
                 <TokenListFrame
                   key={el.market_id}
+                  id={el.market_id}
                   name={el.market_id.split('-')[0]}
                   quote={el.market_id.split('-')[1]}
-                  price={formatNumber(el.last)}
-                  baseVolume={Number(el.quote_volume).toFixed(2)}
-                  range={el.change}
-                  high={formatNumber(el.high)}
-                  low={formatNumber(el.low)}
+                  price={formatNumber(el.last ? String(el.last) : '0')}
+                  baseVolume={Number(el.quote_volume || 0).toFixed(2)}
+                  high={formatNumber(el.high ? String(el.high) : '0')}
+                  low={formatNumber(el.low ? String(el.low) : '0')}
                   marketId={el.market_id}
+                  isChart={isOpenChart === el.market_id}
+                  onOpenChart={handleOpenChart}
                 />
               ))}
 
