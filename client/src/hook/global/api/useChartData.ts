@@ -137,7 +137,7 @@ const useChartData = (
     }
 
     chartRef.current = chart;
-    const priceDecimalPrecision = 5;
+    const priceDecimalPrecision = 10;
     const candleSeries = chart.addSeries(LightweightCharts.CandlestickSeries, {
       upColor: '#26a69a',
       downColor: '#ef5350',
@@ -146,6 +146,7 @@ const useChartData = (
       wickDownColor: '#ef5350',
       priceFormat: {
         type: 'price',
+        //동적으로 변환이 가능하게 코드를 수정 필요
         precision: priceDecimalPrecision,
         minMove: Math.pow(10, -priceDecimalPrecision),
       },

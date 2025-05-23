@@ -82,7 +82,7 @@ class ChartSocketManager {
       filter: ['ticker'],
     };
     this.socket.send(JSON.stringify(subscribeMsg));
-    console.log(`✅ subscribe: ${marketId}`);
+    // console.log(`✅ subscribe: ${marketId}`);
   }
 
   public unsubscribe(marketId: MarketId) {
@@ -99,7 +99,7 @@ class ChartSocketManager {
     };
 
     this.socket.send(JSON.stringify(unsubscribeMsg));
-    console.log(`❎ unsubscribe: ${marketId}`);
+    // console.log(`❎ unsubscribe: ${marketId}`);
   }
 }
 
