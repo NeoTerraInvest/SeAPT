@@ -4,6 +4,7 @@ import { header as styles } from '@styles';
 import { useTrackingView, useModal } from '@model';
 import { Translate, ModalFrame, MarginLayout } from '@components';
 import { HashLink } from 'react-router-hash-link';
+import { useNavigate } from 'react-router-dom';
 
 const CDNURL = import.meta.env.VITE_API_CDN_URL;
 const headerLogoWeb = `${CDNURL}/images/header-logo-120-48.svg`;
@@ -18,7 +19,7 @@ const Header = () => {
   const [isOpacity, setOpacity] = useState<number>(1);
   const [isHover, setHover] = useState<boolean>(false);
   const lastScrollY = useRef<number>(0);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -73,6 +74,14 @@ const Header = () => {
               </HashLink>
             )}
             {/* <div id={styles.contents}> */}
+            <div
+              className={styles.content}
+              onClick={() => {
+                navigate('/TokenList');
+              }}
+            >
+              TokenList
+            </div>
             <HashLink className={styles.content} smooth to='/#target-roadMap'>
               Roadmap
             </HashLink>
