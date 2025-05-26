@@ -23,6 +23,7 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.8.4",
     "ethers": "5",
+    "lightweight-charts": "^5.0.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
