@@ -92,7 +92,7 @@ const TokenListBase = ({
           </div>
         ) : (
           <div className={styles.filterList}>
-            <button>Quick Filter</button>
+            {/* <button>Quick Filter</button> */}
           </div>
         )}
       </div>
