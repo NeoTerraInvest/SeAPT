@@ -30,8 +30,10 @@ const useOrderBook = (marketId: string, isActive: boolean) => {
     buy: [],
     sell: [],
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchInitialOrderBook = useCallback(async () => {
+    setIsLoading(true);
     try {
       const response = await getApi<OrderBookResponse>(
         `/order_book?market_id=${marketId}`,
@@ -48,6 +50,8 @@ const useOrderBook = (marketId: string, isActive: boolean) => {
       setOrderBook(initialState);
     } catch (error) {
       console.error('❌ 초기 호가창 로딩 실패:', error);
+    } finally {
+      setIsLoading(false);
     }
   }, [marketId]);
 
@@ -93,7 +97,7 @@ const useOrderBook = (marketId: string, isActive: boolean) => {
     };
   }, [isActive, marketId]);
 
-  return orderBook;
+  return { orderBook, isLoading };
 };
 
 export default useOrderBook;

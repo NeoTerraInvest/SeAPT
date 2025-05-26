@@ -39,10 +39,11 @@ const useChartData = (
   const currentMinuteRef = useRef<number | null>(null);
   //추가 필요
   const [isMounted] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchInitialData = useCallback(async () => {
     if (!chartContainerRef.current || !chartRef.current) return;
-
+    setIsLoading(true);
     try {
       const now = new Date();
       const end = now.toISOString();
@@ -95,6 +96,8 @@ const useChartData = (
       }
     } catch (error) {
       console.error('📉 Failed to fetch candle data:', error);
+    } finally {
+      setIsLoading(false);
     }
   }, [marketId, isMounted]);
 
@@ -194,6 +197,7 @@ const useChartData = (
 
   return {
     chartContainerRef,
+    isLoading,
   };
 };
 

@@ -16,7 +16,7 @@ const OrderBook = ({
   marketId: string;
   isActive?: boolean;
 }) => {
-  const orderBook = useOrderBook(marketId, isActive);
+  const { orderBook, isLoading } = useOrderBook(marketId, isActive);
   const DISPLAY_LIMIT = 7;
   // console.log('✅ marketId:', marketId);
   // // 최대 수량 계산 (게이지 바용)
@@ -45,12 +45,39 @@ const OrderBook = ({
 
   return (
     <div className={styles.orderBook}>
+      {isLoading && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 10,
+          }}
+        >
+          <div style={{ textAlign: 'center', color: 'white' }}>
+            <div
+              style={{
+                width: '32px',
+                height: '32px',
+                border: '3px solid #f3f3f3',
+                borderTop: '3px solid var(--chart-green)',
+                borderRadius: '50%',
+                animation: 'spin 1s linear infinite',
+                margin: '0 auto',
+              }}
+            />
+            <p style={{ marginTop: '8px' }}>차트 로딩 중...</p>
+          </div>
+        </div>
+      )}
       <div className={styles.orderBookHeader}>
         <div>Price (USDT)</div>
         <div id={styles.amount}>Amount (BTC)</div>
         <div id={styles.total}>Total (USDT)</div>
       </div>
-
       <div className={styles.sellOrders}>
         {sellOrders.map((order, index) => (
           <div key={`sell-${index}`} className={styles.orderRow}>

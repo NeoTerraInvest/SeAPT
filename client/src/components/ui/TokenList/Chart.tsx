@@ -6,8 +6,10 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
   const unit = marketId.split('-')[1];
   const name = marketId.split('-')[0];
 
-  const { chartContainerRef } = useChartData(marketId, true, (data) =>
-    setCurrentPrice(data.formattedPrice),
+  const { chartContainerRef, isLoading } = useChartData(
+    marketId,
+    true,
+    (data) => setCurrentPrice(data.formattedPrice),
   );
 
   return (
@@ -17,8 +19,39 @@ const Chart = ({ marketId = 'F3-USDT' }: { marketId: string }) => {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
+        position: 'relative',
       }}
     >
+      {/* 로딩 오버레이 */}
+      {isLoading && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 10,
+          }}
+        >
+          <div style={{ textAlign: 'center', color: 'white' }}>
+            <div
+              style={{
+                width: '32px',
+                height: '32px',
+                border: '3px solid #f3f3f3',
+                borderTop: '3px solid var(--chart-green)',
+                borderRadius: '50%',
+                animation: 'spin 1s linear infinite',
+                margin: '0 auto',
+              }}
+            />
+            <p style={{ marginTop: '8px' }}>차트 로딩 중...</p>
+          </div>
+        </div>
+      )}
+      {/* Chart */}
       <div style={{ width: '100%', margin: '15px 0' }}>
         <div
           style={{

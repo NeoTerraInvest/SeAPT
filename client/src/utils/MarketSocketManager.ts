@@ -9,11 +9,20 @@ type OrderBookState = {
   sell: OrderBookData[];
 };
 type OrderBookCallback = (data: OrderBookData[]) => void; // 콜백 타입
+type ConnectionCallback = () => void; // 연결 상태 콜백 타입
 
 class MarketSocketManager {
   private socket: WebSocket | null = null;
   private subscribedMarkets = new Set<MarketId>();
   private callbacks = new Map<MarketId, OrderBookCallback>(); // 콜백 저장소
+  private connectionCallbacks = new Map<
+    MarketId,
+    {
+      onConnect?: ConnectionCallback;
+      onDisconnect?: ConnectionCallback;
+      onError?: (error: Error) => void;
+    }
+  >();
   private reconnectTries = 0;
   private MAX_RECONNECT = 5;
 
@@ -27,14 +36,37 @@ class MarketSocketManager {
     this.socket.onopen = () => {
       console.log('📡 WebSocket connected');
       this.reconnectTries = 0;
+
+      this.subscribedMarkets.forEach((marketId) => {
+        const subscribeMsg = {
+          type: 'subscribe',
+          channel: 'marketdata',
+          market_id: marketId,
+          interval: 100,
+          filter: ['order_books'],
+        };
+        this.socket?.send(JSON.stringify(subscribeMsg));
+      });
+
+      this.connectionCallbacks.forEach(({ onConnect }) => {
+        onConnect?.();
+      });
     };
 
     this.socket.onerror = (err) => {
       console.error('❌ WebSocket error', err);
+      // 에러 콜백 실행
+      this.connectionCallbacks.forEach(({ onError }) => {
+        onError?.(new Error('WebSocket error'));
+      });
     };
 
     this.socket.onclose = (e) => {
       console.warn('🔌 WebSocket connection closed:', e.code);
+      // 연결 끊김 콜백 실행
+      this.connectionCallbacks.forEach(({ onDisconnect }) => {
+        onDisconnect?.();
+      });
       if (this.reconnectTries < this.MAX_RECONNECT) {
         setTimeout(() => {
           this.reconnectTries++;
@@ -70,9 +102,24 @@ class MarketSocketManager {
     };
   }
 
-  public subscribe(marketId: MarketId, onData: OrderBookCallback) {
+  public subscribe(
+    marketId: MarketId,
+    onData: OrderBookCallback,
+    onConnect?: ConnectionCallback,
+    onDisconnect?: ConnectionCallback,
+    onError?: (error: Error) => void,
+  ) {
+    // 연결 상태 콜백 저장
+    this.connectionCallbacks.set(marketId, {
+      onConnect,
+      onDisconnect,
+      onError,
+    });
+
     if (!this.socket || this.socket.readyState !== WebSocket.OPEN) {
       console.warn('🔴 socket is not open');
+      // 연결이 안 된 상태라면 연결 끊김 콜백 실행
+      onDisconnect?.();
       return;
     }
 
@@ -99,6 +146,7 @@ class MarketSocketManager {
 
     this.subscribedMarkets.delete(marketId);
     this.callbacks.delete(marketId);
+    this.connectionCallbacks.delete(marketId);
 
     const unsubscribeMsg = {
       type: 'unsubscribe',
